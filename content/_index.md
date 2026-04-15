@@ -1,7 +1,20 @@
 ---
-title: 'Home'
-date: 2023-10-24
+title: 'Dr Jamie B Smith | Clinical-Academic Nurse Researcher'
+date: 2026-02-01
+lastmod: 2026-02-01
 type: landing
+summary: 'Dr Jamie B Smith is a clinical-academic nurse researcher with 17 years experience in transplant surgery and critical care nursing. Research expertise in nursing workforce sustainability, AI ethics in healthcare, and posthuman perspectives on life support technologies.'
+keywords:
+  - nurse researcher
+  - clinical academic
+  - transplant surgery
+  - critical care nursing
+  - organ donation
+  - nursing philosophy
+  - posthuman nursing
+  - healthcare AI ethics
+  - nursing workforce
+  - health systems research
 
 design:
   # Default section spacing
@@ -14,10 +27,6 @@ sections:
   - block: biography
     content:
       username: me
-      # Show a call-to-action button under your biography? (optional)
-      button:
-        text: Download Résumé
-        url: uploads/resume.pdf
     design:
       banner:
         # Upload your cover image to the `assets/media/` folder and reference it here
@@ -34,16 +43,12 @@ sections:
       username: me
     design:
       # Hugo date format
-      date_format: 'January 2006'
+      date_format: '2006'
       # Education or Experience section first?
       is_education_first: false
   - block: skills
     content:
-      title: Skills & Hobbies
-      username: me
-  - block: awards
-    content:
-      title: Awards
+      title: Research & Clinical Skills
       username: me
   - block: languages
     content:

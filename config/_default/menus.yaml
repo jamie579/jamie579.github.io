@@ -1,15 +1,20 @@
 # Navigation Links
 #   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
-  #     desired widget in your `content/home/` folder.
-  #   The weight parameter defines the order that the links will appear in.
+#     desired widget in your `content/home/` folder.
+#   The weight parameter defines the order that the links will appear in.
 
 main:
   - name: Home
     url: /
     weight: 10
-  - name: Blog
-    url: blog/
+  - name: About
+    url: /about/
+    weight: 15
+  - name: Publications
+    url: /publications/
     weight: 20
-  - name: Uses
-    url: uses/
+  - name: CV
+    url: https://docs.google.com/document/d/1cryn7EYpHLo0TBS_tYKnBqrAckx08qa4Hbb5FY0BZF8/edit?usp=sharing
     weight: 30
+    params:
+      target: _blank

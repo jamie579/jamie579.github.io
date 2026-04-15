@@ -7,6 +7,9 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   push:
     branches: ['main']
+  # Scheduled rebuild (keeps ORCID-synced publications fresh even when you don't push)
+  schedule:
+    - cron: '17 5 * * *'
   # Allows you to run this workflow manually from the Actions tab on GitHub
   workflow_dispatch:
 
@@ -85,6 +88,10 @@ jobs:
     - name: Setup Pages
       id: pages
       uses: actions/configure-pages@v5
+
+    - name: Sync Publications from ORCID (best-effort)
+      run: |
+        python3 scripts/sync_orcid_publications.py || echo "ORCID sync failed; continuing build without updating publications."
 
     - name: Build with Hugo
       env:

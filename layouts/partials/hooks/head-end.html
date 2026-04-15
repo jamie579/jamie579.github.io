@@ -1,0 +1,121 @@
+{{/* 
+  Hugo Blox head hook.
+
+  Goal: give Google strong, consistent entity signals for the site owner (Person)
+  to increase the chance of a Knowledge Panel and correct entity disambiguation.
+*/}}
+
+{{- if not (.Scratch.Get "custom_head_once") -}}
+  {{- .Scratch.Set "custom_head_once" true -}}
+
+  {{- $author := site.Data.authors.me -}}
+  {{- $base := strings.TrimSuffix "/" site.BaseURL -}}
+  {{- $personId := printf "%s/#person" $base -}}
+
+  {{- $sameAs := slice -}}
+  {{- $relMe := slice -}}
+  {{- $orcid := "" -}}
+  {{- if $author -}}
+    {{- range $author.links -}}
+      {{- $u := .url | default "" -}}
+      {{- if or (hasPrefix $u "https://") (hasPrefix $u "http://") -}}
+        {{- $sameAs = $sameAs | append $u -}}
+        {{- if or (in $u "orcid.org/") (in $u "scholar.google.com/") (in $u "linkedin.com/") (in $u "github.com/") -}}
+          {{- $relMe = $relMe | append $u -}}
+        {{- end -}}
+        {{- if in $u "orcid.org/" -}}
+          {{- $orcid = $u -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $affiliations := slice -}}
+  {{- if $author -}}
+    {{- range $author.affiliations -}}
+      {{- $item := dict "@type" "Organization" "name" (.name | default "") -}}
+      {{- with .url -}}
+        {{- $item = merge $item (dict "url" .) -}}
+      {{- end -}}
+      {{- $affiliations = $affiliations | append $item -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $alumniOf := slice -}}
+  {{- if $author -}}
+    {{- range $author.education -}}
+      {{- with .institution -}}
+        {{- $alumniOf = $alumniOf | append (dict "@type" "CollegeOrUniversity" "name" .) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $image := "" -}}
+  {{- with resources.Get "media/authors/me.jpg" -}}
+    {{- $image = .Permalink -}}
+  {{- end -}}
+
+  {{- $displayName := site.Title -}}
+  {{- $givenName := "" -}}
+  {{- $familyName := "" -}}
+  {{- $jobTitle := "" -}}
+  {{- with $author -}}
+    {{- $displayName = .name.display | default $displayName -}}
+    {{- $givenName = .name.given | default $givenName -}}
+    {{- $familyName = .name.family | default $familyName -}}
+    {{- $jobTitle = .role | default $jobTitle -}}
+  {{- end -}}
+
+  {{- $person := dict
+    "@context" "https://schema.org"
+    "@type" "Person"
+    "@id" $personId
+    "name" $displayName
+    "givenName" $givenName
+    "familyName" $familyName
+    "honorificPrefix" "Dr"
+    "jobTitle" $jobTitle
+    "description" (site.Params.hugoblox.identity.description | default "")
+    "url" site.BaseURL
+    "image" $image
+    "sameAs" $sameAs
+    "affiliation" $affiliations
+    "alumniOf" $alumniOf
+    "mainEntityOfPage" (dict "@id" site.BaseURL)
+  -}}
+
+  {{- if $orcid -}}
+    {{- $person = merge $person (dict
+      "identifier" (dict
+        "@type" "PropertyValue"
+        "propertyID" "ORCID"
+        "value" (strings.TrimPrefix "https://orcid.org/" $orcid)
+        "url" $orcid
+      )
+    ) -}}
+  {{- end -}}
+
+  <script type="application/ld+json">
+  {{- $person | jsonify -}}
+  </script>
+
+  {{- /* Identity links (use rel="me" for accounts you control). */ -}}
+  {{- range $relMe -}}
+  <link rel="me" href="{{ . }}" />
+  {{- end -}}
+
+  {{- /* Open Graph profile hints (site template doesn't set og:type). */ -}}
+  <meta property="og:type" content="profile" />
+  {{- if $author -}}
+    {{- $given := $author.name.given | default "" -}}
+    {{- $first := $given -}}
+    {{- if and $given (in $given " ") -}}
+      {{- $first = index (split $given " ") 0 -}}
+    {{- end -}}
+    {{- with $first -}}<meta property="profile:first_name" content="{{ . }}" />{{- end -}}
+    {{- with ($author.name.family | default "") -}}<meta property="profile:last_name" content="{{ . }}" />{{- end -}}
+  {{- end -}}
+
+  {{- /* Local custom CSS */ -}}
+  <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}" />
+{{- end -}}

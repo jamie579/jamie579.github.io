@@ -13,18 +13,18 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   identity:
     # Site name - shown in navbar, footer, copyright, and browser title by default
-    name: "Your Name"
+    name: "Dr Jamie B Smith"
     # Legal entity for copyright notices (defaults to name if not set)
     organization: ""
     # Schema.org type for structured data
     type: person                        # person | organization | local_business
     # Short tagline displayed on your site
-    tagline: ""
+    tagline: "Clinical-Academic Nurse Researcher | Transplant Surgery & Critical Care"
     # Site meta description for search engines and social sharing
-    description: "The highly-customizable Hugo Academic theme powered by HugoBlox Kit. Easily create your personal academic website."
+    description: "Dr Jamie B Smith is a clinical-academic nurse researcher with expertise in transplant surgery, critical care nursing, and health systems research."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
-      twitter: "LoreLabs_"              # Twitter/X handle for Twitter Cards (without @)
+      twitter: ""              # Twitter/X handle for Twitter Cards (without @)
 
   # ────────────────────────────────────────────────────────────────────────────
   # THEME
@@ -129,15 +129,15 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   seo:
     # Browser tab title override (defaults to identity.name if not set)
-    title: ""
+    title: "Dr Jamie B Smith | Clinical-Academic Nurse Researcher"
     # For local_business identity type only
     location:
       address:
         street: ""
-        city: ""
-        region: ""
+        city: "Sheffield"
+        region: "South Yorkshire"
         postal_code: ""
-        country: ""
+        country: "United Kingdom"
       coordinates:
         latitude: null
         longitude: null
@@ -146,9 +146,11 @@ hugoblox:
     ai:
       allow:
         - /
+        - /about/
+        - /publications/
       disallow: []
-      note: "Guidance for AI crawlers - customize to match your public content."
-      contact: ""
+      note: "Academic portfolio of Dr Jamie B Smith, clinical-academic nurse researcher specialising in transplant surgery, critical care nursing, and health systems research."
+      contact: "jamie@hornesmith.co.uk"
 
   # ────────────────────────────────────────────────────────────────────────────
   # CONTENT
@@ -231,8 +233,8 @@ hugoblox:
   # Source code repository for "Edit this page" links
   # ────────────────────────────────────────────────────────────────────────────
   repository:
-    enable: false
-    url: ""                             # e.g., https://github.com/username/repo
+    enable: true
+    url: "https://github.com/jamie579/jamie579.github.io"
     branch: main
     content_dir: content
 

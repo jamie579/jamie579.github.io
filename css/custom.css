@@ -1,0 +1,37 @@
+.cv-cta {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.cv-cta .flex.items-center.flex-col.mx-auto.w-full.justify-center {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+.cv-cta a {
+  max-width: 420px;
+  min-width: 240px;
+  width: 40%;
+}
+
+@media (max-width: 768px) {
+  .cv-cta a {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Language rings: text is now the level (B2/C1/etc), so don't hide it. */
+
+/* Reduce vertical whitespace between sections (especially on the homepage). */
+.hbb-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (max-width: 640px) {
+  .hbb-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}

@@ -1,0 +1,49 @@
+schema: hugoblox/author/v1
+slug: me-about
+is_owner: false
+name:
+  display: Dr Jamie B Smith
+  given: Jamie B
+  family: Smith
+  pronunciation: Jamie Brian Smith
+  pronouns: he/him
+status:
+  icon: "🏥"
+role: Clinical-Academic Nurse Researcher
+bio: >
+  I'm a nurse, researcher, and educator working across transplant surgery and critical care. I study how
+  systems and technologies shape care - and what supports sustainable nursing work in high-acuity
+  settings. I use mixed methods (including process evaluation) and work with teams on behaviour change
+  and implementation.
+affiliations:
+  - name: Edinburgh Napier University
+    url: https://www.napier.ac.uk/
+  - name: Charité – Universitätsmedizin Berlin
+    url: https://www.charite.de/
+  - name: NHS Lothian
+    url: https://www.nhslothian.scot.nhs.uk/
+links:
+  - icon: at-symbol
+    url: mailto:jamie@hornesmith.co.uk
+    label: E-mail Me
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0003-0097-6102
+    label: ORCID
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=La6Bn1wAAAAJ&hl=en
+    label: Google Scholar
+  - icon: brands/github
+    url: https://github.com/jamie579
+    label: GitHub
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/jamiebriansmith/
+    label: LinkedIn
+  - icon: hero/building-office-2
+    url: https://gender.charite.de/metas/person/person/address_detail/msc_jamie_b_smith
+    label: Charite profile
+  - icon: hero/building-library
+    url: https://napier-repository.worktribe.com/person/4171465/jamie-smith
+    label: Edinburgh Napier University profile
+  - icon: hero/academic-cap
+    url: https://edwebprofiles.ed.ac.uk/profile/jamie-smith
+    label: University of Edinburgh profile

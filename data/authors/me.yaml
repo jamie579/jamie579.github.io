@@ -2,131 +2,243 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: 吳健雄
-  given: Shiung Wu
-  family: Chien
-  pronunciation: Chien Shiung Wu
-  pronouns: she/her
+  display: Dr Jamie B Smith
+  given: Jamie B
+  family: Smith
+  pronunciation: Jamie Brian Smith
+  pronouns: he/him
 status:
-  icon: "☕️"
-role: Director of Cloud Infrastructure
+  icon: "🏥"
+role: Clinical-Academic Nurse Researcher
 bio: >
-  I am currently Director of Cloud Infrastructure at GenCoin where I am leading
-  teams on edge computing, deep sea data center architecture, and hivemind optimization.
+  I'm a nurse, researcher, and educator working across transplant surgery and critical care. My research
+  looks at how nursing work is shaped by systems, technologies, and everyday ethics - and how we can
+  build working conditions that make good care possible. I use mixed methods (including psychometrics
+  and qualitative approaches, and process evaluation) alongside critical posthuman institutional
+  ethnography. I work with clinical teams on behaviour change and implementation in real-world settings.
 affiliations:
-  - name: GenCoin
-    url: https://www.example.com/
+  - name: Edinburgh Napier University
+    url: https://www.napier.ac.uk/
+  - name: Charité – Universitätsmedizin Berlin
+    url: https://www.charite.de/
+  - name: NHS Lothian
+    url: https://www.nhslothian.scot.nhs.uk/
 links:
   - icon: at-symbol
-    url: mailto:your-email@example.com
+    url: mailto:jamie@hornesmith.co.uk
     label: E-mail Me
-  - icon: brands/x
-    url: https://x.com/LoreLabs_
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0003-0097-6102
+    label: ORCID
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=La6Bn1wAAAAJ&hl=en
+    label: Google Scholar
   - icon: brands/github
-    url: https://github.com/gcushen
+    url: https://github.com/jamie579
+    label: GitHub
   - icon: brands/linkedin
-    url: https://www.linkedin.com/
-  - icon: brands/instagram
-    url: https://www.instagram.com/
+    url: https://www.linkedin.com/in/jamiebriansmith/
+    label: LinkedIn
+  - icon: hero/building-office-2
+    url: https://gender.charite.de/metas/person/person/address_detail/msc_jamie_b_smith
+    label: Charite profile
+  - icon: hero/building-library
+    url: https://napier-repository.worktribe.com/person/4171465/jamie-smith
+    label: Edinburgh Napier University profile
+  - icon: hero/academic-cap
+    url: https://edwebprofiles.ed.ac.uk/profile/jamie-smith
+    label: University of Edinburgh profile
 education:
-  - degree: PhD Artificial Intelligence
-    institution: Stanford University
-    start: 2016-01-01
-    end: 2020-12-31
+  - degree: PhD Nursing, Philosophy and Sociology
+    institution: University of Edinburgh
+    start: 2019-01-01
+    end: 2022-12-31
     summary: |
-      Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
-    button:
-      text: 'Read Thesis'
-      url: 'https://example.com'
-  - degree: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    start: 2016-01-01
-    end: 2020-12-31
+      Thesis: 'Ecologies of Care: A posthuman institutional ethnography of nursing'. Doctoral research at the intersection of nursing, philosophy, and sociology, drawing on posthuman and feminist scholarship. Continued clinical practice alongside doctoral study in renal and liver transplant care.
+  - degree: MA Sociology
+    institution: Goldsmiths, University of London
+    start: 2013-01-01
+    end: 2014-12-31
     summary: |
-      GPA: 3.8/4.0
-
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - degree: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    start: 2016-01-01
-    end: 2020-12-31
+      Focus on gender, media, and culture.
+  - degree: MSc Nursing Studies
+    institution: Sheffield Hallam University
+    start: 2012-01-01
+    end: 2013-12-31
+  - degree: PgDip Nursing Studies
+    institution: Sheffield Hallam University
+    start: 2009-01-01
+    end: 2010-12-31
     summary: |
-      GPA: 3.4/4.0
-
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      With NMC Registration (Adult Nursing).
+  - degree: BSc (Hons) Psychology
+    institution: London South Bank University
+    start: 2004-01-01
+    end: 2007-12-31
+    summary: |
+      Clinical Psychology focus.
 experience:
-  - role: Director of Cloud Infrastructure
-    org: GenCoin
+  - role: Senior Research Fellow
+    org: Edinburgh Napier University & SHORTER Trial
+    start: 2025-01-01
+    summary: |
+      Process evaluation and implementation work for antibiotic stewardship in critical care, with ongoing collaboration with ICU teams across trial sites.
+  - role: "Clinical Academic Home – Honorary Research Nurse"
+    org: NHS Lothian
+    start: 2025-01-01
+    summary: |
+      Honorary research nursing role supporting clinical-academic work within NHS Lothian.
+  - role: Research Lead & Senior Researcher
+    org: Charité – Universitätsmedizin Berlin
     start: 2021-01-01
     summary: |
-      Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - role: Backend Software Engineer
-    org: X
-    start: 2016-01-01
-    end: 2020-12-31
+      Research lead for a mixed-methods programme exploring nursing stress and working conditions, including survey and qualitative work in hospital settings.
+  - role: Clinical Nursing Lecturer
+    org: Charité – Universitätsmedizin Berlin
+    start: 2021-01-01
+    end: 2023-12-31
     summary: |
-      Responsibilities include:
-      - Migrated infrastructure to a new data center
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      Taught and coordinated acute and critical care skills teaching within BSc Nursing, including simulation and patient safety/human factors content.
+  - role: Research Associate & Project Manager
+    org: University of Edinburgh
+    start: 2017-01-01
+    end: 2023-12-31
+    summary: |
+      Project management and research support for a feasibility RCT, alongside teaching contributions across postgraduate and undergraduate programmes.
+  - role: "Specialist Nurse: Organ Donation (SNOD)"
+    org: NHS Blood and Transplant (NHSBT)
+    start: 2015-01-01
+    end: 2017-12-31
+    summary: |
+      Specialist role coordinating organ donation pathways in intensive care, supporting families and clinical teams through consent and retrieval processes.
+  - role: "Senior Charge Nurse / Ward Manager"
+    org: Royal London Hospital, Barts Health NHS Trust
+    start: 2012-01-01
+    end: 2015-12-31
+    summary: |
+      Ward management role in renal and transplant HDU, overseeing day-to-day operations, staff support, and clinical governance for perioperative transplant care.
 skills:
-  - name: Technical Skills
+  - name: Research Methods
     items:
-      - label: Python
+      - label: Psychometrics (ESEM, IRT, CFA)
+        level: 5
+      - label: Qualitative Methods
+        level: 5
+      - label: Mixed Methods
+        level: 5
+      - label: Process Evaluation
         level: 4
-      - label: RStudio
+      - label: Behaviour Change & Intervention Development
+        level: 4
+      - label: Critical Posthuman Institutional Ethnography
         level: 5
-      - label: PyTorch
-        level: 2
-  - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
+      - label: Ecological Momentary Assessment
+        level: 4
+      - label: Implementation Science
+        level: 4
+  - name: Clinical Expertise
     items:
-      - label: Hiking
-        level: 3
-      - label: Cats
+      - label: Critical Care Nursing
         level: 5
-      - label: Photography
+      - label: Transplant Surgery
+        level: 5
+      - label: Organ Donation Coordination (DBD/DCD)
+        level: 5
+      - label: ICU Patient Assessment (ABCDE)
+        level: 5
+      - label: Perioperative HDU Nursing
+        level: 5
+      - label: Nephrology (Renal Medicine)
+        level: 5
+      - label: Haemodialysis
+        level: 5
+      - label: Peritoneal Dialysis
+        level: 5
+      - label: Immunosuppression Management
+        level: 4
+      - label: Renal Replacement Therapy (CRRT/HD/PD)
+        level: 5
+      - label: Post-Op Transplant Recipient Care
+        level: 5
+  - name: Patient Safety & Human Factors
+    items:
+      - label: Crew Resource Management
+        level: 5
+      - label: Human Factors in Critical Care
+        level: 5
+      - label: Antimicrobial Stewardship
+        level: 4
+      - label: Simulation-Based Training (GAPS)
+        level: 4
+  - name: Academic Leadership
+    items:
+      - label: Research Programme Leadership
+        level: 5
+      - label: Curriculum & Module Design
+        level: 5
+      - label: Clinical Skills Lab Leadership
+        level: 5
+      - label: Postgraduate Supervision
+        level: 4
+      - label: Doctoral Student & Supervisor Development
+        level: 4
+      - label: Grant Development
+        level: 4
+  - name: Software
+    items:
+      - label: R
+        level: 4
+      - label: SPSS
+        level: 4
+      - label: NVivo
+        level: 4
+      - label: MAXQDA
+        level: 3
+      - label: REDCap
         level: 4
 languages:
   - name: English
-    level: 5
-  - name: Chinese
-    level: 4
-  - name: Portuguese
-    level: 1
+    level: Native
+    percent: 100
+  - name: German
+    level: C1
+    percent: 85
+  - name: French
+    level: B2
+    percent: 70
+  - name: British Sign Language
+    level: Level 2
+    percent: 40
 awards:
-  - title: Neural Networks and Deep Learning
-    url: https://www.coursera.org/learn/neural-networks-deep-learning
-    date: '2023-11-25'
-    awarder: Coursera
-    icon: brands/coursera
+  - title: Cutting-edge Paper Award
+    date: '2025-01-01'
+    awarder: International Academy of Nursing Editors
     summary: |
-      I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
-  - title: Blockchain Fundamentals
-    url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-    date: '2023-07-01'
-    awarder: edX
-    icon: brands/edx
+      Recognition for innovative contributions to nursing scholarship.
+  - title: International Nursing Philosophy Fellowship
+    url: https://www.nursing.uci.edu/
+    date: '2024-01-01'
+    awarder: UC Irvine Centre for Nursing Philosophy
     summary: |
-      Learned:
-      - Synthesize your own blockchain solutions
-      - Gain an in-depth understanding of the specific mechanics of Bitcoin
-      - Understand Bitcoin’s real-life applications and learn how to attack and destroy Bitcoin, Ethereum, smart contracts and Dapps, and alternatives to Bitcoin’s Proof-of-Work consensus algorithm
-  - title: 'Object-Oriented Programming in R'
-    url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
-    certificate_url: https://www.datacamp.com
-    date: '2023-01-21'
-    awarder: datacamp
-    icon: brands/datacamp
+      Selected as International Fellow (2024–25) for work on critical posthuman perspectives in nursing.
+  - title: Wellcome Trust Early-Career Award Interview Committee
+    date: '2024-01-01'
+    awarder: Wellcome Trust
     summary: |
-      Object-oriented programming (OOP) lets you specify relationships between functions and the objects that they can act on, helping you manage complexity in your code. This is an intermediate level course, providing an introduction to OOP, using the S3 and R6 systems. S3 is a great day-to-day R programming tool that simplifies some of the functions that you write. R6 is especially useful for industry-specific analyses, working with web APIs, and building GUIs.
+      Appointed member (2024–27) advising on strategy and support for early career researchers across biomedical and health research.
+  - title: Burdett Trust for Nursing Individual Award
+    date: '2023-01-01'
+    awarder: Burdett Trust for Nursing
+    summary: |
+      Awarded for founding The Nursing Tartan initiative – an internationally recognised charitable initiative creating the first tartan to celebrate the nursing profession globally. £200,000+ raised; 12 nursing scholarships funded.
+  - title: Fellowship of Higher Education Academy (FHEA)
+    date: '2022-01-01'
+    awarder: Advance HE
+    summary: |
+      Recognition of commitment to professionalism in teaching and learning in higher education.
+  - title: Carl Duisberg Award
+    url: https://www.bayer-foundation.com/
+    date: '2019-01-01'
+    awarder: Bayer Foundation
+    summary: |
+      €20,000 award for research on 'Medicine, Nursing and Healthcare in the 4th Industrial Revolution'.

@@ -4,8 +4,8 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 # Website name (set in params.yaml under hugoblox.branding.name)
-title: ''
-baseURL: 'https://example.com/' # Website URL
+title: 'Dr Jamie B Smith'
+baseURL: 'https://jamiebriansmith.com/' # Website URL
 
 ############################
 ## LANGUAGE
@@ -32,7 +32,7 @@ footnotereturnlinkcontents: <sup>^</sup>
 ignoreFiles: [".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 disableAliases: true
 outputs:
-  home: [HTML, RSS, headers, redirects]
+  home: [HTML, RSS, headers, redirects, LLM]
   section: [HTML, RSS]
 imaging:
   resampleFilter: lanczos
