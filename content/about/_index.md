@@ -22,7 +22,7 @@ sections:
     content:
       username: me-about
       text: |
-        I'm a nurse, researcher, and educator working across transplant surgery and critical care.
+        I'm a clinical-academic nurse, researcher, and educator, with seventeen years of practice in transplant surgery, critical care, and organ donation.
 
         I came into nursing through renal care and became drawn to the intensity and teamwork of transplant and critical care. Over time, I also became interested in the things that sit just beneath the surface of a shift: staffing, routines, technologies, documentation, and the small moral decisions that add up to how care actually happens.
 
