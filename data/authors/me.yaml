@@ -13,9 +13,11 @@ role: Clinical-Academic Nurse Researcher
 bio: >
   I'm a nurse, researcher, and educator working across transplant surgery and critical care. My research
   looks at how nursing work is shaped by systems, technologies, and everyday ethics - and how we can
-  build working conditions that make good care possible. I use mixed methods (including psychometrics
-  and qualitative approaches, and process evaluation) alongside critical posthuman institutional
-  ethnography. I work with clinical teams on behaviour change and implementation in real-world settings.
+  build working conditions that make good care possible. I study how systems work across academia and
+  healthcare — combining quantitative and qualitative approaches — with particular expertise in process
+  evaluation of complex interventions. I draw on implementation frameworks (TPB, NPT, CFIR),
+  psychometrics, and critical posthuman institutional ethnography, and work with teams on behaviour
+  change and implementation in real-world settings.
 affiliations:
   - name: Edinburgh Napier University
     url: https://www.napier.ac.uk/
@@ -82,7 +84,7 @@ experience:
     org: Edinburgh Napier University & SHORTER Trial
     start: 2025-01-01
     summary: |
-      Process evaluation and implementation work for antibiotic stewardship in critical care, with ongoing collaboration with ICU teams across trial sites.
+      Process evaluation for the SHORTER pragmatic RCT (ISRCTN40090372) — antibiotic stewardship across ~50 UK ICU sites. Using TPB, NPT and CFIR to examine behaviour change, implementation, and context, with ongoing collaboration with ICU teams across trial sites.
   - role: "Clinical Academic Home – Honorary Research Nurse"
     org: NHS Lothian
     start: 2025-01-01
@@ -126,8 +128,8 @@ skills:
         level: 5
       - label: Mixed Methods
         level: 5
-      - label: Process Evaluation
-        level: 4
+      - label: Process Evaluation (TPB · NPT · CFIR)
+        level: 5
       - label: Behaviour Change & Intervention Development
         level: 4
       - label: Critical Posthuman Institutional Ethnography

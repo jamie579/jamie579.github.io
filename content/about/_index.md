@@ -28,7 +28,7 @@ sections:
 
         My work sits at the intersection of clinical practice, health services research, and nursing theory. I research nursing workforce sustainability in high-acuity settings and how healthcare technologies - from digital tools to life support - shape judgement, responsibility, and the experience of care.
 
-        Methodologically, I use mixed methods (including psychometrics and qualitative approaches), alongside critical posthuman institutional ethnography. In practice, that means I aim for research that is rigorous but still close to the realities of clinical work: process evaluation, behaviour change, and collaboration with teams who are trying to improve care in real time.
+        Methodologically, I study how systems work across academia and healthcare — combining quantitative and qualitative approaches — with particular expertise in process evaluation of complex interventions. I use implementation frameworks (TPB, NPT, CFIR), psychometrics, and critical posthuman institutional ethnography. In practice, that means I aim for research that is rigorous but still close to the realities of clinical work: behaviour change, implementation, and collaboration with teams who are trying to improve care in real time.
 
         If you'd like to collaborate, invite me to speak, or discuss a project, the easiest way to reach me is by email.
     design:
