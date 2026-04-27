@@ -114,8 +114,8 @@
         <label for="window_years">Window (years)</label>
         <input id="window_years" type="number" min="1" max="10" value="3">
       </div>
-      <div class="field" style="flex: 0 1 160px;">
-        <label for="reference_year">Reference year</label>
+      <div class="field" style="flex: 0 1 200px;">
+        <label for="reference_year">Reference year <span style="color: var(--muted); font-weight: 400;">(last year in window)</span></label>
         <input id="reference_year" type="number" value="">
       </div>
       <div class="field" style="flex: 0 0 auto;">
@@ -248,11 +248,18 @@
   function loadState () {
     try {
       var s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      return Object.assign({}, defaults, s, { shares: Object.assign({}, defaults.shares, s.shares || {}) });
+      var merged = Object.assign({}, defaults, s, { shares: Object.assign({}, defaults.shares, s.shares || {}) });
+      // ORCID is intentionally NOT restored on page load: each visit starts
+      // with a blank field so a colleague picking up someone else's open tab
+      // doesn't auto-run on the previous user's ORCID.
+      merged.orcid = '';
+      return merged;
     } catch (e) { return Object.assign({}, defaults); }
   }
   function saveState (s) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch (e) {}
+    // Persist settings but not the ORCID — see loadState() comment.
+    var toSave = Object.assign({}, s, { orcid: '' });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave)); } catch (e) {}
   }
 
   function applyStateToForm (s) {
@@ -361,6 +368,13 @@
   function renderRows (rows, totals) {
     $('#rows-card').hidden = false;
     var inWindow = rows.filter(function (r) { return r.in_window; });
+    // Display order: most recent first, then by euro value within a year so
+    // the highest-impact paper of each year leads.
+    inWindow.sort(function (a, b) {
+      var ya = Number(a.year) || 0, yb = Number(b.year) || 0;
+      if (ya !== yb) return yb - ya;
+      return (b.euro_value || 0) - (a.euro_value || 0);
+    });
     if (totals) {
       $('#rows-window').textContent = '(' + totals.window_start + '–' + totals.window_end + ', ' + inWindow.length + ' paper' + (inWindow.length === 1 ? '' : 's') + ')';
     }
