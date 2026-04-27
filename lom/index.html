@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Charité LOM Calculator</title>
+<style>
+  :root {
+    --navy: #003f7d;
+    --navy-dark: #002c58;
+    --bg: #f3f4f7;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #5b6573;
+    --border: #d8dde6;
+    --accent: #f0c900;
+    --good: #2e7d32;
+    --warn: #b26a00;
+    --bad: #b00020;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  a { color: var(--navy); }
+  header { background: var(--navy); color: #fff; padding: 1.25rem 1.5rem; }
+  header h1 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+  header p { margin: .25rem 0 0; opacity: .85; font-size: .9rem; }
+  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem; }
+  .card h2 { margin: 0 0 .75rem; font-size: 1.05rem; font-weight: 600; }
+  .row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: flex-end; }
+  .field { flex: 1 1 200px; min-width: 0; }
+  .field label { display: block; font-size: .8rem; color: var(--muted); margin-bottom: .25rem; }
+  .field input, .field select { width: 100%; padding: .55rem .65rem; border: 1px solid var(--border); border-radius: 6px; font: inherit; background: #fff; }
+  .field input:focus, .field select:focus { outline: 2px solid var(--navy); outline-offset: -1px; }
+  button { padding: .6rem 1.1rem; border: 0; border-radius: 6px; font: inherit; font-weight: 600; cursor: pointer; background: var(--navy); color: #fff; }
+  button:hover { background: var(--navy-dark); }
+  button.ghost { background: transparent; color: var(--navy); border: 1px solid var(--border); }
+  button[disabled] { opacity: .55; cursor: not-allowed; }
+  details summary { cursor: pointer; color: var(--navy); font-weight: 600; }
+  details[open] summary { margin-bottom: .75rem; }
+  .tile-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem; }
+  .tile { background: #fafbfd; border: 1px solid var(--border); border-radius: 6px; padding: .75rem .85rem; }
+  .tile .v { font-size: 1.4rem; font-weight: 700; color: var(--navy); }
+  .tile .l { font-size: .75rem; color: var(--muted); margin-top: .15rem; }
+  table { width: 100%; border-collapse: collapse; margin-top: .25rem; font-size: .9rem; }
+  th, td { text-align: left; padding: .55rem .65rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: #fafbfd; font-weight: 600; font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.dim td { color: var(--muted); background: #fafbfd; }
+  .pill { display: inline-block; font-size: .7rem; font-weight: 600; padding: .12rem .45rem; border-radius: 999px; background: #eef1f6; color: var(--muted); }
+  .pill.good  { background: #e6f4ea; color: var(--good); }
+  .pill.warn  { background: #fff3e0; color: var(--warn); }
+  .pill.bad   { background: #fce8ec; color: var(--bad); }
+  .msg { padding: .65rem .8rem; border-radius: 6px; margin: 0 0 .75rem; font-size: .9rem; }
+  .msg.err  { background: #fce8ec; color: var(--bad); border: 1px solid #f5b9c2; }
+  .msg.warn { background: #fff3e0; color: var(--warn); border: 1px solid #ffd9a8; }
+  .msg.info { background: #eef4fb; color: var(--navy); border: 1px solid #cfdcef; }
+  .footer { color: var(--muted); font-size: .85rem; margin-top: 1.5rem; padding: 0 .25rem 2rem; }
+  /* Password overlay */
+  #gate { position: fixed; inset: 0; background: rgba(0,30,60,.96); color: #fff; display: flex; align-items: center; justify-content: center; padding: 1.5rem; z-index: 100; }
+  #gate .gate-card { width: 100%; max-width: 380px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 10px; padding: 1.5rem; backdrop-filter: blur(6px); }
+  #gate h2 { margin: 0 0 .25rem; font-size: 1.15rem; }
+  #gate p { margin: 0 0 1rem; opacity: .8; font-size: .9rem; }
+  #gate input { width: 100%; padding: .65rem .75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #fff; font: inherit; }
+  #gate input::placeholder { color: rgba(255,255,255,.55); }
+  #gate button { margin-top: .75rem; width: 100%; background: var(--accent); color: #1f1f1f; }
+  #gate .err { margin-top: .5rem; color: #ffd1d6; font-size: .85rem; min-height: 1.2em; }
+  /* Spinner */
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; animation: spin .8s linear infinite; vertical-align: -2px; margin-right: .5rem; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .truncate { max-width: 360px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  @media (max-width: 700px) {
+    .truncate { max-width: 200px; }
+    th.hide-sm, td.hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-card">
+    <h2>LOM Calculator</h2>
+    <p>This page is restricted. Enter the access password to continue.</p>
+    <input id="gate-pw" type="password" placeholder="Password" autocomplete="current-password">
+    <button id="gate-go">Enter</button>
+    <div class="err" id="gate-err"></div>
+  </div>
+</div>
+
+<header>
+  <h1>Charité LOM Calculator</h1>
+  <p>Estimate publication-based LB / LOM euro value from an ORCID iD. Per-paper formula: <em>s × (JIF × €/IF + RCR × €/RCR)</em>.</p>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>Calculate</h2>
+    <div class="row">
+      <div class="field" style="flex: 2 1 280px;">
+        <label for="orcid">ORCID iD</label>
+        <input id="orcid" type="text" placeholder="0000-0001-2345-6789" autocomplete="off" inputmode="text">
+      </div>
+      <div class="field" style="flex: 0 0 auto;">
+        <button id="go">Calculate</button>
+      </div>
+    </div>
+    <details style="margin-top: 1rem;">
+      <summary>Settings (defaults match Charité 2024–25)</summary>
+      <div class="row" style="margin-top: .75rem;">
+        <div class="field"><label>€ per IF point</label><input id="eur_per_if" type="number" step="0.01" value="74.69"></div>
+        <div class="field"><label>€ per RCR point</label><input id="eur_per_rcr" type="number" step="0.01" value="269.74"></div>
+        <div class="field"><label>Window (years)</label><input id="window_years" type="number" min="1" max="10" value="3"></div>
+        <div class="field"><label>Reference year (last counted)</label><input id="reference_year" type="number" value=""></div>
+      </div>
+      <details style="margin-top: .75rem;">
+        <summary>Authorship shares</summary>
+        <div class="row" style="margin-top: .5rem;">
+          <div class="field"><label>Sole</label><input class="share" data-key="Sole" type="number" step="0.01" value="0.25"></div>
+          <div class="field"><label>First</label><input class="share" data-key="First" type="number" step="0.01" value="0.25"></div>
+          <div class="field"><label>Last</label><input class="share" data-key="Last" type="number" step="0.01" value="0.25"></div>
+          <div class="field"><label>Significant</label><input class="share" data-key="Significant" type="number" step="0.01" value="0.10"></div>
+          <div class="field"><label>Middle</label><input class="share" data-key="Middle" type="number" step="0.01" value="0.04"></div>
+        </div>
+      </details>
+    </details>
+  </div>
+
+  <div id="messages"></div>
+
+  <div id="totals-card" class="card" hidden>
+    <h2>Estimated annual LOM value</h2>
+    <div class="tile-row" id="tiles"></div>
+    <p id="profile-line" style="margin: .85rem 0 0; color: var(--muted); font-size: .85rem;"></p>
+  </div>
+
+  <div id="rows-card" class="card" hidden>
+    <h2>Per-paper breakdown</h2>
+    <div style="overflow-x: auto;">
+      <table id="rows">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Title</th>
+            <th class="hide-sm">Venue</th>
+            <th>Authorship</th>
+            <th class="num hide-sm">JIF</th>
+            <th class="num hide-sm">RCR</th>
+            <th class="num">€</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p style="color: var(--muted); font-size: .8rem; margin-top: .85rem;">
+      Rows in grey are excluded — outside the window, wrong type, or unmatched authorship. JIF comes from a curated reference list maintained by Jamie; if a venue has no entry the JIF value is 0 and only RCR contributes.
+    </p>
+  </div>
+
+  <div class="footer">
+    <p><strong>Privacy:</strong> The page sends only your ORCID iD and chosen settings to Jamie's Apps Script (running on Google's infrastructure). No data is stored on this server. Your ORCID and last settings are remembered in your own browser via localStorage.</p>
+    <p><strong>Caveat:</strong> Estimates are indicative. Real LOM allocation depends on Charité's faculty-board-approved share table (FBA), JIF currency, and RCR availability. Use this for planning, not for budgeting.</p>
+  </div>
+
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  // -------- Configuration --------
+  // The public JSON API deployment of the Apps Script project.
+  // Replace this with the new deployment URL after running `clasp deploy` for
+  // the public-API deployment (different from the existing per-user-Sheet UI).
+  var API_URL = 'https://script.google.com/macros/s/AKfycbwESMThRv-lFf6HCE5GMrBrszF6lF0oyRJmwX_y-18nW7jxr6z8wNGIT186a0gTE-uNAg/exec';
+
+  // Light client-side gate. The real password check also happens server-side
+  // in the Apps Script, so reading this file's source doesn't bypass anything
+  // important — at most it tells you what to type at the gate.
+  var GATE_PASSWORD = 'TheLineIsACurve';
+
+  var STORAGE_KEY = 'lom-calculator.v1';
+
+  // -------- DOM helpers --------
+  function $ (sel) { return document.querySelector(sel); }
+  function el (tag, attrs, children) {
+    var n = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (k === 'class') n.className = attrs[k];
+      else if (k === 'text') n.textContent = attrs[k];
+      else n.setAttribute(k, attrs[k]);
+    });
+    (children || []).forEach(function (c) { n.appendChild(c); });
+    return n;
+  }
+  function fmtEur (n) {
+    if (n == null || isNaN(n)) return '—';
+    return '€' + Number(n).toLocaleString('en-GB', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+  function fmtNum (n, digits) {
+    if (n == null || isNaN(n)) return '—';
+    return Number(n).toFixed(digits == null ? 2 : digits);
+  }
+
+  // -------- Gate --------
+  var gate    = $('#gate');
+  var gatePw  = $('#gate-pw');
+  var gateGo  = $('#gate-go');
+  var gateErr = $('#gate-err');
+
+  function unlock () { gate.style.display = 'none'; }
+  function tryGate () {
+    if (gatePw.value === GATE_PASSWORD) {
+      try { sessionStorage.setItem('lom-gate', '1'); } catch (e) {}
+      unlock();
+    } else {
+      gateErr.textContent = 'Wrong password.';
+      gatePw.select();
+    }
+  }
+  gateGo.addEventListener('click', tryGate);
+  gatePw.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryGate(); });
+  try { if (sessionStorage.getItem('lom-gate') === '1') unlock(); } catch (e) {}
+  setTimeout(function () { gatePw.focus(); }, 50);
+
+  // -------- Settings persistence --------
+  var defaults = {
+    orcid: '',
+    eur_per_if: 74.69,
+    eur_per_rcr: 269.74,
+    window_years: 3,
+    reference_year: new Date().getFullYear() - 1,
+    shares: { Sole: 0.25, First: 0.25, Last: 0.25, Significant: 0.10, Middle: 0.04 },
+  };
+
+  function loadState () {
+    try {
+      var s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      return Object.assign({}, defaults, s, { shares: Object.assign({}, defaults.shares, s.shares || {}) });
+    } catch (e) { return Object.assign({}, defaults); }
+  }
+  function saveState (s) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch (e) {}
+  }
+
+  function applyStateToForm (s) {
+    $('#orcid').value          = s.orcid || '';
+    $('#eur_per_if').value     = s.eur_per_if;
+    $('#eur_per_rcr').value    = s.eur_per_rcr;
+    $('#window_years').value   = s.window_years;
+    $('#reference_year').value = s.reference_year;
+    Array.prototype.forEach.call(document.querySelectorAll('.share'), function (el) {
+      var k = el.getAttribute('data-key');
+      if (s.shares && s.shares[k] != null) el.value = s.shares[k];
+    });
+  }
+
+  function readFormState () {
+    var shares = {};
+    Array.prototype.forEach.call(document.querySelectorAll('.share'), function (el) {
+      shares[el.getAttribute('data-key')] = Number(el.value) || 0;
+    });
+    return {
+      orcid:          $('#orcid').value.trim(),
+      eur_per_if:     Number($('#eur_per_if').value)     || defaults.eur_per_if,
+      eur_per_rcr:    Number($('#eur_per_rcr').value)    || defaults.eur_per_rcr,
+      window_years:   Number($('#window_years').value)   || defaults.window_years,
+      reference_year: Number($('#reference_year').value) || defaults.reference_year,
+      shares: shares,
+    };
+  }
+
+  applyStateToForm(loadState());
+
+  // -------- Submit --------
+  var goBtn = $('#go');
+  var msgs  = $('#messages');
+
+  function setMsg (kind, text) {
+    msgs.innerHTML = '';
+    if (!text) return;
+    var d = el('div', { class: 'msg ' + kind, text: text }, []);
+    msgs.appendChild(d);
+  }
+
+  function shareList (sharesObj) {
+    return Object.keys(sharesObj).map(function (k) { return { authorship: k, share: Number(sharesObj[k]) || 0 }; });
+  }
+
+  function postCalculate (state) {
+    var body = {
+      password: GATE_PASSWORD,
+      orcid: state.orcid,
+      settings: {
+        eur_per_if:     state.eur_per_if,
+        eur_per_rcr:    state.eur_per_rcr,
+        window_years:   state.window_years,
+        reference_year: state.reference_year,
+        shares: shareList(state.shares),
+      },
+    };
+    // Content-Type text/plain avoids the CORS preflight that POSTs with
+    // application/json would trigger; Apps Script accepts the body either way
+    // and we still parse it as JSON server-side via JSON.parse(e.postData.contents).
+    return fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(body),
+      redirect: 'follow',
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
+
+  function renderTotals (totals, profile, classifications, masterCount) {
+    $('#totals-card').hidden = false;
+    var t = $('#tiles');
+    t.innerHTML = '';
+    function tile (val, label) {
+      var d = el('div', { class: 'tile' }, [
+        el('div', { class: 'v', text: val }, []),
+        el('div', { class: 'l', text: label }, []),
+      ]);
+      t.appendChild(d);
+    }
+    tile(fmtEur(totals.eur_per_year), 'Per year (avg over window)');
+    tile(fmtEur(totals.eur_total),    'Total over ' + totals.window_start + '–' + totals.window_end);
+    tile(totals.counted,               'Papers counted');
+    tile(totals.dois_total,             'DOIs from ORCID');
+    tile(totals.jif_matched,            'Venues with JIF in master');
+    tile(totals.rcrs_returned + ' / ' + totals.pmids_resolved, 'RCR / PMID resolved');
+
+    var pl = '';
+    if (profile && (profile.given || profile.family)) {
+      pl = 'Matching against ' + ((profile.given || '') + ' ' + (profile.family || '')).trim() + ' (' + profile.orcid + '). ';
+    } else {
+      pl = 'No author profile resolved for that ORCID — authorship classification will be incomplete. ';
+    }
+    if (classifications) {
+      pl += 'Classified: ' + classifications.First + ' First, ' + classifications.Last + ' Last, ' + classifications.Sole + ' Sole, ' + classifications.Middle + ' Middle, ' + classifications.Unmatched + ' unmatched.';
+    }
+    if (masterCount != null) {
+      pl += '   Master JIF list: ' + masterCount + ' entries.';
+    }
+    $('#profile-line').textContent = pl;
+  }
+
+  function renderRows (rows) {
+    $('#rows-card').hidden = false;
+    var tb = $('#rows tbody');
+    tb.innerHTML = '';
+    rows.forEach(function (r) {
+      var tr = el('tr', { class: r.counted ? '' : 'dim' }, []);
+      var titleCell = el('td', { class: 'truncate', title: r.title }, []);
+      titleCell.textContent = r.title || '(no title)';
+      if (r.doi) {
+        var lnk = el('a', { href: 'https://doi.org/' + r.doi, target: '_blank', rel: 'noopener' }, []);
+        lnk.textContent = r.title || r.doi;
+        titleCell.textContent = '';
+        titleCell.appendChild(lnk);
+      }
+      var authCell = el('td', {}, []);
+      var pillClass = 'pill';
+      if (r.authorship === 'First' || r.authorship === 'Last' || r.authorship === 'Sole') pillClass = 'pill good';
+      else if (r.authorship === 'Middle') pillClass = 'pill warn';
+      else if (!r.authorship) pillClass = 'pill bad';
+      authCell.appendChild(el('span', { class: pillClass, text: r.authorship || 'unmatched' }, []));
+      if (!r.in_window) {
+        authCell.appendChild(el('span', { class: 'pill', text: 'outside window' }, []));
+      } else if (r.include === 'Review') {
+        authCell.appendChild(el('span', { class: 'pill warn', text: 'review (manual)' }, []));
+      } else if (r.include === 'No') {
+        authCell.appendChild(el('span', { class: 'pill', text: r.type || 'excluded' }, []));
+      }
+
+      var jifCell = el('td', { class: 'num hide-sm' }, []);
+      jifCell.textContent = r.jif > 0 ? fmtNum(r.jif, 1) : '—';
+      if (r.jif_in_master === false && r.venue) {
+        jifCell.title = 'Venue not in master JIF list';
+      }
+
+      tr.appendChild(el('td', { text: String(r.year || '') }, []));
+      tr.appendChild(titleCell);
+      tr.appendChild(el('td', { class: 'truncate hide-sm', title: r.venue, text: r.venue || '' }, []));
+      tr.appendChild(authCell);
+      tr.appendChild(jifCell);
+      tr.appendChild(el('td', { class: 'num hide-sm', text: r.rcr != null ? fmtNum(r.rcr, 2) : '—' }, []));
+      tr.appendChild(el('td', { class: 'num', text: r.counted ? fmtEur(r.euro_value) : '—' }, []));
+      tb.appendChild(tr);
+    });
+  }
+
+  function calculate () {
+    var state = readFormState();
+    saveState(state);
+    if (!state.orcid) {
+      setMsg('err', 'Please enter your ORCID iD.');
+      return;
+    }
+    if (!/\d{4}-\d{4}-\d{4}-\d{3}[\dX]/.test(state.orcid)) {
+      setMsg('err', 'That does not look like an ORCID iD. Format: 0000-0001-2345-6789.');
+      return;
+    }
+    if (API_URL.indexOf('REPLACE_WITH') !== -1) {
+      setMsg('err', 'Calculator is not yet wired up — the API URL has not been set. (Jamie: deploy the public API and edit static/lom/index.html.)');
+      return;
+    }
+    goBtn.disabled = true;
+    var origLabel = goBtn.textContent;
+    goBtn.innerHTML = '<span class="spinner"></span>Calculating…';
+    setMsg('info', 'Pulling publications from ORCID and OpenAlex. This typically takes 10–60 seconds depending on how many papers you have.');
+    $('#totals-card').hidden = true;
+    $('#rows-card').hidden = true;
+
+    postCalculate(state).then(function (data) {
+      goBtn.disabled = false;
+      goBtn.textContent = origLabel;
+      if (!data.ok) {
+        setMsg('err', data.error || 'Calculation failed.');
+        return;
+      }
+      setMsg('', '');
+      renderTotals(data.totals, data.diagnostics && data.diagnostics.profile, data.diagnostics && data.diagnostics.classifications, data.diagnostics && data.diagnostics.master_jif_entries);
+      renderRows(data.rows || []);
+      if (data.diagnostics && data.diagnostics.log && data.diagnostics.log.length) {
+        var d = el('div', { class: 'msg warn' }, []);
+        d.innerHTML = '<strong>API notes:</strong><br>' + data.diagnostics.log.map(function (l) { return l.replace(/[<>]/g, ''); }).join('<br>');
+        msgs.appendChild(d);
+      }
+    }).catch(function (err) {
+      goBtn.disabled = false;
+      goBtn.textContent = origLabel;
+      setMsg('err', 'Network or server error: ' + err.message);
+    });
+  }
+
+  goBtn.addEventListener('click', calculate);
+  $('#orcid').addEventListener('keydown', function (e) { if (e.key === 'Enter') calculate(); });
+
+})();
+</script>
+
+</body>
+</html>
