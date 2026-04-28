@@ -175,16 +175,16 @@
         <div class="field"><label>€ per RCR point</label><input id="eur_per_rcr" type="number" step="0.01" value="269.74"></div>
       </div>
       <div class="row" style="margin-top: .5rem;">
-        <div class="field"><label>Sole</label><input class="share" data-key="Sole" type="number" step="0.01" value="0.50"></div>
-        <div class="field"><label>First</label><input class="share" data-key="First" type="number" step="0.01" value="0.50"></div>
-        <div class="field"><label>Joint first</label><input class="share" data-key="Joint first" type="number" step="0.01" value="0.25"></div>
-        <div class="field"><label>Last</label><input class="share" data-key="Last" type="number" step="0.01" value="0.50"></div>
-        <div class="field"><label>Joint last</label><input class="share" data-key="Joint last" type="number" step="0.01" value="0.25"></div>
-        <div class="field"><label>Significant</label><input class="share" data-key="Significant" type="number" step="0.01" value="0.15"></div>
-        <div class="field"><label>Middle</label><input class="share" data-key="Middle" type="number" step="0.01" value="0.06"></div>
+        <div class="field"><label>Sole</label><input class="share" data-key="Sole" type="number" step="0.01" value="0.25"></div>
+        <div class="field"><label>First</label><input class="share" data-key="First" type="number" step="0.01" value="0.25"></div>
+        <div class="field"><label>Joint first</label><input class="share" data-key="Joint first" type="number" step="0.01" value="0.125"></div>
+        <div class="field"><label>Last</label><input class="share" data-key="Last" type="number" step="0.01" value="0.25"></div>
+        <div class="field"><label>Joint last</label><input class="share" data-key="Joint last" type="number" step="0.01" value="0.125"></div>
+        <div class="field"><label>Significant</label><input class="share" data-key="Significant" type="number" step="0.01" value="0.10"></div>
+        <div class="field"><label>Middle</label><input class="share" data-key="Middle" type="number" step="0.01" value="0.04"></div>
       </div>
       <p style="color: var(--muted); font-size: .8rem; margin-top: .5rem;">
-        €/IF and €/RCR are the documented Charité LB 2025 rates — edit if your cycle uses different values. The share table is the per-clinic FBA-approved split; principal authors getting half-credit each is a common Charité convention but different clinics use different tables, so ask your Klinik admin and edit the share values here if needed.
+        Defaults match the documented <strong>Charité LB 2025 calculator</strong> (€/IF 74.69, €/RCR 269.74; First/Last 0.25, Significant 0.10, Middle 0.04). Some clinics' FBA-approved tables use higher principal-author shares (e.g. First/Last 0.5) — ask your Klinik admin and edit the share values here if your clinic differs.
         <a href="#" id="reset-defaults" style="color: var(--navy); margin-left: .5rem;">Reset all to defaults</a> — clears any saved settings, row exclusions, and per-row overrides.
       </p>
       <p style="color: var(--muted); font-size: .8rem; margin-top: .75rem;">
@@ -326,32 +326,30 @@
     eur_per_rcr: 269.74,
     window_years: 3,
     reference_year: new Date().getFullYear() - 1,
-    shares: { Sole: 0.50, First: 0.50, 'Joint first': 0.25, Last: 0.50, 'Joint last': 0.25, Significant: 0.15, Middle: 0.06, 'Not included': 0 },
+    shares: { Sole: 0.25, First: 0.25, 'Joint first': 0.125, Last: 0.25, 'Joint last': 0.125, Significant: 0.10, Middle: 0.04, 'Not included': 0 },
   };
 
   // Migrate stale settings to current defaults. Bump SETTINGS_VERSION any
   // time the defaults change — saved states tagged with an older version
   // get their shares and/or rates replaced if they match a known previous
   // default exactly. Custom values are preserved.
-  var SETTINGS_VERSION = 4;
+  var SETTINGS_VERSION = 5;
   function maybeMigrateShares (s) {
     if (!s) return s;
     if (s.settings_version === SETTINGS_VERSION) return s;
     function eq (a, b) { return Math.abs((Number(a) || 0) - b) < 1e-9; }
-    // Share table: replace if it looks like ANY recognised pre-calibration
-    // default (0.25 / 0.04 family, with or without joint).
     var sh = s.shares || {};
-    var looksLegacy =
-      (eq(sh.Sole, 0.25) || sh.Sole == null)
-      && (eq(sh.First, 0.25) || sh.First == null)
-      && (eq(sh.Last, 0.25) || sh.Last == null)
-      && (eq(sh.Middle, 0.04) || sh.Middle == null);
-    if (looksLegacy) s.shares = null;
+    // Catch users on the briefly-deployed 0.5 / 0.06 share table
+    // (calibrated against one person's payment then reverted to the
+    // documented Charité LB 2025 typical values). Reset to defaults so
+    // they pick up 0.25 / 0.04. Custom share values are preserved.
+    var looksHighShare =
+      eq(sh.Sole, 0.50) && eq(sh.First, 0.50) && eq(sh.Last, 0.50)
+      && eq(sh['Joint first'], 0.25) && eq(sh['Joint last'], 0.25)
+      && eq(sh.Significant, 0.15) && eq(sh.Middle, 0.06);
+    if (looksHighShare) s.shares = null;
     // Rates: catch users stuck on the briefly-deployed wrong defaults
-    // (63.55 / 229.59 — backsolved against one person's payment then
-    // discovered to be the wrong dimension). Reset to the documented
-    // Charité LB 2025 rates. Custom rates outside that exact value are
-    // preserved.
+    // (63.55 / 229.59). Reset to documented LB 2025 rates.
     if (eq(s.eur_per_if, 63.55)) delete s.eur_per_if;
     if (eq(s.eur_per_rcr, 229.59)) delete s.eur_per_rcr;
     s.settings_version = SETTINGS_VERSION;
