@@ -193,10 +193,10 @@
           <input id="cal-target" type="number" step="1" placeholder="e.g. 2100">
         </div>
         <div class="field" style="flex: 0 0 auto;">
-          <button id="cal-apply" class="ghost" type="button" title="Scale every share in the table by (target ÷ current total) so the calculator matches a real LOM payment you've been told about. Run Calculate first.">Calibrate share table</button>
+          <button id="cal-apply" class="ghost" type="button" title="Scale €/IF and €/RCR by (target ÷ current total) so the calculator matches a real LOM payment. Rates change every cycle and are faculty-wide; share tables are clinic-specific and rarely change — so scaling rates is usually the more correct adjustment.">Calibrate rates</button>
         </div>
         <p class="field" style="flex: 1 1 100%; color: var(--muted); font-size: .8rem; margin: .25rem 0 0;">
-          If you know what someone was actually paid for this window, type it here and click Calibrate. Every share value will be scaled by the same ratio so the total matches. Useful when your clinic's exact FBA share table is unknown.
+          If you know what someone was actually paid for this window, type it here and click Calibrate. The €/IF and €/RCR rates above will be scaled by the same ratio so the total matches — these are the values Charité actually publishes per LOM cycle, so the post-calibration rates tell you what Pichit's cycle effectively used. Share table is left untouched (it's clinic-specific, not annual).
         </p>
       </div>
       <p style="color: var(--muted); font-size: .8rem; margin-top: .75rem;">
@@ -1117,18 +1117,28 @@
         return;
       }
       var factor = target / current;
-      // Apply factor to every share input. Keep three decimals to avoid
-      // accumulating rounding error if the user calibrates repeatedly.
-      Array.prototype.forEach.call(document.querySelectorAll('.share'), function (el) {
-        var v = Number(el.value) || 0;
-        el.value = (v * factor).toFixed(3);
-      });
+      // Scale €/IF and €/RCR rates rather than the share table. Rates are
+      // a single faculty-wide number per LOM cycle; share tables are
+      // clinic-specific and stable. After calibration the displayed rates
+      // show what the cycle effectively paid per IF and per RCR point.
+      var ifInput  = $('#eur_per_if');
+      var rcrInput = $('#eur_per_rcr');
+      var ifOld  = Number(ifInput.value)  || 0;
+      var rcrOld = Number(rcrInput.value) || 0;
+      ifInput.value  = (ifOld  * factor).toFixed(2);
+      rcrInput.value = (rcrOld * factor).toFixed(2);
       saveState(readFormState());
+      // Sync into the cached response so recomputeAndRerender uses the new rates.
+      if (lastResponse && lastResponse.totals) {
+        lastResponse.totals.eur_per_if  = Number(ifInput.value);
+        lastResponse.totals.eur_per_rcr = Number(rcrInput.value);
+      }
       recomputeAndRerender();
       var newTotal = Number(lastResponse.totals.eur_total) || 0;
-      setMsg('info', '✓ Share table scaled by ' + factor.toFixed(3)
-        + ' (current total now €' + newTotal.toFixed(2)
-        + ', target €' + target.toFixed(0) + '). Edit individual share rows in Advanced if you want to fine-tune.');
+      setMsg('info', '✓ Rates scaled by ' + factor.toFixed(3)
+        + ' → €/IF = ' + ifInput.value + ', €/RCR = ' + rcrInput.value
+        + '. Total now €' + newTotal.toFixed(2)
+        + ' (target €' + target.toFixed(0) + ').');
     });
   }
 
