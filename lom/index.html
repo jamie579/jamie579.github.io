@@ -144,6 +144,9 @@
       <div class="field" style="flex: 0 0 auto;">
         <button id="go">Calculate</button>
       </div>
+      <div class="field" style="flex: 0 0 auto;">
+        <button id="download-xlsx" class="ghost" title="Fetch the data and download as an editable Excel file. Opens in Excel, Numbers, Google Sheets, or LibreOffice — totals recompute via formulas as you edit.">Download Excel</button>
+      </div>
     </div>
     <details style="margin-top: 1rem;">
       <summary>Add publications ORCID and OpenAlex are missing (RIS / BibTeX upload, or paste DOIs)</summary>
@@ -449,8 +452,8 @@
     return Object.keys(sharesObj).map(function (k) { return { authorship: k, share: Number(sharesObj[k]) || 0 }; });
   }
 
-  function postCalculate (state, extra) {
-    var body = {
+  function calcBody (state, extra) {
+    return {
       password: GATE_PASSWORD,
       orcid: state.orcid,
       extra_dois: extra || [],
@@ -462,9 +465,26 @@
         shares: shareList(state.shares),
       },
     };
+  }
+
+  function postCalculate (state, extra) {
     // Content-Type text/plain avoids the CORS preflight that POSTs with
     // application/json would trigger; Apps Script accepts the body either way
     // and we still parse it as JSON server-side via JSON.parse(e.postData.contents).
+    return fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(calcBody(state, extra)),
+      redirect: 'follow',
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
+
+  function postDownloadXlsx (state, extra) {
+    var body = calcBody(state, extra);
+    body.action = 'download_xlsx';
     return fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -474,6 +494,24 @@
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     });
+  }
+
+  // Decode base64 → bytes → Blob → temporary URL → click an anchor to
+  // trigger the browser's native download flow. Works in every modern
+  // browser without any extra library.
+  function triggerXlsxDownload (base64, filename) {
+    var raw = atob(base64);
+    var bytes = new Uint8Array(raw.length);
+    for (var i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+    var blob = new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename || 'lom-calculator.xlsx';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   }
 
   function renderTotals (totals, profile, classifications, masterCount, diagnostics) {
@@ -879,6 +917,40 @@
 
   goBtn.addEventListener('click', calculate);
   $('#orcid').addEventListener('keydown', function (e) { if (e.key === 'Enter') calculate(); });
+
+  // -------- Download Excel --------
+  var dlBtn = $('#download-xlsx');
+  if (dlBtn) {
+    dlBtn.addEventListener('click', function () {
+      var state = readFormState();
+      saveState(state);
+      if (!state.orcid) { setMsg('err', 'Please enter your ORCID iD first.'); return; }
+      if (!/\d{4}-\d{4}-\d{4}-\d{3}[\dX]/.test(state.orcid)) {
+        setMsg('err', 'That does not look like an ORCID iD. Format: 0000-0001-2345-6789.');
+        return;
+      }
+      var extra = gatherExtraDois();
+      saveExtraDois(new Set(extra));
+      dlBtn.disabled = true;
+      var origLabel = dlBtn.textContent;
+      dlBtn.innerHTML = '<span class="spinner"></span>Building Excel…';
+      setMsg('info', 'Pulling publications and building the Excel file. This typically takes 30–90 seconds.');
+      postDownloadXlsx(state, extra).then(function (data) {
+        dlBtn.disabled = false;
+        dlBtn.textContent = origLabel;
+        if (!data || !data.ok) {
+          setMsg('err', (data && data.error) || 'Download failed.');
+          return;
+        }
+        triggerXlsxDownload(data.xlsx_base64, data.filename);
+        setMsg('info', '✓ Downloaded ' + data.filename + '. Open it in Excel, Numbers, Google Sheets, or LibreOffice — totals recompute as you edit.');
+      }).catch(function (err) {
+        dlBtn.disabled = false;
+        dlBtn.textContent = origLabel;
+        setMsg('err', 'Network or server error: ' + err.message);
+      });
+    });
+  }
 
   // Live-recompute when the share table changes — so flipping Joint first
   // from 0.125 to 0.20 (say) updates totals immediately without having to
