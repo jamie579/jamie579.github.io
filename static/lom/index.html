@@ -69,9 +69,17 @@
   /* Spinner */
   .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; animation: spin .8s linear infinite; vertical-align: -2px; margin-right: .5rem; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .truncate { max-width: 360px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .truncate { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .title-line { font-weight: 500; }
+  .title-line a { text-decoration: none; }
+  .title-line a:hover { text-decoration: underline; }
+  .authors-line { color: var(--muted); font-size: .82rem; margin-top: .2rem; line-height: 1.35; max-width: 460px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  table { table-layout: auto; }
+  th, td { word-break: normal; }
+  th:first-child, td:first-child { white-space: nowrap; }
   @media (max-width: 700px) {
-    .truncate { max-width: 200px; }
+    .truncate { max-width: 160px; }
+    .authors-line { max-width: 260px; }
     th.hide-sm, td.hide-sm { display: none; }
   }
 </style>
@@ -98,32 +106,52 @@
   <div class="card">
     <h2>Calculate</h2>
     <div class="row">
-      <div class="field" style="flex: 2 1 280px;">
+      <div class="field" style="flex: 2 1 240px;">
         <label for="orcid">ORCID iD</label>
         <input id="orcid" type="text" placeholder="0000-0001-2345-6789" autocomplete="off" inputmode="text">
+      </div>
+      <div class="field" style="flex: 0 1 130px;">
+        <label for="window_years">Window (years)</label>
+        <input id="window_years" type="number" min="1" max="10" value="3">
+      </div>
+      <div class="field" style="flex: 0 1 200px;">
+        <label for="reference_year">Reference year <span style="color: var(--muted); font-weight: 400;">(last year in window)</span></label>
+        <input id="reference_year" type="number" value="">
       </div>
       <div class="field" style="flex: 0 0 auto;">
         <button id="go">Calculate</button>
       </div>
     </div>
     <details style="margin-top: 1rem;">
-      <summary>Settings (defaults match Charité 2024–25)</summary>
+      <summary>Add publications ORCID and OpenAlex are missing (RIS / BibTeX upload, or paste DOIs)</summary>
+      <p style="color: var(--muted); font-size: .85rem; margin: .5rem 0 .75rem;">
+        Your DOI list is built from <strong>ORCID</strong> + <strong>OpenAlex</strong> (which often catches papers you never linked to your ORCID), unioned and deduplicated. German clinical / nursing / humanities journals sometimes appear in neither — upload your full bibliography (RIS or BibTeX export from Zotero / EndNote / Mendeley) and we'll add those DOIs too. ORCID is still used for author identity / position matching.
+      </p>
+      <div class="row" style="align-items: stretch;">
+        <div class="field" style="flex: 1 1 280px;">
+          <label for="ris-file">RIS or BibTeX file</label>
+          <input id="ris-file" type="file" accept=".ris,.bib,.bibtex,.txt,application/x-research-info-systems,application/x-bibtex,text/plain">
+          <div id="ris-status" style="font-size: .8rem; color: var(--muted); margin-top: .35rem;"></div>
+        </div>
+        <div class="field" style="flex: 1 1 280px;">
+          <label for="manual-dois">Or paste DOIs (one per line, comma- or space-separated)</label>
+          <input id="manual-dois" type="text" placeholder="10.1234/abc, 10.5678/def">
+        </div>
+      </div>
+    </details>
+    <details style="margin-top: .5rem;">
+      <summary>Advanced settings (€ per IF / RCR, authorship shares)</summary>
       <div class="row" style="margin-top: .75rem;">
         <div class="field"><label>€ per IF point</label><input id="eur_per_if" type="number" step="0.01" value="74.69"></div>
         <div class="field"><label>€ per RCR point</label><input id="eur_per_rcr" type="number" step="0.01" value="269.74"></div>
-        <div class="field"><label>Window (years)</label><input id="window_years" type="number" min="1" max="10" value="3"></div>
-        <div class="field"><label>Reference year (last counted)</label><input id="reference_year" type="number" value=""></div>
       </div>
-      <details style="margin-top: .75rem;">
-        <summary>Authorship shares</summary>
-        <div class="row" style="margin-top: .5rem;">
-          <div class="field"><label>Sole</label><input class="share" data-key="Sole" type="number" step="0.01" value="0.25"></div>
-          <div class="field"><label>First</label><input class="share" data-key="First" type="number" step="0.01" value="0.25"></div>
-          <div class="field"><label>Last</label><input class="share" data-key="Last" type="number" step="0.01" value="0.25"></div>
-          <div class="field"><label>Significant</label><input class="share" data-key="Significant" type="number" step="0.01" value="0.10"></div>
-          <div class="field"><label>Middle</label><input class="share" data-key="Middle" type="number" step="0.01" value="0.04"></div>
-        </div>
-      </details>
+      <div class="row" style="margin-top: .5rem;">
+        <div class="field"><label>Sole</label><input class="share" data-key="Sole" type="number" step="0.01" value="0.25"></div>
+        <div class="field"><label>First</label><input class="share" data-key="First" type="number" step="0.01" value="0.25"></div>
+        <div class="field"><label>Last</label><input class="share" data-key="Last" type="number" step="0.01" value="0.25"></div>
+        <div class="field"><label>Significant</label><input class="share" data-key="Significant" type="number" step="0.01" value="0.10"></div>
+        <div class="field"><label>Middle</label><input class="share" data-key="Middle" type="number" step="0.01" value="0.04"></div>
+      </div>
     </details>
   </div>
 
@@ -136,25 +164,26 @@
   </div>
 
   <div id="rows-card" class="card" hidden>
-    <h2>Per-paper breakdown</h2>
+    <h2>Papers in window <span id="rows-window" style="color: var(--muted); font-weight: 400; font-size: .9rem;"></span></h2>
     <div style="overflow-x: auto;">
       <table id="rows">
         <thead>
           <tr>
             <th>Year</th>
-            <th>Title</th>
-            <th class="hide-sm">Venue</th>
+            <th>Title &amp; authors</th>
+            <th class="hide-sm">Journal</th>
             <th>Authorship</th>
             <th class="num hide-sm">JIF</th>
             <th class="num hide-sm">RCR</th>
             <th class="num">€</th>
+            <th class="num" style="width: 3rem;">Skip</th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
     </div>
     <p style="color: var(--muted); font-size: .8rem; margin-top: .85rem;">
-      Rows in grey are excluded — outside the window, wrong type, or unmatched authorship. JIF comes from a curated reference list maintained by Jamie; if a venue has no entry the JIF value is 0 and only RCR contributes.
+      Only papers published in the chosen window are shown. Rows in grey are in-window but not counted (review type, excluded type, unmatched authorship, or you've excluded them). Click ✕ to drop a paper from the total or ＋ to put it back. Exclusions persist across recalculations.
     </p>
   </div>
 
@@ -173,7 +202,7 @@
   // The public JSON API deployment of the Apps Script project.
   // Replace this with the new deployment URL after running `clasp deploy` for
   // the public-API deployment (different from the existing per-user-Sheet UI).
-  var API_URL = 'https://script.google.com/macros/s/AKfycbwESMThRv-lFf6HCE5GMrBrszF6lF0oyRJmwX_y-18nW7jxr6z8wNGIT186a0gTE-uNAg/exec';
+  var API_URL = 'https://script.google.com/macros/s/AKfycbwuBhrpA3AiaAc8hvHZCH3ess9zzrGBqcRmYde3IuqLGpjBHq5fg27zWKn5Actd0Ry3ug/exec';
 
   // Light client-side gate. The real password check also happens server-side
   // in the Apps Script, so reading this file's source doesn't bypass anything
@@ -181,6 +210,28 @@
   var GATE_PASSWORD = 'TheLineIsACurve';
 
   var STORAGE_KEY = 'lom-calculator.v1';
+  var EXCLUDE_KEY = 'lom-calculator.excluded.v1';
+  var EXTRA_DOIS_KEY = 'lom-calculator.extraDois.v1';
+
+  // -------- DOI helpers --------
+  function normaliseDoi (raw) {
+    if (!raw) return '';
+    var s = String(raw).trim().toLowerCase();
+    s = s.replace(/^https?:\/\/(dx\.)?doi\.org\//, '');
+    s = s.replace(/^doi:/, '');
+    return /^10\./.test(s) ? s : '';
+  }
+  function extractDoisFromText (text) {
+    if (!text) return [];
+    // Catches RIS "DO  - 10.x/y", BibTeX "doi = {10.x/y}", and bare DOIs anywhere.
+    var re = /10\.\d{4,9}\/[^\s",}<>;]+/gi;
+    var out = new Set();
+    (text.match(re) || []).forEach(function (m) {
+      var d = normaliseDoi(m.replace(/[).,;:]+$/, ''));
+      if (d) out.add(d);
+    });
+    return Array.from(out);
+  }
 
   // -------- DOM helpers --------
   function $ (sel) { return document.querySelector(sel); }
@@ -237,11 +288,18 @@
   function loadState () {
     try {
       var s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      return Object.assign({}, defaults, s, { shares: Object.assign({}, defaults.shares, s.shares || {}) });
+      var merged = Object.assign({}, defaults, s, { shares: Object.assign({}, defaults.shares, s.shares || {}) });
+      // ORCID is intentionally NOT restored on page load: each visit starts
+      // with a blank field so a colleague picking up someone else's open tab
+      // doesn't auto-run on the previous user's ORCID.
+      merged.orcid = '';
+      return merged;
     } catch (e) { return Object.assign({}, defaults); }
   }
   function saveState (s) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch (e) {}
+    // Persist settings but not the ORCID — see loadState() comment.
+    var toSave = Object.assign({}, s, { orcid: '' });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave)); } catch (e) {}
   }
 
   function applyStateToForm (s) {
@@ -273,6 +331,58 @@
 
   applyStateToForm(loadState());
 
+  // -------- Extra DOIs (RIS upload + paste) + exclusions --------
+  function loadExclusions () {
+    try { return new Set(JSON.parse(localStorage.getItem(EXCLUDE_KEY) || '[]')); }
+    catch (e) { return new Set(); }
+  }
+  function saveExclusions (set) {
+    try { localStorage.setItem(EXCLUDE_KEY, JSON.stringify(Array.from(set))); } catch (e) {}
+  }
+  function loadExtraDois () {
+    try { return new Set(JSON.parse(localStorage.getItem(EXTRA_DOIS_KEY) || '[]')); }
+    catch (e) { return new Set(); }
+  }
+  function saveExtraDois (set) {
+    try { localStorage.setItem(EXTRA_DOIS_KEY, JSON.stringify(Array.from(set))); } catch (e) {}
+  }
+  var excluded = loadExclusions();
+  var extraDois = loadExtraDois();
+  // Note: we re-derive `extraDois` from the file/manual inputs on each Calculate
+  // press, but persist last-used set so a returning user doesn't re-upload.
+
+  var risFile   = $('#ris-file');
+  var risStatus = $('#ris-status');
+  var manualDois = $('#manual-dois');
+  var lastFileDois = [];
+
+  risFile.addEventListener('change', function () {
+    var f = risFile.files && risFile.files[0];
+    if (!f) { lastFileDois = []; risStatus.textContent = ''; return; }
+    var reader = new FileReader();
+    reader.onload = function () {
+      lastFileDois = extractDoisFromText(reader.result);
+      risStatus.textContent = lastFileDois.length
+        ? '✓ ' + lastFileDois.length + ' DOI' + (lastFileDois.length === 1 ? '' : 's') + ' found in ' + f.name
+        : 'No DOIs found in ' + f.name + ' — does the file contain DO/doi fields?';
+      risStatus.style.color = lastFileDois.length ? 'var(--good)' : 'var(--bad)';
+    };
+    reader.onerror = function () {
+      risStatus.textContent = 'Could not read ' + f.name;
+      risStatus.style.color = 'var(--bad)';
+    };
+    reader.readAsText(f);
+  });
+
+  function gatherExtraDois () {
+    var fromFile   = lastFileDois;
+    var fromManual = extractDoisFromText(manualDois.value || '');
+    var s = new Set();
+    fromFile.forEach(function (d) { s.add(d); });
+    fromManual.forEach(function (d) { s.add(d); });
+    return Array.from(s);
+  }
+
   // -------- Submit --------
   var goBtn = $('#go');
   var msgs  = $('#messages');
@@ -288,10 +398,11 @@
     return Object.keys(sharesObj).map(function (k) { return { authorship: k, share: Number(sharesObj[k]) || 0 }; });
   }
 
-  function postCalculate (state) {
+  function postCalculate (state, extra) {
     var body = {
       password: GATE_PASSWORD,
       orcid: state.orcid,
+      extra_dois: extra || [],
       settings: {
         eur_per_if:     state.eur_per_if,
         eur_per_rcr:    state.eur_per_rcr,
@@ -314,7 +425,7 @@
     });
   }
 
-  function renderTotals (totals, profile, classifications, masterCount) {
+  function renderTotals (totals, profile, classifications, masterCount, diagnostics) {
     $('#totals-card').hidden = false;
     var t = $('#tiles');
     t.innerHTML = '';
@@ -328,8 +439,16 @@
     tile(fmtEur(totals.eur_per_year), 'Per year (avg over window)');
     tile(fmtEur(totals.eur_total),    'Total over ' + totals.window_start + '–' + totals.window_end);
     tile(totals.counted,               'Papers counted');
-    tile(totals.dois_total,             'DOIs from ORCID');
-    tile(totals.jif_matched,            'Venues with JIF in master');
+    var doiLabel = 'DOIs from ORCID';
+    if (diagnostics) {
+      var parts = [];
+      if (diagnostics.dois_from_orcid > 0) parts.push(diagnostics.dois_from_orcid + ' ORCID');
+      if (diagnostics.dois_from_openalex_only > 0) parts.push('+' + diagnostics.dois_from_openalex_only + ' OpenAlex');
+      if (diagnostics.dois_from_upload > 0) parts.push('+' + diagnostics.dois_from_upload + ' uploaded');
+      if (parts.length > 1) doiLabel = parts.join(' ');
+    }
+    tile(totals.dois_total,             doiLabel);
+    tile(totals.jif_matched,            'Journals with JIF in master');
     tile(totals.rcrs_returned + ' / ' + totals.pmids_resolved, 'RCR / PMID resolved');
 
     var pl = '';
@@ -341,35 +460,95 @@
     if (classifications) {
       pl += 'Classified: ' + classifications.First + ' First, ' + classifications.Last + ' Last, ' + classifications.Sole + ' Sole, ' + classifications.Middle + ' Middle, ' + classifications.Unmatched + ' unmatched.';
     }
+    if (excluded.size) {
+      pl += '   ' + excluded.size + ' paper' + (excluded.size === 1 ? '' : 's') + ' manually excluded (click ✕ on a row to toggle).';
+    }
     if (masterCount != null) {
       pl += '   Master JIF list: ' + masterCount + ' entries.';
     }
     $('#profile-line').textContent = pl;
   }
 
-  function renderRows (rows) {
+  // Apply user exclusions to a fresh server response. Mutates row.counted /
+  // row.euro_value, then recomputes totals so the tiles agree with the table.
+  function applyExclusions (data) {
+    var newTotalEur = 0;
+    var newCounted = 0;
+    (data.rows || []).forEach(function (r) {
+      var doiKey = (r.doi || '').toLowerCase();
+      r.user_excluded = excluded.has(doiKey);
+      if (r.user_excluded) {
+        r.counted = false;
+        r.euro_value = 0;
+      } else {
+        // Re-derive counted/euro_value from raw fields so re-including works too.
+        var inWin = r.in_window;
+        var include = r.include === 'Yes';
+        var hasShare = (Number(r.share) || 0) > 0;
+        r.counted = inWin && include && hasShare;
+        if (r.counted) {
+          var eurPerIf  = Number(data.totals.eur_per_if)  || 0;
+          var eurPerRcr = Number(data.totals.eur_per_rcr) || 0;
+          var jif = Number(r.jif) || 0;
+          var rcr = Number(r.rcr) || 0;
+          r.euro_value = Math.round(((Number(r.share) || 0) * (jif * eurPerIf + rcr * eurPerRcr)) * 100) / 100;
+        }
+      }
+      if (r.counted) { newTotalEur += r.euro_value; newCounted++; }
+    });
+    var winYears = Math.max(1, (data.totals.window_end - data.totals.window_start + 1));
+    data.totals.eur_total    = Math.round(newTotalEur * 100) / 100;
+    data.totals.eur_per_year = Math.round((newTotalEur / winYears) * 100) / 100;
+    data.totals.counted      = newCounted;
+  }
+
+  function renderRows (rows, totals) {
     $('#rows-card').hidden = false;
+    var inWindow = rows.filter(function (r) { return r.in_window; });
+    // Display order: most recent first, then by euro value within a year so
+    // the highest-impact paper of each year leads.
+    inWindow.sort(function (a, b) {
+      var ya = Number(a.year) || 0, yb = Number(b.year) || 0;
+      if (ya !== yb) return yb - ya;
+      return (b.euro_value || 0) - (a.euro_value || 0);
+    });
+    if (totals) {
+      $('#rows-window').textContent = '(' + totals.window_start + '–' + totals.window_end + ', ' + inWindow.length + ' paper' + (inWindow.length === 1 ? '' : 's') + ')';
+    }
     var tb = $('#rows tbody');
     tb.innerHTML = '';
-    rows.forEach(function (r) {
+    if (!inWindow.length) {
+      var tr0 = el('tr', {}, []);
+      var td0 = el('td', { colspan: '8', text: 'No papers fall inside this window. Try adjusting the window length or reference year.' }, []);
+      td0.style.textAlign = 'center'; td0.style.color = 'var(--muted)'; td0.style.padding = '1.5rem';
+      tr0.appendChild(td0); tb.appendChild(tr0);
+      return;
+    }
+    inWindow.forEach(function (r) {
       var tr = el('tr', { class: r.counted ? '' : 'dim' }, []);
-      var titleCell = el('td', { class: 'truncate', title: r.title }, []);
-      titleCell.textContent = r.title || '(no title)';
+
+      var titleCell = el('td', {}, []);
+      var titleLine = el('div', { class: 'title-line', title: r.title }, []);
       if (r.doi) {
         var lnk = el('a', { href: 'https://doi.org/' + r.doi, target: '_blank', rel: 'noopener' }, []);
         lnk.textContent = r.title || r.doi;
-        titleCell.textContent = '';
-        titleCell.appendChild(lnk);
+        titleLine.appendChild(lnk);
+      } else {
+        titleLine.textContent = r.title || '(no title)';
       }
+      titleCell.appendChild(titleLine);
+      if (r.authors) {
+        var authorsLine = el('div', { class: 'authors-line', title: r.authors, text: r.authors }, []);
+        titleCell.appendChild(authorsLine);
+      }
+
       var authCell = el('td', {}, []);
       var pillClass = 'pill';
       if (r.authorship === 'First' || r.authorship === 'Last' || r.authorship === 'Sole') pillClass = 'pill good';
       else if (r.authorship === 'Middle') pillClass = 'pill warn';
       else if (!r.authorship) pillClass = 'pill bad';
       authCell.appendChild(el('span', { class: pillClass, text: r.authorship || 'unmatched' }, []));
-      if (!r.in_window) {
-        authCell.appendChild(el('span', { class: 'pill', text: 'outside window' }, []));
-      } else if (r.include === 'Review') {
+      if (r.include === 'Review') {
         authCell.appendChild(el('span', { class: 'pill warn', text: 'review (manual)' }, []));
       } else if (r.include === 'No') {
         authCell.appendChild(el('span', { class: 'pill', text: r.type || 'excluded' }, []));
@@ -378,7 +557,7 @@
       var jifCell = el('td', { class: 'num hide-sm' }, []);
       jifCell.textContent = r.jif > 0 ? fmtNum(r.jif, 1) : '—';
       if (r.jif_in_master === false && r.venue) {
-        jifCell.title = 'Venue not in master JIF list';
+        jifCell.title = 'Journal not in master JIF list';
       }
 
       tr.appendChild(el('td', { text: String(r.year || '') }, []));
@@ -388,9 +567,36 @@
       tr.appendChild(jifCell);
       tr.appendChild(el('td', { class: 'num hide-sm', text: r.rcr != null ? fmtNum(r.rcr, 2) : '—' }, []));
       tr.appendChild(el('td', { class: 'num', text: r.counted ? fmtEur(r.euro_value) : '—' }, []));
+
+      // Per-row include / exclude toggle. Click ✕ to drop a paper out of the
+      // total (e.g. you're listed but it shouldn't count); click ✓ to put it
+      // back. Persists in localStorage so it survives recalcs.
+      var doiKey = (r.doi || '').toLowerCase();
+      var toggleCell = el('td', { class: 'num' }, []);
+      var btn = el('button', { class: 'ghost row-toggle', type: 'button', title: r.user_excluded ? 'Click to include' : 'Click to exclude from total' }, []);
+      btn.textContent = r.user_excluded ? '＋' : '✕';
+      btn.style.padding = '.15rem .5rem';
+      btn.style.fontSize = '.85rem';
+      btn.style.minWidth = '2.2rem';
+      btn.addEventListener('click', function () {
+        if (!doiKey) return;
+        if (excluded.has(doiKey)) excluded.delete(doiKey); else excluded.add(doiKey);
+        saveExclusions(excluded);
+        if (lastResponse) {
+          applyExclusions(lastResponse);
+          renderTotals(lastResponse.totals, lastResponse.diagnostics && lastResponse.diagnostics.profile, lastResponse.diagnostics && lastResponse.diagnostics.classifications, lastResponse.diagnostics && lastResponse.diagnostics.master_jif_entries, lastResponse.diagnostics);
+          renderRows(lastResponse.rows, lastResponse.totals);
+        }
+      });
+      toggleCell.appendChild(btn);
+      tr.appendChild(toggleCell);
+
       tb.appendChild(tr);
     });
   }
+
+  // Latest API response — kept so client-side toggles (exclude) can recompute totals.
+  var lastResponse = null;
 
   function calculate () {
     var state = readFormState();
@@ -407,14 +613,19 @@
       setMsg('err', 'Calculator is not yet wired up — the API URL has not been set. (Jamie: deploy the public API and edit static/lom/index.html.)');
       return;
     }
+    var extra = gatherExtraDois();
+    saveExtraDois(new Set(extra));
     goBtn.disabled = true;
     var origLabel = goBtn.textContent;
     goBtn.innerHTML = '<span class="spinner"></span>Calculating…';
-    setMsg('info', 'Pulling publications from ORCID and OpenAlex. This typically takes 10–60 seconds depending on how many papers you have.');
+    var srcMsg = extra.length
+      ? 'Pulling publications from ORCID + OpenAlex + ' + extra.length + ' uploaded DOI' + (extra.length === 1 ? '' : 's') + '. This typically takes 10–60 seconds.'
+      : 'Pulling publications from ORCID and OpenAlex. This typically takes 10–60 seconds depending on how many papers you have.';
+    setMsg('info', srcMsg);
     $('#totals-card').hidden = true;
     $('#rows-card').hidden = true;
 
-    postCalculate(state).then(function (data) {
+    postCalculate(state, extra).then(function (data) {
       goBtn.disabled = false;
       goBtn.textContent = origLabel;
       if (!data.ok) {
@@ -422,8 +633,10 @@
         return;
       }
       setMsg('', '');
-      renderTotals(data.totals, data.diagnostics && data.diagnostics.profile, data.diagnostics && data.diagnostics.classifications, data.diagnostics && data.diagnostics.master_jif_entries);
-      renderRows(data.rows || []);
+      lastResponse = data;
+      applyExclusions(lastResponse);
+      renderTotals(lastResponse.totals, lastResponse.diagnostics && lastResponse.diagnostics.profile, lastResponse.diagnostics && lastResponse.diagnostics.classifications, lastResponse.diagnostics && lastResponse.diagnostics.master_jif_entries, lastResponse.diagnostics);
+      renderRows(lastResponse.rows || [], lastResponse.totals);
       if (data.diagnostics && data.diagnostics.log && data.diagnostics.log.length) {
         var d = el('div', { class: 'msg warn' }, []);
         d.innerHTML = '<strong>API notes:</strong><br>' + data.diagnostics.log.map(function (l) { return l.replace(/[<>]/g, ''); }).join('<br>');

@@ -123,9 +123,9 @@
       </div>
     </div>
     <details style="margin-top: 1rem;">
-      <summary>Add publications ORCID is missing (RIS / BibTeX upload, or paste DOIs)</summary>
+      <summary>Add publications ORCID and OpenAlex are missing (RIS / BibTeX upload, or paste DOIs)</summary>
       <p style="color: var(--muted); font-size: .85rem; margin: .5rem 0 .75rem;">
-        German clinical / nursing / humanities journals often don't push to ORCID. Upload your full bibliography (RIS or BibTeX export from Zotero / EndNote / Mendeley) and we'll union the DOIs with your ORCID list. ORCID is still used for author identity / position matching.
+        Your DOI list is built from <strong>ORCID</strong> + <strong>OpenAlex</strong> (which often catches papers you never linked to your ORCID), unioned and deduplicated. German clinical / nursing / humanities journals sometimes appear in neither — upload your full bibliography (RIS or BibTeX export from Zotero / EndNote / Mendeley) and we'll add those DOIs too. ORCID is still used for author identity / position matching.
       </p>
       <div class="row" style="align-items: stretch;">
         <div class="field" style="flex: 1 1 280px;">
@@ -440,8 +440,12 @@
     tile(fmtEur(totals.eur_total),    'Total over ' + totals.window_start + '–' + totals.window_end);
     tile(totals.counted,               'Papers counted');
     var doiLabel = 'DOIs from ORCID';
-    if (diagnostics && diagnostics.dois_from_upload > 0) {
-      doiLabel = diagnostics.dois_from_orcid + ' ORCID + ' + diagnostics.dois_from_upload + ' uploaded';
+    if (diagnostics) {
+      var parts = [];
+      if (diagnostics.dois_from_orcid > 0) parts.push(diagnostics.dois_from_orcid + ' ORCID');
+      if (diagnostics.dois_from_openalex_only > 0) parts.push('+' + diagnostics.dois_from_openalex_only + ' OpenAlex');
+      if (diagnostics.dois_from_upload > 0) parts.push('+' + diagnostics.dois_from_upload + ' uploaded');
+      if (parts.length > 1) doiLabel = parts.join(' ');
     }
     tile(totals.dois_total,             doiLabel);
     tile(totals.jif_matched,            'Journals with JIF in master');
@@ -615,7 +619,7 @@
     var origLabel = goBtn.textContent;
     goBtn.innerHTML = '<span class="spinner"></span>Calculating…';
     var srcMsg = extra.length
-      ? 'Pulling publications from ORCID + ' + extra.length + ' uploaded DOI' + (extra.length === 1 ? '' : 's') + '. This typically takes 10–60 seconds.'
+      ? 'Pulling publications from ORCID + OpenAlex + ' + extra.length + ' uploaded DOI' + (extra.length === 1 ? '' : 's') + '. This typically takes 10–60 seconds.'
       : 'Pulling publications from ORCID and OpenAlex. This typically takes 10–60 seconds depending on how many papers you have.';
     setMsg('info', srcMsg);
     $('#totals-card').hidden = true;
