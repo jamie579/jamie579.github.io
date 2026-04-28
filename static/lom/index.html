@@ -145,7 +145,10 @@
         <button id="go">Calculate</button>
       </div>
       <div class="field" style="flex: 0 0 auto;">
-        <button id="download-xlsx" class="ghost" title="Fetch the data and download as an editable Excel file. Opens in Excel, Numbers, Google Sheets, or LibreOffice — totals recompute via formulas as you edit.">Download Excel</button>
+        <button id="open-sheet" class="ghost" title="Open in a live Google Sheet. Anyone with the link can edit; share it with colleagues for live co-editing. No Google account needed to view/edit.">Open in Google Sheets</button>
+      </div>
+      <div class="field" style="flex: 0 0 auto;">
+        <button id="download-xlsx" class="ghost" title="Download as an Excel file. Opens in Excel, Numbers, Google Sheets, or LibreOffice — totals recompute via formulas as you edit.">Download Excel</button>
       </div>
     </div>
     <details style="margin-top: 1rem;">
@@ -485,6 +488,20 @@
   function postDownloadXlsx (state, extra) {
     var body = calcBody(state, extra);
     body.action = 'download_xlsx';
+    return fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(body),
+      redirect: 'follow',
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
+  }
+
+  function postOpenSheet (state, extra) {
+    var body = calcBody(state, extra);
+    body.action = 'open_sheet';
     return fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -917,6 +934,57 @@
 
   goBtn.addEventListener('click', calculate);
   $('#orcid').addEventListener('keydown', function (e) { if (e.key === 'Enter') calculate(); });
+
+  // -------- Open in Google Sheets --------
+  // Opens Google's tab BEFORE the fetch starts so popup blockers don't fire
+  // (the click → window.open chain has to be synchronous). We then write
+  // the resolved URL into the new window once the API returns. If the API
+  // fails, we close the placeholder tab and show an error.
+  var openSheetBtn = $('#open-sheet');
+  if (openSheetBtn) {
+    openSheetBtn.addEventListener('click', function () {
+      var state = readFormState();
+      saveState(state);
+      if (!state.orcid) { setMsg('err', 'Please enter your ORCID iD first.'); return; }
+      if (!/\d{4}-\d{4}-\d{4}-\d{3}[\dX]/.test(state.orcid)) {
+        setMsg('err', 'That does not look like an ORCID iD. Format: 0000-0001-2345-6789.');
+        return;
+      }
+      var extra = gatherExtraDois();
+      saveExtraDois(new Set(extra));
+      var newTab = window.open('about:blank', '_blank');
+      if (newTab) {
+        newTab.document.write(
+          '<!doctype html><meta charset="utf-8"><title>Building your LOM Sheet…</title>' +
+          '<style>body{font-family:system-ui,Arial,sans-serif;padding:3rem;color:#333;text-align:center}h1{font-weight:600;font-size:1.4rem}p{color:#555;max-width:36rem;margin:1rem auto}</style>' +
+          '<h1>Building your LOM Sheet…</h1>' +
+          '<p>Pulling publications from ORCID and OpenAlex, looking up JIFs and RCRs, then writing everything into a Google Sheet you can edit. This usually takes 30–90 seconds.</p>' +
+          '<p>Don\'t close this tab.</p>'
+        );
+      }
+      openSheetBtn.disabled = true;
+      var origLabel = openSheetBtn.textContent;
+      openSheetBtn.innerHTML = '<span class="spinner"></span>Building Sheet…';
+      setMsg('info', 'Building your Google Sheet (opens in a new tab when ready). This usually takes 30–90 seconds.');
+      postOpenSheet(state, extra).then(function (data) {
+        openSheetBtn.disabled = false;
+        openSheetBtn.textContent = origLabel;
+        if (!data || !data.ok) {
+          if (newTab) newTab.close();
+          setMsg('err', (data && data.error) || 'Sheet creation failed.');
+          return;
+        }
+        if (newTab) newTab.location.href = data.url;
+        else window.open(data.url, '_blank');
+        setMsg('info', '✓ Sheet ready: ' + data.sheet_name + '. Anyone with the link can edit — share it with your colleagues.');
+      }).catch(function (err) {
+        openSheetBtn.disabled = false;
+        openSheetBtn.textContent = origLabel;
+        if (newTab) newTab.close();
+        setMsg('err', 'Network or server error: ' + err.message);
+      });
+    });
+  }
 
   // -------- Download Excel --------
   var dlBtn = $('#download-xlsx');
