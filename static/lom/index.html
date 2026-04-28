@@ -1012,7 +1012,10 @@
         }
         if (newTab) newTab.location.href = data.url;
         else window.open(data.url, '_blank');
-        setMsg('info', '✓ Sheet ready: ' + (data.sheet_name || '') + '. Anyone with the link can edit — share it with your colleagues.');
+        var msgTail = (data.mode === 'copy')
+          ? 'View-only link with a "Make a copy" prompt — sign in with any Google account to copy it to your own Drive and edit there.'
+          : 'Anyone with the link can edit — share it with your colleagues.';
+        setMsg('info', '✓ Sheet ready: ' + (data.sheet_name || '') + '. ' + msgTail);
       }).catch(function (err) {
         openSheetBtn.disabled = false;
         openSheetBtn.textContent = origLabel;
