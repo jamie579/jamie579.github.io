@@ -171,8 +171,8 @@
     <details style="margin-top: .5rem;">
       <summary>Advanced settings (€ per IF / RCR, authorship shares)</summary>
       <div class="row" style="margin-top: .75rem;">
-        <div class="field"><label>€ per IF point</label><input id="eur_per_if" type="number" step="0.01" value="63.55"></div>
-        <div class="field"><label>€ per RCR point</label><input id="eur_per_rcr" type="number" step="0.01" value="229.59"></div>
+        <div class="field"><label>€ per IF point</label><input id="eur_per_if" type="number" step="0.01" value="74.69"></div>
+        <div class="field"><label>€ per RCR point</label><input id="eur_per_rcr" type="number" step="0.01" value="269.74"></div>
       </div>
       <div class="row" style="margin-top: .5rem;">
         <div class="field"><label>Sole</label><input class="share" data-key="Sole" type="number" step="0.01" value="0.50"></div>
@@ -184,21 +184,9 @@
         <div class="field"><label>Middle</label><input class="share" data-key="Middle" type="number" step="0.01" value="0.06"></div>
       </div>
       <p style="color: var(--muted); font-size: .8rem; margin-top: .5rem;">
-        Defaults follow a common Charité FBA convention (principal authors get half-credit each; middle authors get a small share). Different clinics use different tables — ask your Klinik admin for the FBA-approved values and edit here.
+        €/IF and €/RCR are the documented Charité LB 2025 rates — edit if your cycle uses different values. The share table is the per-clinic FBA-approved split; principal authors getting half-credit each is a common Charité convention but different clinics use different tables, so ask your Klinik admin and edit the share values here if needed.
         <a href="#" id="reset-defaults" style="color: var(--navy); margin-left: .5rem;">Reset all to defaults</a> — clears any saved settings, row exclusions, and per-row overrides.
       </p>
-      <div class="row" style="margin-top: .75rem; align-items: flex-end; padding: .6rem .75rem; background: #f3f5f8; border-radius: 6px;">
-        <div class="field">
-          <label>Calibrate against a known LOM amount (€)</label>
-          <input id="cal-target" type="number" step="1" placeholder="e.g. 2100">
-        </div>
-        <div class="field" style="flex: 0 0 auto;">
-          <button id="cal-apply" class="ghost" type="button" title="Scale €/IF and €/RCR by (target ÷ current total) so the calculator matches a real LOM payment. Rates change every cycle and are faculty-wide; share tables are clinic-specific and rarely change — so scaling rates is usually the more correct adjustment.">Calibrate rates</button>
-        </div>
-        <p class="field" style="flex: 1 1 100%; color: var(--muted); font-size: .8rem; margin: .25rem 0 0;">
-          If you know what someone was actually paid for this window, type it here and click Calibrate. The €/IF and €/RCR rates above will be scaled by the same ratio so the total matches — these are the values Charité actually publishes per LOM cycle, so the post-calibration rates tell you what Pichit's cycle effectively used. Share table is left untouched (it's clinic-specific, not annual).
-        </p>
-      </div>
       <p style="color: var(--muted); font-size: .8rem; margin-top: .75rem;">
         Master JIF table is cached server-side for 6 hours. If the maintainer just added or corrected a JIF and you need the change immediately, click <a href="#" id="refresh-jif" style="color: var(--navy);">Refresh JIF table</a>. <span id="refresh-jif-msg" style="color: var(--muted);"></span>
       </p>
@@ -334,18 +322,18 @@
   // -------- Settings persistence --------
   var defaults = {
     orcid: '',
-    eur_per_if: 63.55,
-    eur_per_rcr: 229.59,
+    eur_per_if: 74.69,
+    eur_per_rcr: 269.74,
     window_years: 3,
     reference_year: new Date().getFullYear() - 1,
     shares: { Sole: 0.50, First: 0.50, 'Joint first': 0.25, Last: 0.50, 'Joint last': 0.25, Significant: 0.15, Middle: 0.06, 'Not included': 0 },
   };
 
-  // Migrate stale settings to the calibrated defaults. We bump
-  // SETTINGS_VERSION any time the defaults change — saved states tagged with
-  // an older version get their shares and/or rates replaced if they match
-  // a known previous default exactly. Custom values are preserved.
-  var SETTINGS_VERSION = 3;
+  // Migrate stale settings to current defaults. Bump SETTINGS_VERSION any
+  // time the defaults change — saved states tagged with an older version
+  // get their shares and/or rates replaced if they match a known previous
+  // default exactly. Custom values are preserved.
+  var SETTINGS_VERSION = 4;
   function maybeMigrateShares (s) {
     if (!s) return s;
     if (s.settings_version === SETTINGS_VERSION) return s;
@@ -359,12 +347,13 @@
       && (eq(sh.Last, 0.25) || sh.Last == null)
       && (eq(sh.Middle, 0.04) || sh.Middle == null);
     if (looksLegacy) s.shares = null;
-    // Rates: if either still sits on the historical defaults (74.69 / 269.74),
-    // replace with the calibrated defaults so the user gets the better
-    // baseline. Custom rates are preserved.
-    // Delete (not null) so Object.assign falls through to defaults below.
-    if (eq(s.eur_per_if, 74.69)) delete s.eur_per_if;
-    if (eq(s.eur_per_rcr, 269.74)) delete s.eur_per_rcr;
+    // Rates: catch users stuck on the briefly-deployed wrong defaults
+    // (63.55 / 229.59 — backsolved against one person's payment then
+    // discovered to be the wrong dimension). Reset to the documented
+    // Charité LB 2025 rates. Custom rates outside that exact value are
+    // preserved.
+    if (eq(s.eur_per_if, 63.55)) delete s.eur_per_if;
+    if (eq(s.eur_per_rcr, 229.59)) delete s.eur_per_rcr;
     s.settings_version = SETTINGS_VERSION;
     return s;
   }
@@ -1103,50 +1092,6 @@
       recomputeAndRerender();
     });
   });
-
-  // -------- Calibrate share table against a known LOM total --------
-  var calBtn = $('#cal-apply');
-  if (calBtn) {
-    calBtn.addEventListener('click', function () {
-      var target = Number($('#cal-target').value);
-      if (!target || target <= 0) {
-        setMsg('err', 'Enter a positive € amount in the calibration box first.');
-        return;
-      }
-      if (!lastResponse || !lastResponse.totals) {
-        setMsg('err', 'Click Calculate first so there is a current total to scale against.');
-        return;
-      }
-      var current = Number(lastResponse.totals.eur_total) || 0;
-      if (current <= 0) {
-        setMsg('err', 'Current total is zero — nothing to scale. Are any rows counted?');
-        return;
-      }
-      var factor = target / current;
-      // Scale €/IF and €/RCR rates rather than the share table. Rates are
-      // a single faculty-wide number per LOM cycle; share tables are
-      // clinic-specific and stable. After calibration the displayed rates
-      // show what the cycle effectively paid per IF and per RCR point.
-      var ifInput  = $('#eur_per_if');
-      var rcrInput = $('#eur_per_rcr');
-      var ifOld  = Number(ifInput.value)  || 0;
-      var rcrOld = Number(rcrInput.value) || 0;
-      ifInput.value  = (ifOld  * factor).toFixed(2);
-      rcrInput.value = (rcrOld * factor).toFixed(2);
-      saveState(readFormState());
-      // Sync into the cached response so recomputeAndRerender uses the new rates.
-      if (lastResponse && lastResponse.totals) {
-        lastResponse.totals.eur_per_if  = Number(ifInput.value);
-        lastResponse.totals.eur_per_rcr = Number(rcrInput.value);
-      }
-      recomputeAndRerender();
-      var newTotal = Number(lastResponse.totals.eur_total) || 0;
-      setMsg('info', '✓ Rates scaled by ' + factor.toFixed(3)
-        + ' → €/IF = ' + ifInput.value + ', €/RCR = ' + rcrInput.value
-        + '. Total now €' + newTotal.toFixed(2)
-        + ' (target €' + target.toFixed(0) + ').');
-    });
-  }
 
   // -------- Reset all to defaults --------
   var resetLink = $('#reset-defaults');
