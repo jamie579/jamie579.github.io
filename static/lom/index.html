@@ -82,6 +82,29 @@
     .authors-line { max-width: 260px; }
     th.hide-sm, td.hide-sm { display: none; }
   }
+  /* Inline editable cells: render flat until hovered/focused, so the table
+     reads as data not a wall of form controls. */
+  .inline-edit { background: transparent; border: 1px solid transparent; border-radius: 4px; padding: .15rem .3rem; font: inherit; color: inherit; }
+  .inline-edit:hover { border-color: #d0d7de; background: #fafbfc; }
+  .inline-edit:focus { border-color: var(--navy); background: #fff; outline: none; }
+  .inline-edit.num { width: 5rem; text-align: right; }
+  select.inline-edit { padding: .2rem .3rem; max-width: 9rem; }
+  .override-dot { color: var(--navy); margin-left: .35rem; font-size: .75rem; vertical-align: middle; }
+  .rcr-est { margin-left: .4rem; font-size: .75rem; color: var(--navy); text-decoration: none; border-bottom: 1px dashed var(--navy); }
+  .rcr-est:hover { background: #fafbfc; }
+  /* RCR estimator modal */
+  #rcr-est-modal { position: fixed; inset: 0; background: rgba(20, 24, 33, .45); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+  .rcr-est-card { background: #fff; border-radius: 10px; padding: 1.5rem; max-width: 540px; width: calc(100% - 2rem); box-shadow: 0 12px 40px rgba(0,0,0,.2); }
+  .rcr-est-card h3 { margin: 0 0 .5rem 0; }
+  .rcr-est-card .muted { color: var(--muted); font-size: .85rem; }
+  .rcr-est-card .row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .75rem; }
+  .rcr-est-card .field { display: flex; flex-direction: column; flex: 1 1 120px; }
+  .rcr-est-card .field label { font-size: .8rem; color: var(--muted); margin-bottom: .15rem; }
+  .rcr-est-card .field input { padding: .35rem .5rem; border: 1px solid #d0d7de; border-radius: 4px; }
+  .rcr-est-card code { background: #f3f5f8; padding: .05rem .3rem; border-radius: 3px; font-size: .85rem; }
+  .rcr-est-actions { display: flex; gap: .5rem; justify-content: flex-end; margin-top: 1rem; }
+  .rcr-est-actions button { padding: .4rem .9rem; border-radius: 4px; cursor: pointer; border: 1px solid var(--navy); background: var(--navy); color: #fff; }
+  .rcr-est-actions button.ghost { background: transparent; color: var(--navy); }
 </style>
 </head>
 <body>
@@ -148,7 +171,9 @@
       <div class="row" style="margin-top: .5rem;">
         <div class="field"><label>Sole</label><input class="share" data-key="Sole" type="number" step="0.01" value="0.25"></div>
         <div class="field"><label>First</label><input class="share" data-key="First" type="number" step="0.01" value="0.25"></div>
+        <div class="field"><label>Joint first</label><input class="share" data-key="Joint first" type="number" step="0.01" value="0.125"></div>
         <div class="field"><label>Last</label><input class="share" data-key="Last" type="number" step="0.01" value="0.25"></div>
+        <div class="field"><label>Joint last</label><input class="share" data-key="Joint last" type="number" step="0.01" value="0.125"></div>
         <div class="field"><label>Significant</label><input class="share" data-key="Significant" type="number" step="0.01" value="0.10"></div>
         <div class="field"><label>Middle</label><input class="share" data-key="Middle" type="number" step="0.01" value="0.04"></div>
       </div>
@@ -186,7 +211,7 @@
       </table>
     </div>
     <p style="color: var(--muted); font-size: .8rem; margin-top: .85rem;">
-      Only papers published in the chosen window are shown. Rows in grey are in-window but not counted (review type, excluded type, unmatched authorship, or you've excluded them). Click ✕ to drop a paper from the total or ＋ to put it back. Exclusions persist across recalculations.
+      Only papers published in the chosen window are shown. Rows in grey are in-window but not counted (review type, excluded type, no share, or you've excluded them). <strong>Edit any cell:</strong> change the authorship dropdown (incl. Joint first / Joint last), type a JIF if the master sheet is missing one, or click <em>est?</em> next to an empty RCR to back-of-envelope it. Edits persist in your browser and a ● marks any row you've overridden. Click ✕ to drop a paper from the total or ＋ to put it back.
     </p>
   </div>
 
@@ -215,6 +240,12 @@
   var STORAGE_KEY = 'lom-calculator.v1';
   var EXCLUDE_KEY = 'lom-calculator.excluded.v1';
   var EXTRA_DOIS_KEY = 'lom-calculator.extraDois.v1';
+  // Per-row overrides keyed by lower-case DOI: { authorship?, jif?, rcr? }.
+  // These are applied client-side after every server response, so users can
+  // correct misclassified rows (e.g. server says Middle but you were Joint
+  // first), patch JIFs the master sheet doesn't have, or stub in an estimated
+  // RCR for very recent papers iCite hasn't computed yet.
+  var OVERRIDES_KEY = 'lom-calculator.overrides.v1';
 
   // -------- DOI helpers --------
   function normaliseDoi (raw) {
@@ -285,7 +316,7 @@
     eur_per_rcr: 269.74,
     window_years: 3,
     reference_year: new Date().getFullYear() - 1,
-    shares: { Sole: 0.25, First: 0.25, Last: 0.25, Significant: 0.10, Middle: 0.04 },
+    shares: { Sole: 0.25, First: 0.25, 'Joint first': 0.125, Last: 0.25, 'Joint last': 0.125, Significant: 0.10, Middle: 0.04, 'Not included': 0 },
   };
 
   function loadState () {
@@ -342,6 +373,22 @@
   function saveExclusions (set) {
     try { localStorage.setItem(EXCLUDE_KEY, JSON.stringify(Array.from(set))); } catch (e) {}
   }
+  function loadOverrides () {
+    try { return JSON.parse(localStorage.getItem(OVERRIDES_KEY) || '{}') || {}; }
+    catch (e) { return {}; }
+  }
+  function saveOverrides (map) {
+    try { localStorage.setItem(OVERRIDES_KEY, JSON.stringify(map)); } catch (e) {}
+  }
+  function setOverride (doi, key, value) {
+    if (!doi) return;
+    var doiKey = doi.toLowerCase();
+    if (!overrides[doiKey]) overrides[doiKey] = {};
+    if (value == null || value === '') delete overrides[doiKey][key];
+    else overrides[doiKey][key] = value;
+    if (!Object.keys(overrides[doiKey]).length) delete overrides[doiKey];
+    saveOverrides(overrides);
+  }
   function loadExtraDois () {
     try { return new Set(JSON.parse(localStorage.getItem(EXTRA_DOIS_KEY) || '[]')); }
     catch (e) { return new Set(); }
@@ -350,6 +397,7 @@
     try { localStorage.setItem(EXTRA_DOIS_KEY, JSON.stringify(Array.from(set))); } catch (e) {}
   }
   var excluded = loadExclusions();
+  var overrides = loadOverrides();
   var extraDois = loadExtraDois();
   // Note: we re-derive `extraDois` from the file/manual inputs on each Calculate
   // press, but persist last-used set so a returning user doesn't re-upload.
@@ -472,19 +520,58 @@
     $('#profile-line').textContent = pl;
   }
 
-  // Apply user exclusions to a fresh server response. Mutates row.counted /
-  // row.euro_value, then recomputes totals so the tiles agree with the table.
-  function applyExclusions (data) {
+  // Resolve a share value for an authorship label using the form's current
+  // share table (so live changes to Advanced settings affect the recompute).
+  function shareFor (authorship) {
+    if (!authorship) return 0;
+    var inputs = document.querySelectorAll('.share');
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].getAttribute('data-key') === authorship) {
+        return Number(inputs[i].value) || 0;
+      }
+    }
+    return 0;
+  }
+
+  // Apply user overrides + exclusions to a fresh server response. Each row
+  // gets the user's authorship/JIF/RCR overrides folded in, then the share
+  // is re-derived from the (possibly changed) authorship, and counted/
+  // euro_value are recomputed. Then the totals are refreshed so the tiles
+  // agree with the table after any local edit.
+  function applyAdjustments (data) {
     var newTotalEur = 0;
     var newCounted = 0;
     (data.rows || []).forEach(function (r) {
       var doiKey = (r.doi || '').toLowerCase();
+      var ov = (doiKey && overrides[doiKey]) || null;
+
+      // Capture original server values once so toggling overrides off restores them.
+      if (r._orig == null) {
+        r._orig = {
+          authorship: r.authorship,
+          share: r.share,
+          jif: r.jif,
+          rcr: r.rcr,
+        };
+      }
+
+      // Apply authorship override (and re-derive share from the form table).
+      if (ov && ov.authorship != null) {
+        r.authorship = ov.authorship;
+        r.share = shareFor(ov.authorship);
+      } else {
+        r.authorship = r._orig.authorship;
+        r.share = r._orig.share;
+      }
+      r.jif = (ov && ov.jif != null) ? Number(ov.jif) : r._orig.jif;
+      r.rcr = (ov && ov.rcr != null) ? Number(ov.rcr) : r._orig.rcr;
+      r.user_overridden = !!(ov && (ov.authorship != null || ov.jif != null || ov.rcr != null));
+
       r.user_excluded = excluded.has(doiKey);
       if (r.user_excluded) {
         r.counted = false;
         r.euro_value = 0;
       } else {
-        // Re-derive counted/euro_value from raw fields so re-including works too.
         var inWin = r.in_window;
         var include = r.include === 'Yes';
         var hasShare = (Number(r.share) || 0) > 0;
@@ -495,6 +582,8 @@
           var jif = Number(r.jif) || 0;
           var rcr = Number(r.rcr) || 0;
           r.euro_value = Math.round(((Number(r.share) || 0) * (jif * eurPerIf + rcr * eurPerRcr)) * 100) / 100;
+        } else {
+          r.euro_value = 0;
         }
       }
       if (r.counted) { newTotalEur += r.euro_value; newCounted++; }
@@ -503,6 +592,73 @@
     data.totals.eur_total    = Math.round(newTotalEur * 100) / 100;
     data.totals.eur_per_year = Math.round((newTotalEur / winYears) * 100) / 100;
     data.totals.counted      = newCounted;
+  }
+  // Back-compat alias — older code paths called applyExclusions.
+  var applyExclusions = applyAdjustments;
+
+  // Single entry point used by every editable cell: re-apply overrides +
+  // exclusions to the cached server response, then redraw the totals tiles
+  // and the table.
+  function recomputeAndRerender () {
+    if (!lastResponse) return;
+    applyAdjustments(lastResponse);
+    var diag = lastResponse.diagnostics || {};
+    renderTotals(lastResponse.totals, diag.profile, diag.classifications, diag.master_jif_entries, diag);
+    renderRows(lastResponse.rows, lastResponse.totals);
+  }
+
+  // Back-of-envelope RCR estimator. NIH iCite computes RCR by normalising a
+  // paper's citations-per-year against a field-specific co-citation network
+  // expectation; we don't have access to that, so we approximate with a
+  // user-supplied field baseline (defaulting to 1.5 cites/yr for the
+  // biomedical mid-tier). The result is explicitly a placeholder until
+  // iCite publishes the real value.
+  function openRcrEstimator (row, doiKey) {
+    var existing = document.getElementById('rcr-est-modal');
+    if (existing) existing.remove();
+    var year = Number(row.year) || (new Date().getFullYear());
+    var yearsElapsed = Math.max(0.5, (new Date().getFullYear() + 0.5) - year);
+    var modal = document.createElement('div');
+    modal.id = 'rcr-est-modal';
+    modal.innerHTML =
+      '<div class="rcr-est-card">' +
+      '  <h3>Estimate RCR for this paper</h3>' +
+      '  <p class="muted">Rough back-of-envelope: <code>RCR ≈ (citations / years_post_pub) / field_baseline</code>. ' +
+      '  iCite\'s actual value will replace this once NIH computes it (typically 12–18 months post-publication).</p>' +
+      '  <div class="row">' +
+      '    <div class="field"><label>Citations</label><input id="est-cites" type="number" min="0" step="1" value="0"></div>' +
+      '    <div class="field"><label>Years since publication</label><input id="est-years" type="number" min="0.1" step="0.1" value="' + yearsElapsed.toFixed(1) + '"></div>' +
+      '    <div class="field"><label>Field baseline (cites/yr)</label><input id="est-base" type="number" min="0.1" step="0.1" value="1.5"></div>' +
+      '  </div>' +
+      '  <p style="margin-top:.75rem;">Estimated RCR: <strong id="est-out">—</strong></p>' +
+      '  <div class="rcr-est-actions">' +
+      '    <button class="ghost" id="est-cancel" type="button">Cancel</button>' +
+      '    <button class="primary" id="est-apply" type="button">Use this value</button>' +
+      '  </div>' +
+      '</div>';
+    document.body.appendChild(modal);
+    function recalc () {
+      var c = Number(document.getElementById('est-cites').value) || 0;
+      var y = Math.max(0.1, Number(document.getElementById('est-years').value) || 0.1);
+      var b = Math.max(0.1, Number(document.getElementById('est-base').value) || 0.1);
+      var rcr = (c / y) / b;
+      document.getElementById('est-out').textContent = (rcr ? rcr.toFixed(2) : '0.00');
+    }
+    ['est-cites', 'est-years', 'est-base'].forEach(function (id) {
+      document.getElementById(id).addEventListener('input', recalc);
+    });
+    recalc();
+    document.getElementById('est-cancel').addEventListener('click', function () { modal.remove(); });
+    document.getElementById('est-apply').addEventListener('click', function () {
+      var c = Number(document.getElementById('est-cites').value) || 0;
+      var y = Math.max(0.1, Number(document.getElementById('est-years').value) || 0.1);
+      var b = Math.max(0.1, Number(document.getElementById('est-base').value) || 0.1);
+      var rcr = Math.round(((c / y) / b) * 100) / 100;
+      setOverride(doiKey, 'rcr', rcr);
+      modal.remove();
+      recomputeAndRerender();
+    });
+    modal.addEventListener('click', function (e) { if (e.target === modal) modal.remove(); });
   }
 
   function renderRows (rows, totals) {
@@ -545,22 +701,95 @@
         titleCell.appendChild(authorsLine);
       }
 
+      var doiKey = (r.doi || '').toLowerCase();
+
+      // Authorship: select dropdown, options pulled from the share table.
       var authCell = el('td', {}, []);
-      var pillClass = 'pill';
-      if (r.authorship === 'First' || r.authorship === 'Last' || r.authorship === 'Sole') pillClass = 'pill good';
-      else if (r.authorship === 'Middle') pillClass = 'pill warn';
-      else if (!r.authorship) pillClass = 'pill bad';
-      authCell.appendChild(el('span', { class: pillClass, text: r.authorship || 'unmatched' }, []));
+      var authSelect = document.createElement('select');
+      authSelect.className = 'inline-edit';
+      var authOptions = ['Sole', 'First', 'Joint first', 'Last', 'Joint last', 'Significant', 'Middle', 'Not included'];
+      // Preserve an unrecognised server-supplied value (e.g. "Unmatched") so
+      // the user sees what the classifier actually produced before they pick.
+      if (r.authorship && authOptions.indexOf(r.authorship) === -1) authOptions.unshift(r.authorship);
+      if (!r.authorship) authOptions.unshift('');
+      authOptions.forEach(function (opt) {
+        var o = document.createElement('option');
+        o.value = opt;
+        o.textContent = opt || '— pick —';
+        if (opt === (r.authorship || '')) o.selected = true;
+        authSelect.appendChild(o);
+      });
+      authSelect.addEventListener('change', function () {
+        if (!doiKey) return;
+        var v = authSelect.value;
+        var orig = r._orig ? r._orig.authorship : '';
+        setOverride(doiKey, 'authorship', v === orig ? null : v);
+        recomputeAndRerender();
+      });
+      authCell.appendChild(authSelect);
+      if (r.user_overridden) {
+        var dot = el('span', { class: 'override-dot', title: 'You\'ve overridden this row' }, []);
+        dot.textContent = '●';
+        authCell.appendChild(dot);
+      }
       if (r.include === 'Review') {
         authCell.appendChild(el('span', { class: 'pill warn', text: 'review (manual)' }, []));
       } else if (r.include === 'No') {
         authCell.appendChild(el('span', { class: 'pill', text: r.type || 'excluded' }, []));
       }
 
+      // JIF: inline editable number.
       var jifCell = el('td', { class: 'num hide-sm' }, []);
-      jifCell.textContent = r.jif > 0 ? fmtNum(r.jif, 1) : '—';
+      var jifInput = document.createElement('input');
+      jifInput.type = 'number';
+      jifInput.step = '0.1';
+      jifInput.min = '0';
+      jifInput.className = 'inline-edit num';
+      jifInput.value = r.jif > 0 ? fmtNum(r.jif, 1) : '';
+      jifInput.placeholder = '—';
       if (r.jif_in_master === false && r.venue) {
-        jifCell.title = 'Journal not in master JIF list';
+        jifInput.title = 'Journal not in master JIF list — enter a value to override';
+      }
+      jifInput.addEventListener('change', function () {
+        if (!doiKey) return;
+        var v = jifInput.value === '' ? null : Number(jifInput.value);
+        var orig = r._orig ? Number(r._orig.jif) || 0 : 0;
+        setOverride(doiKey, 'jif', (v === null || v === orig) ? null : v);
+        recomputeAndRerender();
+      });
+      jifCell.appendChild(jifInput);
+
+      // RCR: inline editable number + a small estimator link when the cell
+      // is empty (paper too new, or not in PubMed → iCite has no value yet).
+      var rcrCell = el('td', { class: 'num hide-sm' }, []);
+      var rcrInput = document.createElement('input');
+      rcrInput.type = 'number';
+      rcrInput.step = '0.01';
+      rcrInput.min = '0';
+      rcrInput.className = 'inline-edit num';
+      rcrInput.value = (r.rcr != null) ? fmtNum(r.rcr, 2) : '';
+      rcrInput.placeholder = '—';
+      rcrInput.addEventListener('change', function () {
+        if (!doiKey) return;
+        var v = rcrInput.value === '' ? null : Number(rcrInput.value);
+        var orig = r._orig && r._orig.rcr != null ? Number(r._orig.rcr) : null;
+        setOverride(doiKey, 'rcr', (v === null || v === orig) ? null : v);
+        recomputeAndRerender();
+      });
+      rcrCell.appendChild(rcrInput);
+      // Estimate helper. Only show when the cell is empty AND we have a year
+      // (so we can compute years-since-publication for the back-of-envelope).
+      if (!rcrInput.value && r.year) {
+        var estLink = document.createElement('a');
+        estLink.href = '#';
+        estLink.className = 'rcr-est';
+        estLink.textContent = 'est?';
+        estLink.title = 'Quick RCR estimate from a citation count (rough — iCite\'s real value will arrive once NIH computes it)';
+        estLink.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          openRcrEstimator(r, doiKey);
+        });
+        rcrCell.appendChild(estLink);
       }
 
       tr.appendChild(el('td', { text: String(r.year || '') }, []));
@@ -568,7 +797,7 @@
       tr.appendChild(el('td', { class: 'truncate hide-sm', title: r.venue, text: r.venue || '' }, []));
       tr.appendChild(authCell);
       tr.appendChild(jifCell);
-      tr.appendChild(el('td', { class: 'num hide-sm', text: r.rcr != null ? fmtNum(r.rcr, 2) : '—' }, []));
+      tr.appendChild(rcrCell);
       tr.appendChild(el('td', { class: 'num', text: r.counted ? fmtEur(r.euro_value) : '—' }, []));
 
       // Per-row include / exclude toggle. Click ✕ to drop a paper out of the
@@ -585,11 +814,7 @@
         if (!doiKey) return;
         if (excluded.has(doiKey)) excluded.delete(doiKey); else excluded.add(doiKey);
         saveExclusions(excluded);
-        if (lastResponse) {
-          applyExclusions(lastResponse);
-          renderTotals(lastResponse.totals, lastResponse.diagnostics && lastResponse.diagnostics.profile, lastResponse.diagnostics && lastResponse.diagnostics.classifications, lastResponse.diagnostics && lastResponse.diagnostics.master_jif_entries, lastResponse.diagnostics);
-          renderRows(lastResponse.rows, lastResponse.totals);
-        }
+        recomputeAndRerender();
       });
       toggleCell.appendChild(btn);
       tr.appendChild(toggleCell);
@@ -654,6 +879,21 @@
 
   goBtn.addEventListener('click', calculate);
   $('#orcid').addEventListener('keydown', function (e) { if (e.key === 'Enter') calculate(); });
+
+  // Live-recompute when the share table changes — so flipping Joint first
+  // from 0.125 to 0.20 (say) updates totals immediately without having to
+  // hit Calculate again. Same for the €/IF and €/RCR inputs.
+  Array.prototype.forEach.call(document.querySelectorAll('.share, #eur_per_if, #eur_per_rcr'), function (inp) {
+    inp.addEventListener('change', function () {
+      saveState(readFormState());
+      // Sync new rates into the cached response so the next recompute uses them.
+      if (lastResponse && lastResponse.totals) {
+        lastResponse.totals.eur_per_if  = Number($('#eur_per_if').value)  || lastResponse.totals.eur_per_if;
+        lastResponse.totals.eur_per_rcr = Number($('#eur_per_rcr').value) || lastResponse.totals.eur_per_rcr;
+      }
+      recomputeAndRerender();
+    });
+  });
 
   var refreshLink = $('#refresh-jif');
   if (refreshLink) {
