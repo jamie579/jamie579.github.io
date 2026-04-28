@@ -152,6 +152,9 @@
         <div class="field"><label>Significant</label><input class="share" data-key="Significant" type="number" step="0.01" value="0.10"></div>
         <div class="field"><label>Middle</label><input class="share" data-key="Middle" type="number" step="0.01" value="0.04"></div>
       </div>
+      <p style="color: var(--muted); font-size: .8rem; margin-top: .75rem;">
+        Master JIF table is cached server-side for 6 hours. If the maintainer just added or corrected a JIF and you need the change immediately, click <a href="#" id="refresh-jif" style="color: var(--navy);">Refresh JIF table</a>. <span id="refresh-jif-msg" style="color: var(--muted);"></span>
+      </p>
     </details>
   </div>
 
@@ -651,6 +654,29 @@
 
   goBtn.addEventListener('click', calculate);
   $('#orcid').addEventListener('keydown', function (e) { if (e.key === 'Enter') calculate(); });
+
+  var refreshLink = $('#refresh-jif');
+  if (refreshLink) {
+    refreshLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      var msg = $('#refresh-jif-msg');
+      msg.textContent = ' Clearing cache…';
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ password: GATE_PASSWORD, action: 'clear_jif_cache' }),
+        redirect: 'follow',
+      }).then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data && data.ok) {
+            msg.textContent = ' ✓ Cleared. Master now has ' + data.master_jif_entries + ' entries. Click Calculate to use them.';
+          } else {
+            msg.textContent = ' ✗ ' + ((data && data.error) || 'Unknown error');
+          }
+        })
+        .catch(function (err) { msg.textContent = ' ✗ ' + err.message; });
+    });
+  }
 
 })();
 </script>
