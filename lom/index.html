@@ -184,7 +184,7 @@
         <div class="field"><label>Middle</label><input class="share" data-key="Middle" type="number" step="0.01" value="0.06"></div>
       </div>
       <p style="color: var(--muted); font-size: .8rem; margin-top: .5rem;">
-        Defaults calibrated against a real 2022–2024 Charité LOM payment (€2,100) — matches within ~1%. Adjust if your clinic's FBA-approved share table differs.
+        Defaults follow a common Charité FBA convention (principal authors get half-credit each; middle authors get a small share). Different clinics use different tables — ask your Klinik admin for the FBA-approved values and edit here.
         <a href="#" id="reset-defaults" style="color: var(--navy); margin-left: .5rem;">Reset all to defaults</a> — clears any saved settings, row exclusions, and per-row overrides.
       </p>
       <p style="color: var(--muted); font-size: .8rem; margin-top: .75rem;">
@@ -1002,9 +1002,17 @@
           setMsg('err', (data && data.error) || 'Sheet creation failed.');
           return;
         }
+        if (!data.url) {
+          // The API responded OK but didn't return a URL — almost always
+          // means the deployed Apps Script doesn't yet handle the
+          // `open_sheet` action and fell through to normal calculate.
+          if (newTab) newTab.close();
+          setMsg('err', 'API did not return a Sheet URL — the public API needs to be redeployed (Deploy → Manage deployments → New version).');
+          return;
+        }
         if (newTab) newTab.location.href = data.url;
         else window.open(data.url, '_blank');
-        setMsg('info', '✓ Sheet ready: ' + data.sheet_name + '. Anyone with the link can edit — share it with your colleagues.');
+        setMsg('info', '✓ Sheet ready: ' + (data.sheet_name || '') + '. Anyone with the link can edit — share it with your colleagues.');
       }).catch(function (err) {
         openSheetBtn.disabled = false;
         openSheetBtn.textContent = origLabel;
@@ -1038,8 +1046,15 @@
           setMsg('err', (data && data.error) || 'Download failed.');
           return;
         }
+        if (!data.xlsx_base64) {
+          // API responded OK but didn't return a file — the deployed Apps
+          // Script likely doesn't yet handle the `download_xlsx` action
+          // and fell through to normal calculate.
+          setMsg('err', 'API did not return an Excel file — the public API needs to be redeployed (Deploy → Manage deployments → New version).');
+          return;
+        }
         triggerXlsxDownload(data.xlsx_base64, data.filename);
-        setMsg('info', '✓ Downloaded ' + data.filename + '. Open it in Excel, Numbers, Google Sheets, or LibreOffice — totals recompute as you edit.');
+        setMsg('info', '✓ Downloaded ' + (data.filename || 'lom.xlsx') + '. Open it in Excel, Numbers, Google Sheets, or LibreOffice — totals recompute as you edit.');
       }).catch(function (err) {
         dlBtn.disabled = false;
         dlBtn.textContent = origLabel;
