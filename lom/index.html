@@ -187,6 +187,18 @@
         Defaults follow a common Charité FBA convention (principal authors get half-credit each; middle authors get a small share). Different clinics use different tables — ask your Klinik admin for the FBA-approved values and edit here.
         <a href="#" id="reset-defaults" style="color: var(--navy); margin-left: .5rem;">Reset all to defaults</a> — clears any saved settings, row exclusions, and per-row overrides.
       </p>
+      <div class="row" style="margin-top: .75rem; align-items: flex-end; padding: .6rem .75rem; background: #f3f5f8; border-radius: 6px;">
+        <div class="field">
+          <label>Calibrate against a known LOM amount (€)</label>
+          <input id="cal-target" type="number" step="1" placeholder="e.g. 2100">
+        </div>
+        <div class="field" style="flex: 0 0 auto;">
+          <button id="cal-apply" class="ghost" type="button" title="Scale every share in the table by (target ÷ current total) so the calculator matches a real LOM payment you've been told about. Run Calculate first.">Calibrate share table</button>
+        </div>
+        <p class="field" style="flex: 1 1 100%; color: var(--muted); font-size: .8rem; margin: .25rem 0 0;">
+          If you know what someone was actually paid for this window, type it here and click Calibrate. Every share value will be scaled by the same ratio so the total matches. Useful when your clinic's exact FBA share table is unknown.
+        </p>
+      </div>
       <p style="color: var(--muted); font-size: .8rem; margin-top: .75rem;">
         Master JIF table is cached server-side for 6 hours. If the maintainer just added or corrected a JIF and you need the change immediately, click <a href="#" id="refresh-jif" style="color: var(--navy);">Refresh JIF table</a>. <span id="refresh-jif-msg" style="color: var(--muted);"></span>
       </p>
@@ -639,12 +651,17 @@
       }
 
       // Apply authorship override (and re-derive share from the form table).
+      // Even for non-overridden rows we read share from the form, so edits
+      // to the share table in Advanced settings (or the calibration helper
+      // below) propagate immediately to every paper, not only the ones the
+      // user has explicitly overridden.
       if (ov && ov.authorship != null) {
         r.authorship = ov.authorship;
         r.share = shareFor(ov.authorship);
       } else {
         r.authorship = r._orig.authorship;
-        r.share = r._orig.share;
+        var fromForm = shareFor(r._orig.authorship);
+        r.share = fromForm > 0 ? fromForm : (Number(r._orig.share) || 0);
       }
       r.jif = (ov && ov.jif != null) ? Number(ov.jif) : r._orig.jif;
       r.rcr = (ov && ov.rcr != null) ? Number(ov.rcr) : r._orig.rcr;
@@ -1080,6 +1097,40 @@
       recomputeAndRerender();
     });
   });
+
+  // -------- Calibrate share table against a known LOM total --------
+  var calBtn = $('#cal-apply');
+  if (calBtn) {
+    calBtn.addEventListener('click', function () {
+      var target = Number($('#cal-target').value);
+      if (!target || target <= 0) {
+        setMsg('err', 'Enter a positive € amount in the calibration box first.');
+        return;
+      }
+      if (!lastResponse || !lastResponse.totals) {
+        setMsg('err', 'Click Calculate first so there is a current total to scale against.');
+        return;
+      }
+      var current = Number(lastResponse.totals.eur_total) || 0;
+      if (current <= 0) {
+        setMsg('err', 'Current total is zero — nothing to scale. Are any rows counted?');
+        return;
+      }
+      var factor = target / current;
+      // Apply factor to every share input. Keep three decimals to avoid
+      // accumulating rounding error if the user calibrates repeatedly.
+      Array.prototype.forEach.call(document.querySelectorAll('.share'), function (el) {
+        var v = Number(el.value) || 0;
+        el.value = (v * factor).toFixed(3);
+      });
+      saveState(readFormState());
+      recomputeAndRerender();
+      var newTotal = Number(lastResponse.totals.eur_total) || 0;
+      setMsg('info', '✓ Share table scaled by ' + factor.toFixed(3)
+        + ' (current total now €' + newTotal.toFixed(2)
+        + ', target €' + target.toFixed(0) + '). Edit individual share rows in Advanced if you want to fine-tune.');
+    });
+  }
 
   // -------- Reset all to defaults --------
   var resetLink = $('#reset-defaults');
