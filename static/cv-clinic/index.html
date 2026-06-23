@@ -31,6 +31,12 @@
   .cta { display: inline-block; background: var(--navy); color: #fff; font-weight: 700;
     text-decoration: none; padding: .8rem 1.4rem; border-radius: 10px; margin: .3rem 0; }
   .cta:hover { background: var(--navy-dark); }
+  .alt { background: #fbfdff; }
+  .dl { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin: .5rem 0 0; }
+  .btn2 { display: inline-block; background: #eef3f9; color: var(--navy-dark);
+    border: 1px solid #cfe0f2; text-decoration: none; padding: .55rem .9rem;
+    border-radius: 9px; font-weight: 600; }
+  .btn2:hover { background: #e2ecf8; }
   .muted { color: var(--muted); font-size: .92rem; }
   footer { max-width: 760px; margin: 0 auto; padding: 1.5rem 1rem 3rem; color: var(--muted);
     font-size: .85rem; border-top: 1px solid var(--line); }
@@ -80,6 +86,17 @@
     <p class="muted">Opens the secure application. You will need the clinic access code your host
     gave you. <a href="https://cv.jamiebriansmith.com/privacy" rel="noopener noreferrer">Privacy
     notice</a>.</p>
+
+    <div class="card alt">
+      <h2>Prefer to fill it in yourself?</h2>
+      <p>You don't have to enter anything online. Download a blank template with the same
+      structure the tool produces and complete it offline — no access code needed.</p>
+      <p class="dl">
+        <a class="btn2" href="templates/master-cv-template.docx" download>Master CV template (Word)</a>
+        <a class="btn2" href="templates/master-cv-template.md" download>Markdown version</a>
+        <a class="btn2" href="templates/evidence-ledger-template.xlsx" download>Evidence ledger (Excel)</a>
+      </p>
+    </div>
   </main>
 
   <footer>
