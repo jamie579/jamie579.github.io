@@ -21,3 +21,6 @@ main:
   - name: LOM
     url: /lom/
     weight: 40
+  - name: CV Clinic
+    url: /cv-clinic/
+    weight: 45
