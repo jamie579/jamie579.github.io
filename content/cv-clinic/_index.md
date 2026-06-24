@@ -16,7 +16,7 @@ sections:
         public engagement — not just to rearrange a publication list.
 
         <p style="margin:1.5rem 0">
-          <a href="https://cv.jamiebriansmith.com/clinic/REPLACE-WITH-CLINIC-SLUG" rel="noopener noreferrer"
+          <a href="https://cv.jamiebriansmith.com/clinic/pilot" rel="noopener noreferrer"
              style="display:inline-block;background:#003f7d;color:#fff;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:700">
             Launch CV Foundry
           </a>
