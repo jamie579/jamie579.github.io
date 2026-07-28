@@ -1,0 +1,84 @@
+name: Build and publish website
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/**'
+      - 'config/**'
+      - 'assets/**'
+      - 'layouts/**'
+      - 'static/**'
+      - 'go.mod'
+      - 'go.sum'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/build-and-publish.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: website-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21.5'
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.154.5'
+          extended: true
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: '10.14.0'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build Hugo site
+        run: hugo --gc --minify -b https://jamiebriansmith.com/
+
+      - name: Build search index
+        run: pnpm run pagefind
+
+      - name: Copy generated site to published root
+        run: |
+          rsync -a public/ ./
+          touch .nojekyll
+
+      - name: Commit generated site
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No generated changes to publish.'
+          else
+            git commit -m 'Build website [skip ci]'
+            git push
+          fi
