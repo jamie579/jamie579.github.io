@@ -1,0 +1,83 @@
+name: Build live Hugo site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/**'
+      - 'assets/**'
+      - 'static/**'
+      - 'layouts/**'
+      - 'config/**'
+      - 'themes/**'
+      - 'go.mod'
+      - 'go.sum'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/build-live-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-live-site
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21.5'
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: '10.14.0'
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.154.5'
+          extended: true
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build Hugo site
+        run: hugo --gc --minify -b https://jamiebriansmith.com
+
+      - name: Build search index
+        run: pnpm run pagefind
+
+      - name: Copy generated site to GitHub Pages root
+        run: rsync -a public/ ./
+
+      - name: Commit generated site
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Build live site [skip ci]'
+            git push
+          fi
