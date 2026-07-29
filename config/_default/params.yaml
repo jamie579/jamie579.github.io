@@ -9,19 +9,19 @@ hugoblox:
 
   # ────────────────────────────────────────────────────────────────────────────
   # IDENTITY
-  # Site-level branding (for people/profiles, use the author system in content/authors/)
+  # Site-level branding (for people/profiles, use the author system in data/authors/)
   # ────────────────────────────────────────────────────────────────────────────
   identity:
     # Site name - shown in navbar, footer, copyright, and browser title by default
-    name: "Dr Jamie B Smith"
+    name: "Dr Jamie B. Smith"
     # Legal entity for copyright notices (defaults to name if not set)
     organization: ""
     # Schema.org type for structured data
     type: person                        # person | organization | local_business
     # Short tagline displayed on your site
-    tagline: "Clinical-Academic Nurse Researcher | Transplant Surgery & Critical Care"
+    tagline: "Institutional Ethnographer | Clinical-Academic Nurse Researcher"
     # Site meta description for search engines and social sharing
-    description: "Dr Jamie B Smith is a clinical-academic nurse researcher with expertise in transplant surgery, critical care nursing, and health systems research."
+    description: "Dr Jamie B. Smith is an institutional ethnographer and clinical-academic nurse researcher studying how policies, technologies, inequalities and organisational conditions shape nursing work and care."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: ""              # Twitter/X handle for Twitter Cards (without @)
@@ -129,7 +129,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   seo:
     # Browser tab title override (defaults to identity.name if not set)
-    title: "Dr Jamie B Smith | Clinical-Academic Nurse Researcher"
+    title: "Dr Jamie B. Smith"
     # For local_business identity type only
     location:
       address:
@@ -147,9 +147,12 @@ hugoblox:
       allow:
         - /
         - /about/
+        - /research/
+        - /institutional-ethnography/
         - /publications/
+        - /elsewhere/
       disallow: []
-      note: "Academic portfolio of Dr Jamie B Smith, clinical-academic nurse researcher specialising in transplant surgery, critical care nursing, and health systems research."
+      note: "Academic portfolio of Dr Jamie B. Smith, an institutional ethnographer and clinical-academic nurse researcher working across nursing workforce wellbeing, implementation science, responsible health technology and nursing philosophy."
       contact: "jamie@hornesmith.co.uk"
 
   # ────────────────────────────────────────────────────────────────────────────
@@ -285,9 +288,8 @@ hugoblox:
     # Hide "Powered by HugoBlox" attribution
     # Requires: Pro subscription to support HugoBlox via alternative means
     # Note: Even with Pro, you can keep this false to support open source!
-    # Get Pro: https://hugoblox.com/pro
     hide_attribution: false
-    
-    # Affiliate referral code for rewards program
-    # Join affiliate program: https://hugoblox.com/affiliates
+
+    # Affiliate referral code for rewards
+    # Join: https://hugoblox.com/affiliates
     affiliate_code: ""
