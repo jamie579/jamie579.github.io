@@ -1,19 +1,23 @@
 ---
-title: 'Dr Jamie B Smith | Clinical-Academic Nurse Researcher'
+title: 'Dr Jamie B. Smith | Institutional Ethnographer and Nurse Researcher'
 date: 2026-02-01
-lastmod: 2026-07-28
+lastmod: 2026-07-29
 type: landing
-summary: 'Dr Jamie B Smith is a clinical-academic nurse researcher with 17 years experience in transplant surgery and critical care nursing. Research expertise in nursing workforce sustainability, AI ethics in healthcare, and posthuman perspectives on life support technologies.'
+summary: 'Dr Jamie B. Smith is an institutional ethnographer and clinical-academic nurse researcher studying how policies, technologies, inequalities and organisational conditions shape nursing work and care.'
 keywords:
+  - institutional ethnographer
+  - institutional ethnography
+  - posthuman institutional ethnography
   - nurse researcher
   - clinical academic
-  - transplant surgery
-  - critical care nursing
-  - organ donation
-  - nursing philosophy
-  - posthuman nursing
-  - healthcare AI ethics
   - nursing workforce
+  - workforce wellbeing
+  - implementation science
+  - process evaluation
+  - nursing philosophy
+  - responsible healthcare technology
+  - AI ethics in healthcare
+  - critical care nursing
   - health systems research
 
 design:
@@ -31,6 +35,19 @@ sections:
       avatar:
         size: large
         shape: rounded
+  - block: markdown
+    content:
+      title: How institutions organise care
+      text: |
+        I am an **institutional ethnographer and clinical-academic nurse researcher**. My work starts from everyday nursing practice and traces how policies, professional texts, technologies, staffing arrangements and institutional expectations coordinate what becomes possible in care.
+
+        I developed **posthuman institutional ethnography** as an approach to healthcare research through my PhD, *Ecologies of Care*, and subsequent work published in the *Journal of Advanced Nursing*. I combine institutional ethnography with mixed methods, implementation science, process evaluation and nursing philosophy to connect everyday experience with the systems that organise it.
+
+        My research focuses on four connected areas: **nursing workforce wellbeing**, **implementation and process evaluation**, **responsible health technology and AI**, and **nursing philosophy and critical posthumanism**.
+
+        [Explore my research →](/research/) · [Institutional ethnography →](/institutional-ethnography/)
+    design:
+      columns: '1'
   - block: experience
     content:
       username: me
