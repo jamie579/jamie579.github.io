@@ -2,19 +2,18 @@ schema: hugoblox/author/v1
 slug: me-about
 is_owner: false
 name:
-  display: Dr Jamie B Smith
-  given: Jamie B
+  display: Dr Jamie B. Smith
+  given: Jamie
   family: Smith
   pronunciation: Jamie Brian Smith
   pronouns: he/him
 status:
   icon: "🏥"
-role: Clinical-Academic Nurse Researcher
+role: Institutional Ethnographer & Nurse Researcher
 bio: >
-  I'm a nurse, researcher, and educator working across transplant surgery and critical care. I study how
-  systems and technologies shape care - and what supports sustainable nursing work in high-acuity
-  settings. I use mixed methods (including process evaluation) and work with teams on behaviour change
-  and implementation.
+  I'm an institutional ethnographer and clinical-academic nurse researcher. I study how policies,
+  technologies, organisational conditions and inequalities coordinate nursing work and care, combining
+  institutional ethnography with mixed methods, implementation science and process evaluation.
 affiliations:
   - name: Edinburgh Napier University
     url: https://www.napier.ac.uk/
@@ -39,8 +38,8 @@ links:
     url: https://www.linkedin.com/in/jamiebriansmith/
     label: LinkedIn
   - icon: hero/building-office-2
-    url: https://gender.charite.de/metas/person/person/address_detail/msc_jamie_b_smith
-    label: Charite profile
+    url: https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/
+    label: Charité profile
   - icon: hero/building-library
     url: https://napier-repository.worktribe.com/person/4171465/jamie-smith
     label: Edinburgh Napier University profile
