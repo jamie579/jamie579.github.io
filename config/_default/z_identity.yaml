@@ -1,0 +1,20 @@
+hugoblox:
+  identity:
+    name: "Dr Jamie B. Smith"
+    organization: ""
+    type: person
+    tagline: "Institutional Ethnographer | Clinical-Academic Nurse Researcher"
+    description: "Dr Jamie B. Smith is an institutional ethnographer and clinical-academic nurse researcher studying how policies, technologies, inequalities and organisational conditions shape nursing work and care."
+  seo:
+    title: "Dr Jamie B. Smith"
+    ai:
+      allow:
+        - /
+        - /about/
+        - /research/
+        - /institutional-ethnography/
+        - /publications/
+        - /elsewhere/
+      disallow: []
+      note: "Academic portfolio of Dr Jamie B. Smith, an institutional ethnographer and clinical-academic nurse researcher working across nursing workforce wellbeing, implementation science, responsible health technology and nursing philosophy."
+      contact: "jamie@hornesmith.co.uk"
