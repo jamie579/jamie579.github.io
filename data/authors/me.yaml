@@ -2,22 +2,20 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr Jamie B Smith
-  given: Jamie B
+  display: Dr Jamie B. Smith
+  given: Jamie
   family: Smith
   pronunciation: Jamie Brian Smith
   pronouns: he/him
 status:
   icon: "🏥"
-role: Clinical-Academic Nurse Researcher
+role: Institutional Ethnographer & Nurse Researcher
 bio: >
-  I'm a clinical-academic nurse, researcher, and educator, with seventeen years of practice in
-  transplant surgery, critical care, and organ donation. My research runs along three connected strands:
-  nursing workforce sustainability in high-acuity settings; health equity and structural inequality —
-  how gender, access, and social conditions shape health and care; and critical perspectives on care,
-  technology, and everyday ethics. Methodologically, I combine psychometrics, process evaluation, and
-  evidence synthesis with critical posthuman institutional ethnography, working with clinical teams,
-  policymakers, and trial consortia.
+  I'm an institutional ethnographer and clinical-academic nurse researcher with seventeen years of
+  practice in transplant surgery, critical care and organ donation. My work starts from everyday nursing
+  practice and traces how policies, technologies, staffing, professional expectations and structural
+  inequalities organise care. I combine institutional ethnography with mixed methods, implementation
+  science, process evaluation and nursing philosophy.
 affiliations:
   - name: Edinburgh Napier University
     url: https://www.napier.ac.uk/
@@ -42,8 +40,8 @@ links:
     url: https://www.linkedin.com/in/jamiebriansmith/
     label: LinkedIn
   - icon: hero/building-office-2
-    url: https://gender.charite.de/metas/person/person/address_detail/msc_jamie_b_smith
-    label: Charite profile
+    url: https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/
+    label: Charité profile
   - icon: hero/building-library
     url: https://napier-repository.worktribe.com/person/4171465/jamie-smith
     label: Edinburgh Napier University profile
