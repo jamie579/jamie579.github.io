@@ -1,5 +1,5 @@
 ---
-title: 'Dr Jamie B. Smith | Institutional Ethnographer and Nurse Researcher'
+title: 'Institutional Ethnographer and Nurse Researcher'
 date: 2026-02-01
 lastmod: 2026-07-29
 type: landing
