@@ -10,6 +10,12 @@ main:
   - name: About
     url: /about/
     weight: 15
+  - name: Research
+    url: /research/
+    weight: 18
+  - name: Institutional Ethnography
+    url: /institutional-ethnography/
+    weight: 19
   - name: Publications
     url: /publications/
     weight: 20
