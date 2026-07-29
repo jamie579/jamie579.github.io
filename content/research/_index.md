@@ -60,7 +60,7 @@ sections:
 
         ## Current institutional settings
 
-        My work is based across [Charité – Universitätsmedizin Berlin](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/) and [Edinburgh Napier University](https://www.napier.ac.uk/people/jamie-smith), with collaborations across healthcare, universities and international nursing-philosophy networks.
+        My work is based across [Charité – Universitätsmedizin Berlin](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/) and [Edinburgh Napier University's research repository](https://napier-repository.worktribe.com/person/4171465/jamie-smith/outputs?Type=Journal+Article&page=1), with collaborations across healthcare, universities and international nursing-philosophy networks.
 
         [Publications →](/publications/) · [External profiles and recognition →](/elsewhere/)
     design:
