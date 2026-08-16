@@ -66,6 +66,7 @@ sections:
         - [UC Irvine: Fifth Nursing Philosophy Reading Group Series — co-led with Jess Dillard-Wright](https://nursing.uci.edu/news-events/events/nursing-pinning-ceremony-4)
         - [UC Irvine: Shaping the Future of Nursing symposium](https://nursing.uci.edu/news-events/events/center-for-nursing-philosophy-symposium/)
         - [Medical (Post)Humanities? conference: speaker biography](https://sites.google.com/view/medicalposthumanitiesinfo/speaker-biographies)
+        - [Wellcome: Early-Career Award Interview Panel — panel member](https://wellcome.org/research-funding/guidance/how-wellcome-makes-funding-decisions/funding-application-advisory-committees/early-career-award-interview-panel)
 
         ## Editorial roles
 
