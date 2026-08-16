@@ -7,6 +7,12 @@ name:
   family: Smith
   pronunciation: Jamie Brian Smith
   pronouns: he/him
+  # All name forms that appear in bylines and profiles; feeds Person.alternateName
+  variants:
+    - Jamie B. Smith
+    - Jamie B Smith
+    - Jamie Brian Smith
+    - Jamie Smith
 status:
   icon: "🏥"
 role: Institutional Ethnographer & Nurse Researcher
@@ -48,6 +54,12 @@ links:
   - icon: hero/academic-cap
     url: https://edwebprofiles.ed.ac.uk/profile/jamie-smith
     label: University of Edinburgh profile
+# Verified identity URLs included in Person.sameAs but not rendered as profile buttons
+sameas:
+  - https://www.wikidata.org/wiki/Q136215075
+  - https://x.com/mrhornesmith
+  - https://www.researchgate.net/profile/Jamie-Smith-44
+  - https://forschungsdatenbank.charite.de/experts/profile/jamie_smith/en
 education:
   - degree: PhD Nursing, Philosophy and Sociology
     institution: University of Edinburgh

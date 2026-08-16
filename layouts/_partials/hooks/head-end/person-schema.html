@@ -36,6 +36,13 @@
   {{- end -}}
 {{- end -}}
 
+{{- /* Identity URLs that belong in sameAs but should not render as profile buttons */ -}}
+{{- range $author.sameas -}}
+  {{- if not (in $sameAs .) -}}
+    {{- $sameAs = $sameAs | append . -}}
+  {{- end -}}
+{{- end -}}
+
 {{- $affiliations := slice -}}
 {{- range $author.affiliations -}}
   {{- $item := dict "@type" "Organization" "name" (.name | default "") -}}
@@ -52,9 +59,13 @@
 {{- $headshotCaption := printf "Headshot portrait of %s" $displayName -}}
 
 {{- $alumniOf := slice -}}
+{{- $alumniNames := slice -}}
 {{- range $author.education -}}
   {{- with .institution -}}
-    {{- $alumniOf = $alumniOf | append (dict "@type" "CollegeOrUniversity" "name" .) -}}
+    {{- if not (in $alumniNames .) -}}
+      {{- $alumniNames = $alumniNames | append . -}}
+      {{- $alumniOf = $alumniOf | append (dict "@type" "CollegeOrUniversity" "name" .) -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 
@@ -95,7 +106,19 @@
   "mainEntityOfPage" (dict "@id" site.BaseURL)
 -}}
 
-{{- with $author.name.pronunciation -}}
+{{- /* alternateName covers every byline/profile name form to disambiguate a common name */ -}}
+{{- $altNames := slice -}}
+{{- range $author.name.variants -}}
+  {{- if and (ne . $displayName) (not (in $altNames .)) -}}
+    {{- $altNames = $altNames | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $altNames -}}
+  {{- with $author.name.pronunciation -}}
+    {{- $altNames = slice . -}}
+  {{- end -}}
+{{- end -}}
+{{- with $altNames -}}
   {{- $person = merge $person (dict "alternateName" .) -}}
 {{- end -}}
 
@@ -117,6 +140,23 @@
 <script type="application/ld+json">
 {{- $person | jsonify | safeJS -}}
 </script>
+
+{{- /* Mark the homepage and About page as the entity home (Google ProfilePage structured data) */ -}}
+{{- $isProfilePage := or page.IsHome (eq (strings.TrimSuffix "/" page.RelPermalink) "/about") -}}
+{{- if $isProfilePage -}}
+{{- $profilePage := dict
+  "@context" "https://schema.org"
+  "@type" "ProfilePage"
+  "mainEntity" (dict "@id" $personId)
+  "dateModified" (page.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+-}}
+<script type="application/ld+json">
+{{- $profilePage | jsonify | safeJS -}}
+</script>
+<meta property="og:type" content="profile" />
+<meta property="profile:first_name" content="{{ $givenName }}" />
+<meta property="profile:last_name" content="{{ $familyName }}" />
+{{- end -}}
 
 {{- range $relMe -}}
 <link rel="me" href="{{ . }}" />
