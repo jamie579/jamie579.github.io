@@ -59,7 +59,7 @@ sections:
 
         My work is also documented by independent institutional and editorial sources, including [Charité – Universitätsmedizin Berlin](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/), the [UC Irvine Center for Nursing Philosophy fellowship programme](https://nursing.uci.edu/faculty-research/center-institutes/center-for-nursing-philosophy/nursing-philosophy-fellows/), [Edinburgh Napier University's SHORTER trial record](https://www.napier.ac.uk/research-and-innovation/research-search/projects/a-randomised-controlled-trial-of-short-duration-antibiotic-therapy-for-critically-ill), and essays published by [The Polyphony](https://thepolyphony.org/2023/03/27/a-critical-posthuman-call-to-make-person-centered-care-messier/).
 
-        In 2023, I received the **Burdett Trust for Nursing Individual Award** for founding [The Nursing Tartan](https://thenursingtartan.com/pages/the-tartan).
+        In 2022, I received a **Burdett Hero Award** from the Burdett Trust for Nursing, with Georgia Duffy, for founding [The Nursing Tartan](https://thenursingtartan.com/pages/the-tartan) — one of fourteen projects recognised at the Trust's twentieth-anniversary celebration.
 
         [View all verified external profiles, recognition and features →](/elsewhere/)
     design:
