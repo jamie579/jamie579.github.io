@@ -54,6 +54,7 @@ sections:
         - [University of Edinburgh: Tartan honouring nursing is woven with gratitude](https://www.ed.ac.uk/news/2021/tartan-honouring-nursing-is-woven-with-gratitude)
         - [Nursing Times: New tartan launched in Scotland to celebrate nursing kinship](https://www.nursingtimes.net/news/2020-international-year-of-the-nurse-and-midwife/new-tartan-created-in-scotland-to-celebrate-nursing-kinship-10-02-2020/)
         - [Nursing Now Challenge: Tartan honouring nursing is woven with gratitude](https://www.nursingnow.org/news/tartan-honouring-nursing-is-woven-with-gratitude/)
+        - [INANE Virtual Journal 2025: Nursing Inquiry's selected article](https://airtable.com/app1QbygMN23wigqu/shrWJLJgkowwzvNcj/tblk7bmZ8z2QWteGr) — 'The Vitruvian nurse and burnout' (Smith, Willis, Hopkins-Walsh, Dillard-Wright & Brown) chosen by the Editor-in-Chief as the journal's sole representative article among 78 journals.
 
         ## Fellowships and invited academic contributions
 
