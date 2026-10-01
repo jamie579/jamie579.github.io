@@ -153,7 +153,6 @@
 <script type="application/ld+json">
 {{- $profilePage | jsonify | safeJS -}}
 </script>
-<meta property="og:type" content="profile" />
 <meta property="profile:first_name" content="{{ $givenName }}" />
 <meta property="profile:last_name" content="{{ $familyName }}" />
 {{- end -}}

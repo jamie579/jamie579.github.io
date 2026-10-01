@@ -130,6 +130,10 @@ hugoblox:
   seo:
     # Browser tab title override (defaults to identity.name if not set)
     title: "Dr Jamie B. Smith"
+    # Use the existing portrait directly for recognizable sharing previews.
+    sharing_image: "media/authors/me-about.jpg"
+    sharing_image_alt: "Portrait of Dr Jamie B. Smith"
+    sharing_card: "summary"
     # For local_business identity type only
     location:
       address:
