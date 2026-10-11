@@ -1,9 +1,9 @@
 ---
-title: 'Institutional Ethnographer and Nurse Researcher'
+title: 'Nurse Researcher in Health Workforce Wellbeing'
 date: 2026-02-01
-lastmod: 2026-07-29
+lastmod: 2026-10-11
 type: landing
-summary: 'Dr Jamie B. Smith is an institutional ethnographer and clinical-academic nurse researcher studying how policies, technologies, inequalities and organisational conditions shape nursing work and care.'
+summary: 'Dr Jamie B. Smith researches health workforce wellbeing, nursing stress, resilience, burnout and migration through psychometrics, mixed methods, institutional ethnography and nursing philosophy.'
 keywords:
   - institutional ethnographer
   - institutional ethnography
@@ -53,7 +53,9 @@ sections:
     content:
       title: Research, recognition and external profiles
       text: |
-        My research connects **institutional ethnography**, nursing workforce wellbeing, implementation and process evaluation, responsible health technology and nursing philosophy.
+        My research centres on **health workforce wellbeing**: the working conditions, relationships and resources that enable nurses to provide care and remain well. It connects nursing stress measurement, resilience, burnout and migration with **institutional ethnography**, implementation and process evaluation, responsible health technology and nursing philosophy.
+
+        Recent publications include a [psychometric evaluation of a 57-item German nursing stress instrument](https://doi.org/10.1016/j.ijnsa.2026.100689) and [research on relational buffers against healthcare system strain](https://doi.org/10.1111/gwao.70193).
 
         [Explore my research →](/research/) · [Institutional ethnography →](/institutional-ethnography/) · [Publications →](/publications/)
 

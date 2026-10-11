@@ -19,9 +19,9 @@ hugoblox:
     # Schema.org type for structured data
     type: person                        # person | organization | local_business
     # Short tagline displayed on your site
-    tagline: "Institutional Ethnographer | Clinical-Academic Nurse Researcher"
+    tagline: "Nurse Researcher | Health Workforce Wellbeing"
     # Site meta description for search engines and social sharing
-    description: "Dr Jamie B. Smith is an institutional ethnographer and clinical-academic nurse researcher studying how policies, technologies, inequalities and organisational conditions shape nursing work and care."
+    description: "Dr Jamie B. Smith researches health workforce wellbeing, nursing stress, resilience, burnout and migration through psychometrics, mixed methods, institutional ethnography and nursing philosophy."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: ""              # Twitter/X handle for Twitter Cards (without @)
@@ -156,7 +156,7 @@ hugoblox:
         - /publications/
         - /elsewhere/
       disallow: []
-      note: "Academic portfolio of Dr Jamie B. Smith, an institutional ethnographer and clinical-academic nurse researcher working across nursing workforce wellbeing, implementation science, responsible health technology and nursing philosophy."
+      note: "Academic portfolio of Dr Jamie B. Smith, a nurse researcher in health workforce wellbeing whose work connects nursing stress, resilience, burnout and migration with institutional ethnography, implementation science, responsible health technology and nursing philosophy."
       contact: "jamie@hornesmith.co.uk"
 
   # ────────────────────────────────────────────────────────────────────────────

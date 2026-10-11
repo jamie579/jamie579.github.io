@@ -1,9 +1,9 @@
 ---
 title: Research
-summary: Dr Jamie B. Smith's research programme connects institutional ethnography, nursing workforce wellbeing, implementation science, responsible health technology and nursing philosophy.
+summary: Dr Jamie B. Smith's research programme centres on health workforce wellbeing, connecting nursing stress, resilience, burnout and migration with institutional ethnography, implementation science and nursing philosophy.
 type: landing
 date: 2026-07-29
-lastmod: 2026-07-29
+lastmod: 2026-10-11
 keywords:
   - institutional ethnography
   - nursing workforce wellbeing
@@ -20,9 +20,9 @@ design:
 sections:
   - block: markdown
     content:
-      title: Researching how institutions organise care
+      title: Health workforce wellbeing and the conditions of care
       text: |
-        My research asks one overarching question: **how do institutions organise the conditions under which care becomes possible?**
+        My research centres on **health workforce wellbeing** and asks: **how do institutions organise the conditions under which care becomes possible?** I examine how working conditions, relationships, resources and inequalities shape nursing stress, resilience, burnout and migration.
 
         I work from the everyday realities of nursing and healthcare and trace how they are coordinated by policies, professional standards, technologies, organisational routines, labour conditions and wider structures of inequality. Institutional ethnography provides the connective method across my programme; mixed methods, implementation science and process evaluation extend that work into intervention and system change.
 
@@ -39,6 +39,8 @@ sections:
         I study stress, burnout, retention and workforce sustainability as institutional and system-level problems rather than individual deficits. This work examines how staffing, gendered expectations, professional ideals, organisational resources and structural inequalities shape the possibility of safe and sustainable care.
 
         Current confirmed work includes **PflegeStressPlan**, documented through my [Charité profile](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/), alongside research on nursing workforce measurement, migration and the structural production of burnout.
+
+        My 2026 [psychometric evaluation of a 57-item German nursing stress instrument](https://doi.org/10.1016/j.ijnsa.2026.100689), with colleagues at Charité, examines general-factor dominance and item applicability: what nursing stress subscales do and do not measure. A further paper, [*Beyond Heroic Individualism*](https://doi.org/10.1111/gwao.70193), examines relational buffers against healthcare system strain. These publications extend my work on [nurse migration across Australia, Germany and the UK](https://doi.org/10.1177/15271544221102964) and [burnout and impossible professional ideals](https://doi.org/10.1111/nin.12538).
 
         ## Implementation science and process evaluation
 
@@ -61,6 +63,8 @@ sections:
         ## Current institutional settings
 
         My work is based across [Charité – Universitätsmedizin Berlin](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/) and [Edinburgh Napier University's research repository](https://napier-repository.worktribe.com/person/4171465/jamie-smith/outputs?Type=Journal+Article&page=1), with collaborations across healthcare, universities and international nursing-philosophy networks.
+
+        I have worked at Charité since 2019, including previously at the Institut für Klinische Pflegewissenschaft (IKPW). In January 2027, I will join the University of Manchester as **Lecturer in Health Workforce**, while maintaining close research ties with Charité.
 
         [Publications →](/publications/) · [External profiles and recognition →](/elsewhere/)
     design:

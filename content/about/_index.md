@@ -1,9 +1,9 @@
 ---
 title: About
-summary: About Dr Jamie B. Smith — institutional ethnographer and clinical-academic nurse researcher working across nursing workforce, health systems, implementation and the ethics of healthcare technologies.
+summary: About Dr Jamie B. Smith — nurse researcher in health workforce wellbeing, institutional ethnographer and nursing philosopher working across nursing stress, resilience, burnout, migration and health systems.
 type: landing
 date: 2026-02-01
-lastmod: 2026-07-29
+lastmod: 2026-10-11
 keywords:
   - institutional ethnographer
   - institutional ethnography
@@ -24,7 +24,11 @@ sections:
     content:
       username: me-about
       text: |
-        I am an **institutional ethnographer, clinical-academic nurse researcher and educator**, with seventeen years of practice in transplant surgery, critical care and organ donation.
+        I am a **nurse researcher, institutional ethnographer and educator working on health workforce wellbeing**, with seventeen years of practice in transplant surgery, critical care and organ donation. I study how working conditions, organisational resources and inequalities shape nursing stress, resilience, burnout and migration.
+
+        I currently work across **Charité – Universitätsmedizin Berlin and Edinburgh Napier University**. I have worked at Charité since 2019, previously at the **Institut für Klinische Pflegewissenschaft (IKPW)**, and now in **Gender in Medicine**. In January 2027, I will take up a permanent appointment as **Lecturer in Health Workforce at the University of Manchester**, while maintaining close research ties with Charité.
+
+        My recent publications include a [psychometric evaluation of a 57-item German nursing stress instrument](https://doi.org/10.1016/j.ijnsa.2026.100689), which examines what its subscales measure and where items may not apply, and [work on relational buffers against healthcare system strain](https://doi.org/10.1111/gwao.70193). These sit alongside research on [nurse migration](https://doi.org/10.1177/15271544221102964) and the [professional ideals and conditions that shape burnout](https://doi.org/10.1111/nin.12538).
 
         My research starts from the everyday realities of nursing work: the shift, the ward, the policy document, the electronic record, the staffing decision and the small moral judgements through which care is made possible. Institutional ethnography gives me a way to trace those local experiences into the wider systems that coordinate them.
 
