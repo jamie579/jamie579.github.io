@@ -64,7 +64,7 @@ sections:
 
         My work is based across [Charité – Universitätsmedizin Berlin](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/) and [Edinburgh Napier University's research repository](https://napier-repository.worktribe.com/person/4171465/jamie-smith/outputs?Type=Journal+Article&page=1), with collaborations across healthcare, universities and international nursing-philosophy networks.
 
-        I have worked at Charité since 2019, including previously at the Institut für Klinische Pflegewissenschaft (IKPW). In January 2027, I will join the University of Manchester as **Lecturer in Health Workforce**, while maintaining close research ties with Charité.
+        I have worked at Charité since 2019, including previously at the Institut für Klinische Pflegewissenschaft (IKPW).
 
         [Publications →](/publications/) · [External profiles and recognition →](/elsewhere/)
     design:
