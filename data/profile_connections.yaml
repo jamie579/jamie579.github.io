@@ -1,0 +1,29 @@
+# Supporting pages describe Jamie; they are not interchangeable personal profiles.
+subject_of:
+  - '@type': WebPage
+    name: Meet the SHORTER Team
+    url: https://www.shortertrial.com/our-team
+    description: Lists Dr Jamie Smith as Senior Research Fellow (Process Evaluation) for the SHORTER trial.
+
+# Session titles and times follow the official IPONS/UCI final programme.
+speaking_events:
+  - '@type': Event
+    name: Thinking the Event of Nursing
+    description: Invited Conversation at the IPONS / UC Irvine International Nursing Philosophy Conference, with Jamie Smith, Keith Robinson, Miriam Bender and Brianne Donaldson.
+    startDate: '2026-07-23T16:30:00-07:00'
+    endDate: '2026-07-23T18:00:00-07:00'
+    url: https://docs.google.com/document/d/1UmM4tBxH7FGzSN3-1cbWzNYPcnLxFgdY/edit
+    superEvent:
+      '@type': Event
+      name: '28th Annual International Nursing Philosophy Conference: Listening and speaking otherwise: Encounters at the edge of nursing and philosophy'
+      url: https://nursing.uci.edu/news-events/events/28th-annual-international-hybrid-nursing-philosophy-conference/
+  - '@type': Event
+    name: Camp and the Politics of Seriousness in Nursing and Health Philosophy
+    description: Invited Conversation at the IPONS / UC Irvine International Nursing Philosophy Conference, with Jamie Smith and Jess Dillard-Wright.
+    startDate: '2026-07-24T13:15:00-07:00'
+    endDate: '2026-07-24T14:45:00-07:00'
+    url: https://docs.google.com/document/d/1UmM4tBxH7FGzSN3-1cbWzNYPcnLxFgdY/edit
+    superEvent:
+      '@type': Event
+      name: '28th Annual International Nursing Philosophy Conference: Listening and speaking otherwise: Encounters at the edge of nursing and philosophy'
+      url: https://nursing.uci.edu/news-events/events/28th-annual-international-hybrid-nursing-philosophy-conference/

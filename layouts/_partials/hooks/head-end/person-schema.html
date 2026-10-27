@@ -137,6 +137,19 @@
   ) -}}
 {{- end -}}
 
+{{- with site.Data.profile_connections.subject_of -}}
+  {{- $person = merge $person (dict "subjectOf" .) -}}
+{{- end -}}
+
+{{- $speakingEvents := slice -}}
+{{- range site.Data.profile_connections.speaking_events -}}
+  {{- $event := merge . (dict "performer" (dict "@id" $personId)) -}}
+  {{- $speakingEvents = $speakingEvents | append $event -}}
+{{- end -}}
+{{- with $speakingEvents -}}
+  {{- $person = merge $person (dict "performerIn" .) -}}
+{{- end -}}
+
 <script type="application/ld+json">
 {{- $person | jsonify | safeJS -}}
 </script>

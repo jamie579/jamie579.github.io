@@ -3,7 +3,7 @@ title: Elsewhere
 summary: Verified institutional profiles, scholarly records, awards, fellowships, projects, interviews and public scholarship featuring Dr Jamie B. Smith.
 type: landing
 date: 2026-07-28
-lastmod: 2026-08-16
+lastmod: 2026-10-27
 keywords:
   - Jamie B. Smith
   - institutional ethnographer
@@ -58,6 +58,7 @@ sections:
 
         ## Fellowships and invited academic contributions
 
+        - IPONS / UC Irvine International Nursing Philosophy Conference, July 2026 — invited speaker in “Thinking the Event of Nursing” and “Camp and the Politics of Seriousness in Nursing and Health Philosophy”. [Official programme](https://docs.google.com/document/d/1UmM4tBxH7FGzSN3-1cbWzNYPcnLxFgdY/edit).
         - [UC Irvine Center for Nursing Philosophy: Fellowship programme and former fellows](https://nursing.uci.edu/faculty-research/center-institutes/center-for-nursing-philosophy/nursing-philosophy-fellows/)
         - [UC Irvine: Center for Nursing Philosophy names Jamie Smith as a fellow](https://nursing.uci.edu/2023/08/21/center-announces-louie-jhon-e-lunaria-and-teresa-a-graziano-as-next-fellows/)
         - [UC Irvine / IPONS: Post/humanism(s) virtual colloquium — panel listing](https://nursing.uci.edu/news-events/events/nursing-pinning-ceremony-3)
