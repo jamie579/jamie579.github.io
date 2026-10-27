@@ -3,7 +3,7 @@ title: About
 summary: About Dr Jamie B. Smith — nurse researcher in health workforce wellbeing, institutional ethnographer and nursing philosopher working across nursing stress, resilience, burnout, migration and health systems.
 type: landing
 date: 2026-02-01
-lastmod: 2026-10-11
+lastmod: 2026-10-27
 keywords:
   - institutional ethnographer
   - institutional ethnography
@@ -39,6 +39,8 @@ sections:
         My work currently connects four areas: nursing workforce wellbeing and retention; implementation and process evaluation; responsible health technology and AI; and nursing philosophy, critical posthumanism and care ethics.
 
         [Read about my research programme →](/research/) · [Read about my institutional ethnography →](/institutional-ethnography/)
+
+        [Portrait photograph and reuse licence →](/portrait/)
     design:
       banner:
         filename: about-banner.jpg

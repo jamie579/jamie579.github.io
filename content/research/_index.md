@@ -3,7 +3,7 @@ title: Research
 summary: Dr Jamie B. Smith's research programme centres on health workforce wellbeing, connecting nursing stress, resilience, burnout and migration with institutional ethnography, implementation science and nursing philosophy.
 type: landing
 date: 2026-07-29
-lastmod: 2026-10-11
+lastmod: 2026-10-27
 keywords:
   - institutional ethnography
   - nursing workforce wellbeing
@@ -65,6 +65,8 @@ sections:
         My work is based across [Charité – Universitätsmedizin Berlin](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/) and [Edinburgh Napier University's research repository](https://napier-repository.worktribe.com/person/4171465/jamie-smith/outputs?Type=Journal+Article&page=1), with collaborations across healthcare, universities and international nursing-philosophy networks.
 
         I have worked at Charité since 2019, including previously at the Institut für Klinische Pflegewissenschaft (IKPW).
+
+        [Research influence: use in policy reports and professional guidance →](/research-influence/)
 
         [Publications →](/publications/) · [External profiles and recognition →](/elsewhere/)
     design:

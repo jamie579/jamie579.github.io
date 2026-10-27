@@ -78,11 +78,13 @@ sections:
 
         ## Cited in policy and scholarship
 
+        [Read selected examples of how these sources use my research →](/research-influence/)
+
         - [World Health Organization: *State of the World's Nursing 2025*](https://iris.who.int/handle/10665/381329) — cites the nurse migration rapid evidence assessment (*Policy, Politics, & Nursing Practice*, 2022).
         - [Publications Office of the European Union: the EU legal migration package (2022)](https://op.europa.eu/en/publication-detail/-/publication/1e520448-76ab-11ed-9887-01aa75ed71a1/language-en) — cites the nurse migration rapid evidence assessment.
         - [American Nurses Association – New York: *Artificial Intelligence and Nursing Practice* white paper](https://anany.org/images/Policy%20%20Advocacy/AI%20White%20Paper.pdf) — draws on *An Ethics of Artificial Intelligence for Nursing* (Dillard-Wright & Smith, 2025).
         - [OJIN topic overview: Artificial Intelligence in Nursing and Healthcare](https://ojin.nursingworld.org/table-of-contents/volume-30-2025/number-2-may-2025/artificial-intelligence-in-nursing-and-healthcare/) — editor's overview discussing the AI ethics framework.
-        - [Petrovskaya (2023), *Farewell to humanism?*, Nursing Philosophy](https://onlinelibrary.wiley.com/doi/full/10.1111/nup.12448); [Hodge (2024), Nursing Inquiry](https://onlinelibrary.wiley.com/doi/full/10.1111/nin.12677); and [Laurin (2024), Nursing Inquiry](https://onlinelibrary.wiley.com/doi/full/10.1111/nin.12606) — independent scholarship engaging with my work on critical posthumanism and person-centred care.
+        - [Petrovskaya (2023), *Farewell to humanism?*, Nursing Philosophy](https://onlinelibrary.wiley.com/doi/full/10.1111/nup.12448); [Hodge (2024), Nursing Inquiry](https://onlinelibrary.wiley.com/doi/full/10.1111/nin.12677); and [Laurin and Martin (2024), Nursing Inquiry](https://onlinelibrary.wiley.com/doi/full/10.1111/nin.12606) — scholarly discussion of my work on critical posthumanism and person-centred care.
 
         ## Interviews, essays and public scholarship
 

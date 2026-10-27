@@ -71,6 +71,23 @@
 
 {{- /* Prefer multiple headshots to help entity recognition; provide captions and dimensions where possible. */ -}}
 {{- $images := slice -}}
+{{- /* The supplied portrait has its own explicit licence; other image terms remain unchanged. */ -}}
+{{- with resources.Get "media/authors/jamie-smith-portrait.jpg" -}}
+  {{- $images = $images | append (dict
+    "@type" "ImageObject"
+    "@id" (printf "%s/portrait/#image" $base)
+    "url" .Permalink
+    "contentUrl" .Permalink
+    "width" .Width
+    "height" .Height
+    "caption" $headshotCaption
+    "creator" (dict "@type" "Person" "@id" $personId "name" "Jamie B Smith")
+    "creditText" "Jamie B Smith"
+    "copyrightNotice" "© Jamie B Smith"
+    "license" "https://creativecommons.org/licenses/by-sa/4.0/"
+    "acquireLicensePage" (printf "%s/portrait/" $base)
+  ) -}}
+{{- end -}}
 {{- with resources.Get "media/authors/me.jpg" -}}
   {{- $images = $images | append (dict "@type" "ImageObject" "url" .Permalink "width" .Width "height" .Height "caption" $headshotCaption) -}}
 {{- end -}}
