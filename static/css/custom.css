@@ -35,3 +35,37 @@
     padding-bottom: 3rem;
   }
 }
+
+/* Keep the consultancy introduction compact and its enquiry links prominent. */
+#independent-evaluation-and-research-consultancy {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.blox-markdown a[href="#discuss-a-project"],
+.blox-markdown a[href="mailto:jamie@hornesmith.co.uk?subject=Consultancy%20enquiry"] {
+  display: inline-block;
+  padding: 0.75rem 1.1rem;
+  border-radius: 0.375rem;
+  background: #1e40af;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.blox-markdown a[href="#discuss-a-project"]:hover,
+.blox-markdown a[href="mailto:jamie@hornesmith.co.uk?subject=Consultancy%20enquiry"]:hover {
+  background: #1e3a8a;
+}
+
+.blox-markdown a[href="#discuss-a-project"]:focus-visible,
+.blox-markdown a[href="mailto:jamie@hornesmith.co.uk?subject=Consultancy%20enquiry"]:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+#discuss-a-project {
+  scroll-margin-top: 7rem;
+}

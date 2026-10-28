@@ -1,7 +1,7 @@
 ---
 title: 'Nurse Researcher in Health Workforce Wellbeing'
 date: 2026-02-01
-lastmod: 2026-10-11
+lastmod: 2026-10-28
 type: landing
 summary: 'Dr Jamie B. Smith researches health workforce wellbeing, nursing stress, resilience, burnout and migration through psychometrics, mixed methods, institutional ethnography and nursing philosophy.'
 keywords:
@@ -35,6 +35,15 @@ sections:
       avatar:
         size: large
         shape: rounded
+  - block: markdown
+    content:
+      title: Evaluation and research consultancy
+      text: |
+        I also offer independent evaluation and research consultancy for healthcare organisations, charities and research teams: programme and process evaluation, evidence synthesis, and learning workshops.
+
+        [Explore consultancy →](/consultancy/)
+    design:
+      columns: '1'
   - block: experience
     content:
       username: me
