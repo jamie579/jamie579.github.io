@@ -1,0 +1,145 @@
+/* Hallmark · shape: Long Document · genre: editorial · theme: Riso (by request) · redesign: full · copy: verbatim
+ * hero: Stage · nav: compact masthead · footer: ink colophon · imagery: user's full-colour sci-fi landscape and portrait · signature: blue and pink type around the existing imagined world
+ * axes: light/grotesk-heavy/chromatic-pink · posture: committed · job: hire · draw: 28a026 · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: R, restrained the pink to actions and section papers so the original landscape leads */
+/* Hallmark · waive 59 · Long Document with rules and alternating paper · preserve the complete academic record and its reading rhythm */
+/* Hallmark · waive 78 · Long Document with inline article headings · keep research and publications prose readable */
+/* Hallmark · dismissed 3 · the three-column mobile navigation contains eight text links, not icon cards */
+@import url("./tokens.css");
+@import url("./base.css");
+
+body, #page-bg { background: var(--color-paper); color: var(--color-ink); }
+body { font-family: var(--font-body); }
+.page-header { z-index: var(--z-sticky-nav); background: var(--color-paper); }
+#site-header { background: var(--color-paper); box-shadow: none; border-bottom: 1px solid var(--color-rule); padding-top: 0 !important; padding-bottom: 0 !important; }
+#site-header .navbar { min-height: var(--header-height); max-width: var(--container); margin-inline: auto; padding: var(--space-sm) var(--gutter); gap: var(--space-md); align-items: center; }
+#site-header .navbar-brand { font-family: var(--font-display); font-weight: var(--display-weight); font-size: 1.25rem; letter-spacing: var(--tracking-display); color: var(--color-ink); white-space: nowrap; }
+#site-header #nav-menu { margin: 0; margin-left: auto; gap: var(--space-xs); }
+#site-header .nav-item { margin: 0; }
+#site-header .nav-link { font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; line-height: 1.4; color: var(--color-ink); padding: var(--space-sm) var(--space-2xs); border-radius: 0; white-space: nowrap; text-decoration: none; text-underline-offset: 0.5em; }
+#site-header .nav-link:hover, #site-header .nav-link.active { color: var(--color-ink); background: transparent; text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 3px; }
+#site-header .navbar > .order-1 { gap: var(--space-2xs); flex-shrink: 0; }
+#site-header .navbar > .order-1 > div { padding: 0; }
+#site-header button, #site-header label[for="nav-toggle"] { min-width: 44px; min-height: 44px; padding: var(--space-xs); margin: 0; color: var(--color-ink); border-radius: var(--radius-card); align-items: center; justify-content: center; }
+#site-header button { display: inline-flex; }
+#site-header button:hover, #site-header label[for="nav-toggle"]:hover { background: var(--color-paper-2); color: var(--color-ink); }
+#site-header button:active { transform: translate(1px, 1px); }
+#site-header #nav-toggle { position: absolute; width: 1px; height: 1px; opacity: 0; display: block; pointer-events: none; }
+#site-header #nav-toggle:focus-visible + label { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+
+.hbb-section { color: var(--color-ink); padding-block: var(--section-gap-s); }
+.hbb-section .home-section-bg { background: transparent; }
+.hbb-section [class*="text-gray-"], .hbb-section [class*="text-slate-"], .hbb-section [class*="text-primary-"], .hbb-section [class*="text-secondary-"] { color: var(--color-ink); }
+.hbb-section .prose { --tw-prose-body: var(--color-ink); --tw-prose-headings: var(--color-ink); --tw-prose-bold: var(--color-ink); --tw-prose-links: var(--color-ink); --tw-prose-quotes: var(--color-ink); --tw-prose-captions: var(--color-muted); --tw-prose-counters: var(--color-muted); --tw-prose-bullets: var(--color-accent); --tw-prose-hr: var(--color-rule); --tw-prose-th-borders: var(--color-rule); --tw-prose-td-borders: var(--color-rule); color: var(--color-ink); font-size: var(--text-lead); line-height: 1.75; max-width: var(--reading-width); }
+.hbb-section .prose p, .hbb-section .prose li { text-wrap: pretty; }
+.hbb-section .prose p { margin-block: 0 var(--space-lg); }
+.hbb-section .prose p:last-child { margin-bottom: 0; }
+.hbb-section .prose a, .page-footer a { color: inherit; font-weight: 500; text-decoration: underline; text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; text-underline-offset: 0.2em; overflow-wrap: break-word; }
+.hbb-section .prose a:hover, .page-footer a:hover { text-decoration-thickness: 3px; }
+.hbb-section .prose strong { color: inherit; font-weight: 500; }
+.hbb-section .prose h1, .hbb-section .prose h2, .hbb-section .prose h3, .hbb-section .prose h4 { font-family: var(--font-display); color: var(--color-ink); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); text-align: left; line-height: 1.08; }
+.hbb-section .prose h1 { font-size: var(--text-display-s); margin-block: var(--space-wide) var(--space-lg); }
+.hbb-section .prose h2 { font-size: clamp(1.8rem, 2vw + 0.8rem, 2.75rem); margin-block: var(--space-2xl) var(--space-lg); }
+.hbb-section .prose h3 { font-size: var(--text-title); margin-block: var(--space-xl) var(--space-md); }
+.hbb-section .prose h4 { font-size: var(--text-lg); margin-block: var(--space-xl) var(--space-md); }
+.hbb-section .prose h1:first-child, .hbb-section .prose h2:first-child, .hbb-section .prose h3:first-child { margin-top: 0; }
+.hbb-section .prose ul, .hbb-section .prose ol { margin-block: var(--space-lg); padding-left: var(--space-lg); }
+.hbb-section .prose li { padding-left: var(--space-2xs); margin-block: var(--space-sm); }
+.hbb-section .prose blockquote { border-left: 1px solid var(--color-ink); margin-block: var(--space-xl); padding-left: var(--space-lg); font-style: normal; color: var(--color-ink); }
+.hbb-section .prose hr { border-color: var(--color-rule); margin-block: var(--space-2xl); }
+.hbb-section .prose img { border-radius: var(--radius-card); }
+.blox-markdown > .flex { width: calc(100% - var(--gutter) * 2); max-width: 1200px; align-items: flex-start; padding-inline: 0; gap: var(--space-xl); }
+.blox-markdown > .flex > .prose { width: 100%; margin-inline: auto; }
+.blox-markdown > .flex > .text-3xl { width: 100%; max-width: var(--reading-width); font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--text-section); line-height: 1.05; letter-spacing: var(--tracking-display); text-align: left; margin-inline: auto; margin-bottom: 0; }
+.blox-markdown:has(+ .blox-resume-experience) { background: var(--color-paper-2); }
+.blox-markdown:has(+ .blox-resume-experience) > .flex { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: var(--space-2xl); align-items: start; }
+.blox-markdown:has(+ .blox-resume-experience) > .flex > .text-3xl { max-width: 15ch; }
+.blox-markdown:has(+ .blox-resume-experience) .prose { font-size: var(--text-lg); }
+.blox-markdown a[href="#discuss-a-project"], .blox-markdown a[href="mailto:jamie@hornesmith.co.uk?subject=Consultancy%20enquiry"] { min-height: 48px; display: inline-flex; align-items: center; padding: var(--space-sm) var(--space-lg); font-family: var(--font-display); font-size: var(--text-md); font-weight: var(--display-weight); line-height: 1.4; border: 1.5px solid transparent; border-radius: var(--radius-card); color: var(--color-accent-ink); background: var(--color-accent); text-decoration: none; box-shadow: none; }
+.blox-markdown a[href="#discuss-a-project"]:hover, .blox-markdown a[href="mailto:jamie@hornesmith.co.uk?subject=Consultancy%20enquiry"]:hover { color: var(--color-accent-ink); background: var(--color-accent); border-color: var(--color-ink); }
+.blox-markdown a[href="#discuss-a-project"]:focus-visible, .blox-markdown a[href="mailto:jamie@hornesmith.co.uk?subject=Consultancy%20enquiry"]:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; box-shadow: none; }
+.blox-markdown a[href="#discuss-a-project"]:active, .blox-markdown a[href="mailto:jamie@hornesmith.co.uk?subject=Consultancy%20enquiry"]:active { transform: translate(1px, 1px); }
+#independent-evaluation-and-research-consultancy { font-size: var(--text-display-s); line-height: 1.03; margin-bottom: var(--space-xl); }
+
+.blox-resume-experience > .mx-auto { max-width: 1200px; width: calc(100% - var(--gutter) * 2); padding: 0; }
+.blox-resume-experience > .mx-auto > .flex { gap: var(--space-3xl); }
+.blox-resume-experience h2 { font-family: var(--font-display); font-size: var(--text-section); font-weight: var(--display-weight); color: var(--color-ink); text-align: left; margin-bottom: var(--space-xl); }
+.blox-resume-experience .group { padding-left: 0; }
+.blox-resume-experience .group > .absolute, .blox-resume-experience .w-full > .relative > .absolute { display: none; }
+.blox-resume-experience .group > .relative { padding: var(--space-lg) 0; background: transparent; border: 0; border-top: 1px solid var(--color-rule); border-radius: 0; box-shadow: none; backdrop-filter: none; transition: none; transform: none; }
+.blox-resume-experience .group > .relative:hover { background: transparent; border-color: var(--color-rule); transform: none; }
+.blox-resume-experience .space-y-8 > * + * { margin-top: 0; }
+.blox-resume-experience .group > .relative > .flex { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-lg); margin-bottom: var(--space-md); }
+.blox-resume-experience h3 { font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--text-title); line-height: 1.2; color: var(--color-ink); }
+.blox-resume-experience .group p { font-family: var(--font-body); font-weight: 500; color: var(--color-ink); margin-top: var(--space-xs); }
+.blox-resume-experience .leading-relaxed { max-width: var(--reading-width); font-size: var(--text-md); line-height: 1.7; color: var(--color-ink); }
+.blox-resume-experience time { color: var(--color-muted); font-size: var(--text-sm); white-space: nowrap; }
+.blox-resume-experience time span { color: inherit; }
+.blox-resume-experience .group .flex > svg { color: var(--color-muted); }
+
+.blox-resume-skills { background: var(--color-paper-2); }
+.blox-resume-skills > .flex, .blox-resume-skills > .grid, .blox-resume-languages > .flex { max-width: 1200px; width: calc(100% - var(--gutter) * 2); padding-inline: 0; align-items: start; }
+.blox-resume-skills > .flex > .text-3xl, .blox-resume-languages > .flex > .text-3xl { font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--text-section); line-height: 1.05; letter-spacing: var(--tracking-display); margin-bottom: var(--space-xl); text-wrap: balance; }
+.blox-resume-skills > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-wide) var(--space-2xl); }
+.blox-resume-skills > .grid > .w-full:last-child { grid-column: 1 / -1; }
+.blox-resume-skills > .grid > .w-full > .text-xl { font-family: var(--font-display); font-size: var(--text-title); font-weight: var(--display-weight); color: var(--color-ink); border-top: 1px solid var(--color-ink); padding-top: var(--space-lg); margin-bottom: var(--space-lg); }
+.blox-resume-skills li { font-size: var(--text-md); line-height: 1.6; margin-top: var(--space-xs); }
+.blox-resume-skills li::marker { color: var(--color-accent); }
+.blox-resume-skills > .grid > .w-full:last-child ul { display: flex; flex-wrap: wrap; gap: var(--space-lg); }
+.blox-resume-languages > .flex > .flex { width: 100%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-lg); }
+.blox-resume-languages > .flex > .flex > .flex { width: 100%; align-items: flex-start; border-top: 1px solid var(--color-rule); padding-top: var(--space-lg); }
+.blox-resume-languages .w-28 { position: relative; width: 104px; height: 104px; margin-bottom: var(--space-md); }
+.blox-resume-languages .w-28 svg { width: 100%; height: 100%; }
+.blox-resume-languages .w-28 circle:first-child { color: var(--color-rule); }
+.blox-resume-languages .w-28 circle:last-child { color: var(--color-ink); }
+.blox-resume-languages .w-28 > span { font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--display-weight); color: var(--color-ink); }
+.blox-resume-languages span { font-size: var(--text-md); }
+
+.page-footer { background: var(--color-footer-bg); color: var(--color-footer-fg); margin-top: var(--space-2xl); }
+.page-footer footer { width: 100%; max-width: var(--container); padding: var(--space-wide) var(--gutter); margin-block: 0; color: var(--color-footer-fg); font-family: var(--font-body); font-size: var(--text-sm); line-height: 1.75; text-align: left; align-items: flex-start; }
+.page-footer p { max-width: 75ch; margin-block: var(--space-xs); text-align: left; }
+.page-footer a { font-weight: 400; }
+
+[x-data="searchModal()"] { color: var(--color-ink); }
+[x-data="searchModal()"] .bg-white, [x-data="searchModal()"] [class*="bg-gray-"], [x-data="searchModal()"] [class*="dark:bg-gray-"] { background-color: var(--color-paper); color: var(--color-ink); }
+[x-data="searchModal()"] [class*="text-gray-"], [x-data="searchModal()"] [class*="text-primary-"], [x-data="searchModal()"] input { color: var(--color-ink); }
+[x-data="searchModal()"] [class*="border-gray-"] { border-color: var(--color-rule); }
+[x-data="searchModal()"] input::placeholder { color: var(--color-muted); opacity: 1; }
+[x-data="searchModal()"] button { min-height: 44px; }
+[x-data="searchModal()"] .search-result:hover { background: var(--color-paper-2); }
+
+@media (min-width: 80rem) {
+  #site-header #nav-menu { display: flex; width: auto; padding: 0; order: 1; }
+  #site-header label[for="nav-toggle"] { display: none; }
+}
+@media (max-width: 79.99rem) {
+  #site-header .navbar { flex-wrap: wrap; }
+  #site-header #nav-menu { display: none; order: 3; width: 100%; margin: 0; padding: var(--space-sm) 0 var(--space-lg); }
+  #site-header #nav-toggle:checked ~ #nav-menu { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs) var(--space-lg); }
+  #site-header label[for="nav-toggle"] { display: flex; order: 2; }
+  #site-header .navbar > .order-1 { margin-left: auto; order: 1; }
+  #site-header #nav-menu .nav-link { display: block; font-size: var(--text-md); }
+  #site-header #nav-toggle:checked + label #show-button { display: none; }
+  #site-header #nav-toggle:checked + label #hide-button { display: block; }
+}
+@media (max-width: 60rem) {
+  .blox-markdown:has(+ .blox-resume-experience) > .flex { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
+  .blox-markdown:has(+ .blox-resume-experience) > .flex > .text-3xl { max-width: 24ch; }
+  .hbb-section .prose { font-size: var(--text-md); }
+  .blox-resume-skills > .grid { gap: var(--space-xl); }
+  .blox-resume-languages > .flex > .flex { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-xl); }
+}
+@media (max-width: 40rem) {
+  #site-header .navbar { column-gap: var(--space-2xs); }
+  #site-header .navbar-brand { font-size: 1.125rem; }
+  #site-header #nav-toggle:checked ~ #nav-menu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .blox-resume-experience .group > .relative > .flex { grid-template-columns: minmax(0, 1fr); gap: var(--space-sm); }
+  .blox-resume-skills > .grid { grid-template-columns: minmax(0, 1fr); }
+  .blox-resume-skills > .grid > .w-full:last-child { grid-column: auto; }
+  .blox-markdown > .flex > .text-3xl { font-size: var(--text-section); }
+}
+@media (max-width: 22rem) {
+  #site-header .navbar { padding-inline: var(--space-md); column-gap: 0; }
+  #site-header .navbar-brand { font-size: var(--text-md); }
+  #site-header .navbar > .order-1 { gap: 0; }
+}
