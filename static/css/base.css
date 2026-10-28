@@ -1,0 +1,23 @@
+/* Hallmark · checked base · Riso · user's original artwork retains its colours */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.65; -webkit-font-smoothing: antialiased; caret-color: var(--color-ink); }
+::selection { background: var(--color-selection); color: var(--color-ink); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: var(--display-weight); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.06; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1 { max-width: 22ch; font-size: var(--text-display); }
+h2 { max-width: 30ch; font-size: var(--text-section); }
+h3 { max-width: 40ch; font-size: var(--text-title); line-height: 1.2; }
+p { text-wrap: pretty; }
+img, video { max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.riso-container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.num, .figure, td.num, time { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: clip; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 79.99rem) { :root { --gutter: 40px; } }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 64px; --section-gap: 80px; --section-gap-l: 96px; --header-height: 72px; } }
+@media (max-width: 40rem) { :root { --gutter: 20px; --section-gap-s: 48px; --section-gap: 64px; --section-gap-l: 80px; --gap-columns: 24px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }

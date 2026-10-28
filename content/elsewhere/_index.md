@@ -23,7 +23,7 @@ keywords:
 sections:
   - block: markdown
     content:
-      title: Verified profiles, recognition and features
+      title: Elsewhere
       text: |
         These institutional, scholarly and editorial pages provide independent or externally maintained records of my research, appointments, awards, fellowships, projects and public scholarship.
 
@@ -72,8 +72,9 @@ sections:
 
         ## Editorial roles
 
+        - **Editorial Board Member**, [*Nursing Inquiry*](https://onlinelibrary.wiley.com/journal/14401800)
         - [Nursing Inquiry 31(1), 2024: *Critical Posthumanism* special issue — co-guest editor](https://onlinelibrary.wiley.com/toc/14401800/2024/31/1)
-        - [Nursing Philosophy: editorial board](https://onlinelibrary.wiley.com/page/journal/1466769x/homepage/editorialboard.html)
+        - **Editorial role (TBC)**, [*Nursing Philosophy*](https://onlinelibrary.wiley.com/page/journal/1466769x/homepage/editorialboard.html)
         - [JoVE Methods Collection: Multidisciplinary Methodologies in Tackling Antimicrobial Resistance — guest editor](https://www.jove.com/methods-collections/4124/multidisciplinary-methodologies-in-tackling-antimicrobial-resistance-innovations-evaluations-and-impact)
 
         ## Cited in policy and scholarship

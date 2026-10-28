@@ -1,0 +1,52 @@
+{{/* Hugo Blox: Markdown */}}
+{{/* Documentation: https://hugoblox.com/blocks/ */}}
+{{/* License: https://github.com/HugoBlox/kit/blob/main/LICENSE.md */}}
+
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+{{ $title := "" }}
+{{ with index $content "title" }}{{ $title = printf "%v" . | emojify | $page.RenderString }}{{ end }}
+{{ $text := "" }}
+{{ with index $content "text" }}{{ $text = printf "%v" . | emojify | $page.RenderString | safeHTML }}{{ end }}
+
+{{/* The block context has no index; identify the first resolved Markdown block. */}}
+{{ $first_markdown := "" }}
+{{ $has_profile := false }}
+{{ range partial "hbx/sections.html" $page }}
+  {{ if or (not .demo) (.demo | and (eq (os.Getenv "HUGO_BLOX_DEMO") "true")) }}
+    {{ $kind := partial "hbx/resolve-block-param" (dict "config" . "context" "content section") | default "markdown" | lower }}
+    {{ range $alias := site.Data.blox_aliases.renames }}
+      {{ $kind = cond (eq $kind $alias.old) $alias.new $kind }}
+    {{ end }}
+    {{ if hasPrefix $kind "resume-biography" }}{{ $has_profile = true }}{{ end }}
+    {{ if and (eq $kind "markdown") (not $first_markdown) }}
+      {{ $first_markdown = . | jsonify }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $is_page_heading := and (not $page.IsHome) (not $has_profile) (eq ($block | jsonify) $first_markdown) (not ($page.Store.Get "riso-markdown-h1-rendered")) }}
+
+<div class="riso-markdown flex flex-col items-center max-w-prose mx-auto gap-3 justify-center px-6">
+  {{ if $is_page_heading }}
+    {{ $page.Store.Set "riso-markdown-h1-rendered" true }}
+    {{ $intro := "" }}
+    {{ $body := $text }}
+    {{ $parts := split (printf "%s" $text) "<h2" }}
+    {{ if gt (len $parts) 1 }}
+      {{ $intro = index $parts 0 }}
+      {{ $body = strings.TrimPrefix $intro (printf "%s" $text) }}
+    {{ end }}
+    <header class="riso-article-hero">
+      {{ with $title }}<h1 class="riso-markdown-title mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ . }}</h1>{{ end }}
+      {{ with $intro }}<div class="prose prose-slate lg:prose-xl dark:prose-invert max-w-prose">{{ . | safeHTML }}</div>{{ end }}
+    </header>
+    {{ with $body }}<div class="prose prose-slate lg:prose-xl dark:prose-invert max-w-prose">{{ . | safeHTML }}</div>{{ end }}
+  {{ else }}
+    {{ with $title }}
+      <h2 class="riso-markdown-title mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ . }}</h2>
+    {{ end }}
+    {{ with $text }}<div class="prose prose-slate lg:prose-xl dark:prose-invert max-w-prose">{{ . }}</div>{{ end }}
+  {{ end }}
+</div>

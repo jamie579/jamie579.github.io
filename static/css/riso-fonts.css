@@ -1,0 +1,4 @@
+/* Hallmark · checked font declarations · Riso's two families, served locally */
+@font-face { font-family: "Cabinet Grotesk"; font-style: normal; font-weight: 800; font-display: swap; src: url("../fonts/cabinet-grotesk-800.woff2") format("woff2"); }
+@font-face { font-family: "Literata"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/literata-400.ttf") format("truetype"); }
+@font-face { font-family: "Literata"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/literata-500.ttf") format("truetype"); }

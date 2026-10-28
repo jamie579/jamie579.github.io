@@ -1,0 +1,58 @@
+{{/* Riso composition; profile data and destinations remain in the author records. */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $profile := partial "functions/get_author_profile" ($block.content.username | default "me") }}
+{{ $bio := $block.content.text | default $profile.bio }}
+{{ $artPath := "media/about-banner.jpg" }}
+{{ $artAlt := "An imagined landscape of pink mountains, distant planets and glowing blue rivers." }}
+{{ if not $page.IsHome }}
+  {{ $artPath = "media/about-scifi-sea.png" }}
+  {{ $artAlt = "An imagined turquoise sea beneath violet rock arches and a luminous ringed planet." }}
+{{ end }}
+{{ $art := resources.Get $artPath }}
+{{ $artSmall := $art.Resize "960x webp q85" }}
+{{ $artLarge := $art.Resize "1600x webp q88" }}
+
+<div id="profile" class="resume-biography riso-profile">
+  <div class="riso-profile-hero riso-container">
+    <div class="riso-hero-copy">
+      <h1>{{ if $page.IsHome }}Jamie <br>B. <span class="riso-misreg" data-text="Smith">Smith</span>{{ else }}About <br><span class="riso-misreg" data-text="Jamie">Jamie</span>{{ end }}</h1>
+      <p class="riso-role">{{ $profile.role }}</p>
+      <div class="riso-actions">
+        {{ if $page.IsHome }}
+        <a class="riso-button" href="{{ "/research/" | relLangURL }}">Explore my research</a>
+        <a class="riso-text-link" href="mailto:jamie@hornesmith.co.uk">Get in touch</a>
+        {{ else }}
+        <a class="riso-button" href="{{ "/research/" | relLangURL }}">Research programme</a>
+        <a class="riso-text-link" href="#biography">Read my biography</a>
+        {{ end }}
+      </div>
+    </div>
+    <figure class="riso-landscape">
+      <img src="{{ $artLarge.RelPermalink }}" srcset="{{ $artSmall.RelPermalink }} 960w, {{ $artLarge.RelPermalink }} 1600w" sizes="(min-width: 960px) 60vw, 100vw" width="{{ $artLarge.Width }}" height="{{ $artLarge.Height }}" alt="{{ $artAlt }}" fetchpriority="high">
+    </figure>
+  </div>
+  <div id="biography" class="riso-biography riso-container">
+    <aside class="riso-profile-details" aria-label="Profile and affiliations">
+      {{ with $profile.avatar }}
+      {{ $portrait := .Fill "896x896 Center webp q88" }}
+      <div class="avatar-wrapper"><img class="avatar" src="{{ $portrait.RelPermalink }}" width="896" height="896" alt="{{ $profile.title }}" loading="lazy"></div>
+      {{ end }}
+      <p class="riso-profile-name">{{ $profile.title }} <span>({{ $profile.pronouns }})</span></p>
+      <ul class="riso-affiliations">
+        {{ range $profile.affiliations }}
+        <li>{{ if .url }}<a href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</li>
+        {{ end }}
+      </ul>
+      <ul class="network-icon riso-profile-links" aria-label="Contact and academic profiles">
+        {{ range $profile.links }}
+        <li><a href="{{ .url | safeURL }}" {{ if hasPrefix .url "https://" }}target="_blank" rel="noopener"{{ end }} aria-label="{{ .label }}" title="{{ .label }}">{{ partial "functions/get_icon" (dict "name" .icon "attributes" "aria-hidden=\"true\"") }}</a></li>
+        {{ end }}
+      </ul>
+    </aside>
+    <div class="riso-bio-copy prose prose-slate lg:prose-xl dark:prose-invert">
+      <div class="bio-text">{{ $bio | emojify | $page.RenderString }}</div>
+      {{ with $block.content.button }}<a class="riso-button" href="{{ .url | safeURL }}">{{ .text }}</a>{{ end }}
+    </div>
+  </div>
+</div>

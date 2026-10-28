@@ -41,8 +41,8 @@ node_modules/
 # Generated Content
 # ============================================================================
 
-# Pagefind search index
-pagefind/
+# Keep the generated root Pagefind index tracked for branch-based GitHub Pages.
+# Build output is already ignored via public/; the source-side copy stays ignored.
 static/pagefind/
 
 # ============================================================================
@@ -67,3 +67,6 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+
+# Local design previews, screenshots and verification records
+/.hallmark/

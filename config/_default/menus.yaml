@@ -27,9 +27,6 @@ main:
     weight: 30
     params:
       target: _blank
-  - name: LOM
-    url: /lom/
-    weight: 40
   - name: Us
     url: /us/
     weight: 50

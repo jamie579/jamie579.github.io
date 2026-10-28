@@ -93,8 +93,9 @@ sections:
 
         ## Editorial Roles
 
+        - **Editorial Board Member**, [*Nursing Inquiry*](https://onlinelibrary.wiley.com/journal/14401800)
         - **Guest Editor**, Special Issue 'Critical Posthumanism', [*Nursing Inquiry*](https://onlinelibrary.wiley.com/journal/14401800) (2024)
-        - **Guest Editor** (invited), [*Nursing Philosophy*](https://onlinelibrary.wiley.com/journal/1466769x) (2025)
+        - **Editorial role (TBC)**, [*Nursing Philosophy*](https://onlinelibrary.wiley.com/journal/1466769x)
         - **Peer Reviewer**: *International Journal of Nursing Studies*, *Journal of Advanced Nursing*, *Journal of Clinical Nursing*, *Nursing Inquiry*, *Nursing Philosophy*, *Nurse Education Today*
 
         ---

@@ -1,0 +1,80 @@
+/* Hallmark · shape: Long Document · genre: editorial · theme: Riso (by request) · redesign: full · copy: verbatim
+ * hero: Stage · nav: compact masthead · footer: ink colophon · imagery: original home sci-fi landscape, generated About companion and original portraits
+ * signature: a misregistered surname beside a panorama of imagined worlds · axes: light/grotesk-heavy/chromatic-pink · posture: committed · job: hire · draw: 28a026 · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: H, moved the full biography below the opening so the name and landscape have room */
+/* Hallmark · waive 38iii · Riso misregistered surname appears once in the hero · the pink fringe is the two-ink print signature */
+/* Hallmark · waive 44c · Stage panorama bleeds to its outer column · preserves the user's full-colour dream landscape */
+/* Hallmark · waive 49b · descriptive academic links wrap to two lines on phones · retains the full wording of the existing research destinations */
+/* Hallmark · dismissed 79 · research and consultancy article headers end before the fold but the next section headings are visibly present at y 803 and y 773, so those are not empty bands */
+/* Hallmark · dismissed 77 · the academic articles contain many semantic h2 sections within one Hugo block; a block count of two does not count the document sections */
+/* Hallmark · dropped /lom/ · Jamie requested removal of the LOM navigation tab; its standalone static page remains intact */
+/* Hallmark · reworded "Dr Jamie B. Smith" to "Jamie B. Smith" · Jamie requested that the title no longer compete with the homepage name */
+/* Hallmark · reworded "Verified profiles, recognition and features" to "Elsewhere" · Jamie requested a shorter page heading */
+/* Hallmark · waive 79 · the retained split opening leaves paper below its artwork; Elsewhere continues at y439 with its section heading and links visibly filling the reported band */
+/* Hallmark · reworded "Nurse Researcher | Health Workforce Wellbeing" to "Nurse Researcher | Health Workforce Wellbeing" · the role now uses a paragraph below the name and keeps the same text */
+
+.blox-resume-biography.hbb-section { padding: 0; }
+.riso-profile { width: 100%; }
+.riso-profile-hero { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: center; gap: var(--space-xl); min-height: min(790px, calc(100svh - var(--header-height))); padding-block: var(--space-wide); }
+.riso-hero-copy { min-width: 0; }
+.riso-hero-copy h1 { font-size: clamp(3.5rem, 6.6vw, 6.5rem); line-height: 0.94; margin: 0; max-width: 12ch; color: var(--color-ink); letter-spacing: var(--tracking-display); text-wrap: balance; }
+.riso-misreg { display: inline-block; position: relative; isolation: isolate; }
+.riso-misreg::after { content: attr(data-text); position: absolute; inset: 0; z-index: -1; color: var(--color-accent); transform: translate(2px, 3px); pointer-events: none; }
+.riso-role { max-width: 27ch; font-size: var(--text-lead); line-height: 1.6; color: var(--color-ink); margin-block: var(--space-xl) var(--space-lg); }
+.riso-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); }
+.riso-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: var(--space-sm) var(--space-lg); border: 1.5px solid transparent; border-radius: var(--radius-card); background: var(--color-accent); color: var(--color-accent-ink); font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--text-md); line-height: 1.3; white-space: nowrap; text-decoration: none; transition: border-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.riso-button:hover { border-color: var(--color-ink); }
+.riso-button:active { transform: translate(1px, 1px); }
+.riso-text-link { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--text-sm); font-weight: 500; color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-accent); white-space: nowrap; }
+.riso-text-link:hover { text-decoration-thickness: 3px; }
+.riso-landscape { position: relative; isolation: isolate; align-self: stretch; min-height: 460px; max-height: 610px; margin: 0; background: var(--color-paper-2); }
+.riso-landscape::before { content: ""; position: absolute; inset: var(--space-md) calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) var(--space-md); z-index: -1; background: var(--color-accent); }
+.riso-landscape img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 52% 50%; border-radius: var(--radius-card); }
+.riso-landscape::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: var(--texture-opacity); background-size: 200px 200px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); }
+.riso-biography { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-2xl); padding-block: var(--section-gap-s); border-top: 1px solid var(--color-rule); }
+.riso-profile-details { max-width: 28rem; position: sticky; top: calc(var(--header-height) + var(--space-lg)); align-self: start; }
+.riso-profile-details .avatar-wrapper { width: min(100%, 448px); height: auto; aspect-ratio: 1; margin: 0 0 var(--space-lg); }
+.riso-profile-details img.avatar { width: 100%; height: 100%; object-fit: cover; padding: 0; border-radius: var(--radius-card); }
+.riso-profile-name { font-family: var(--font-display); font-size: var(--text-title); font-weight: var(--display-weight); line-height: 1.35; margin-block: 0 var(--space-lg); }
+.riso-profile-name span { display: block; font-family: var(--font-body); font-size: var(--text-sm); font-weight: 400; color: var(--color-muted); }
+.riso-affiliations { list-style: none; padding: 0; margin: 0; }
+.riso-affiliations li { margin-block: var(--space-sm); font-size: var(--text-md); }
+.riso-affiliations a { text-decoration: underline; text-decoration-color: var(--color-accent); }
+.riso-profile-links.network-icon { display: flex; flex-wrap: wrap; gap: var(--space-2xs); padding: 0; margin: var(--space-lg) 0 0; }
+.riso-profile-links li { margin: 0; list-style: none; }
+.riso-profile-links a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--color-ink); }
+.riso-profile-links a:hover { background: var(--color-paper-2); }
+.riso-profile-links svg { width: 24px; height: 24px; fill: currentColor; }
+.riso-bio-copy { align-self: start; min-width: 0; }
+.riso-bio-copy .bio-text { font-family: var(--font-body); font-size: var(--text-lead); line-height: 1.75; text-align: left; }
+.riso-bio-copy .bio-text p:first-child::first-letter { font-family: var(--font-display); font-weight: var(--display-weight); }
+.riso-profile-links.network-icon { display: grid; grid-template-columns: repeat(4, 44px); gap: var(--space-xs); }
+.riso-article-hero { width: 100%; max-width: var(--reading-width); margin-inline: auto; font-size: var(--text-lead); }
+.riso-article-hero .riso-markdown-title, .riso-article-hero .prose h1 { max-width: 24ch; font-size: clamp(2.25rem, 3.3vw + 0.5rem, 3.5rem); line-height: 1.04; margin: 0 0 var(--space-xl); font-weight: var(--display-weight); }
+.riso-markdown:has(.riso-article-hero) { gap: var(--space-2xl); }
+.riso-article-hero .prose { width: 100%; }
+.riso-article-hero + .prose > h2:first-child { margin-top: 0; }
+@media (max-height: 60rem) {
+  .riso-profile-details { position: static; }
+}
+@media (max-width: 60rem) {
+  .riso-profile-hero { min-height: auto; grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); padding-block: var(--space-xl) var(--space-2xl); }
+  .riso-hero-copy h1 { font-size: clamp(3.5rem, 10vw, 6rem); }
+  .riso-hero-copy h1 br { display: none; }
+  .riso-role { max-width: 38ch; margin-top: var(--space-lg); }
+  .riso-landscape { min-height: 300px; height: 48vw; max-height: 480px; }
+  .riso-landscape img { object-position: center; }
+  .riso-biography { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
+  .riso-profile-details { max-width: none; position: static; }
+  .riso-profile-details .avatar-wrapper { float: left; width: 292px; height: 292px; margin-right: var(--space-lg); }
+  .riso-profile-links.network-icon { clear: both; }
+  .riso-bio-copy .bio-text { font-size: var(--text-md); }
+  .riso-article-hero { font-size: var(--text-md); }
+}
+@media (max-width: 40rem) {
+  .riso-hero-copy h1 { font-size: clamp(3.5rem, 14vw, 5rem); }
+  .riso-landscape { min-height: 260px; height: 72vw; }
+  .riso-actions { gap: var(--space-md); }
+  .riso-profile-details .avatar-wrapper { float: none; width: min(100%, 336px); height: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .riso-button { transition: none; } }
