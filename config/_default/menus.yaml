@@ -13,6 +13,9 @@ main:
   - name: Research
     url: /research/
     weight: 18
+  - name: Consultancy
+    url: /consultancy/
+    weight: 19
   - name: Publications
     url: /publications/
     weight: 20
