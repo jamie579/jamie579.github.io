@@ -23,7 +23,7 @@ main:
     url: /elsewhere/
     weight: 25
   - name: CV
-    url: https://docs.google.com/document/d/1cryn7EYpHLo0TBS_tYKnBqrAckx08qa4Hbb5FY0BZF8/edit?usp=sharing
+    url: https://docs.google.com/document/d/1yFuFX_asSRPta67onjFjN6BF8tjn9VOJQcxQJJS9AhA/edit?usp=sharing
     weight: 30
     params:
       target: _blank
