@@ -18,6 +18,7 @@
 .riso-profile-hero { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: center; gap: var(--space-xl); min-height: min(790px, calc(100svh - var(--header-height))); padding-block: var(--space-wide); }
 .riso-hero-copy { min-width: 0; }
 .riso-hero-copy h1 { font-size: clamp(3.5rem, 6.6vw, 6.5rem); line-height: 0.94; margin: 0; max-width: 12ch; color: var(--color-ink); letter-spacing: var(--tracking-display); text-wrap: balance; }
+.riso-name-line { display: block; }
 .riso-misreg { display: inline-block; position: relative; isolation: isolate; }
 .riso-misreg::after { content: attr(data-text); position: absolute; inset: 0; z-index: -1; color: var(--color-accent); transform: translate(2px, 3px); pointer-events: none; }
 .riso-role { max-width: 27ch; font-size: var(--text-lead); line-height: 1.6; color: var(--color-ink); margin-block: var(--space-xl) var(--space-lg); }
@@ -60,7 +61,7 @@
 @media (max-width: 60rem) {
   .riso-profile-hero { min-height: auto; grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); padding-block: var(--space-xl) var(--space-2xl); }
   .riso-hero-copy h1 { font-size: clamp(3.5rem, 10vw, 6rem); }
-  .riso-hero-copy h1 br { display: none; }
+  .riso-name-line { display: inline; }
   .riso-role { max-width: 38ch; margin-top: var(--space-lg); }
   .riso-landscape { min-height: 300px; height: 48vw; max-height: 480px; }
   .riso-landscape img { object-position: center; }

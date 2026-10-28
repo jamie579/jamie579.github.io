@@ -16,7 +16,7 @@
 <div id="profile" class="resume-biography riso-profile">
   <div class="riso-profile-hero riso-container">
     <div class="riso-hero-copy">
-      <h1>{{ if $page.IsHome }}Jamie <br>B. <span class="riso-misreg" data-text="Smith">Smith</span>{{ else }}About <br><span class="riso-misreg" data-text="Jamie">Jamie</span>{{ end }}</h1>
+      <h1>{{ if $page.IsHome }}Jamie <span class="riso-name-line">B. <span class="riso-misreg" data-text="Smith">Smith</span></span>{{ else }}About <span class="riso-name-line"><span class="riso-misreg" data-text="Jamie">Jamie</span></span>{{ end }}</h1>
       <p class="riso-role">{{ $profile.role }}</p>
       <div class="riso-actions">
         {{ if $page.IsHome }}
