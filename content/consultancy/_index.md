@@ -24,29 +24,29 @@ sections:
 
         I help healthcare organisations, charities and research teams understand how programmes work in practice, make sense of their evidence and decide what to improve next.
 
-        I am **Dr Jamie Brian Smith**, a nurse researcher with experience in clinical practice, mixed-methods research, process evaluation and implementation science. I offer independent consultancy for organisations seeking a clear assessment of delivery, implementation and learning.
+        My background spans clinical nursing, mixed-methods research, process evaluation and implementation science.
 
-        **[Discuss an evaluation project](#discuss-a-project)**
+        **[Discuss a project](#discuss-a-project)**
 
         ## How I can help
 
         ### Programme and process evaluation
 
-        I can help you clarify evaluation questions, develop a proportionate evaluation framework and examine how a programme is delivered in practice. This includes understanding what supports implementation, where difficulties arise and how experiences vary between settings.
+        I help you decide what an evaluation needs to answer and plan the work within your resources. We examine how a programme is delivered, what helps or gets in the way, and how experiences vary between settings.
 
         ### Evidence review and synthesis
 
-        I can bring together programme documents, monitoring information, research and stakeholder perspectives to assess what the evidence shows. Outputs can include an evidence map, a synthesis of findings and a clear account of gaps and uncertainties.
+        I bring together programme documents, monitoring information, research and the perspectives of people involved. Depending on what you need, I can produce an evidence map or a synthesis of findings, with gaps and uncertainties made clear.
 
         ### Learning workshops and reporting
 
-        I can design and facilitate workshops that help teams examine findings, explore different experiences and identify practical next steps. I can also prepare evaluation reports, accessible summaries and presentations for organisational, clinical and public audiences.
+        I run workshops where teams can examine findings, compare experiences and decide what to do next. I also prepare evaluation reports, summaries and presentations for organisational, clinical and public audiences.
 
         ## Relevant experience
 
         ### Process evaluation in critical care
 
-        I am a Senior Research Fellow working on process evaluation within the **SHORTER trial**. This work examines implementation in clinical settings and the factors shaping how an intervention is put into practice.
+        I am a Senior Research Fellow working on process evaluation within the **SHORTER trial**. I examine how the intervention is put into practice in clinical settings.
 
         [Meet the SHORTER team →](https://www.shortertrial.com/our-team)
 
@@ -60,17 +60,15 @@ sections:
 
         My research examines how policies, resources, technologies and inequalities shape healthcare work. I bring clinical nursing experience and research across UK and German settings to questions about implementation and organisational change.
 
-        [Explore my research →](/research/)
+        [My research →](/research/)
 
         ## My approach
 
-        We begin with the decisions your organisation needs to make, the evidence already available and the time and resources for the work. We then agree the questions, methods, outputs and timetable.
-
-        I pay attention to whose experiences are represented, how organisational conditions shape delivery and where the evidence is uncertain. Findings should be clear enough to use, with recommendations that follow from the evidence.
+        We begin with the decisions your organisation needs to make and the evidence already available, then agree the questions, methods, outputs and timetable. I pay attention to whose experiences are represented and where the evidence is uncertain.
 
         ## Discuss a project
 
-        If you are planning an evaluation or need help making sense of a programme's evidence, please get in touch. A brief description of the project, intended outputs, timetable and indicative budget is a useful starting point.
+        Email me with a brief description of the project, the outputs you need, your timetable and an indicative budget.
 
         **[Email Jamie about a project](mailto:jamie@hornesmith.co.uk?subject=Consultancy%20enquiry)**
 

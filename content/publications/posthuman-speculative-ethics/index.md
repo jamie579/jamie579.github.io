@@ -28,7 +28,8 @@
       {
         "given": "Jamie",
         "family": "Smith",
-        "display": "Jamie Smith"
+        "display": "Jamie Smith",
+        "site_owner": true
       },
       {
         "given": "Goda",
@@ -61,16 +62,15 @@
     "citation_ris": "/publications/posthuman-speculative-ethics/cite.ris",
     "abstract_source_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/nup.12447",
     "abstract_license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
-    "abstract_license_label": "CC BY-NC 4.0"
+    "abstract_license_label": "CC BY-NC 4.0",
+    "kind": "journal-article",
+    "output_label": "Journal article",
+    "tldr": {
+      "hook": "A care pathway promises to guide the next decision. But what happens when your life does not fit the pattern it expects?",
+      "science": "This philosophical paper examines how predictive algorithms and evidence-based pathways can carry existing inequalities into healthcare, and explores speculative ethics as a way to question those assumptions.",
+      "so_what": "Whose future does that care pathway imagine? What possibilities disappear when a prediction becomes the route someone is expected to follow?"
+    }
   }
 }
 
-## Contribution
-
-With Goda Klumbyte and Ren Loren Britton, I examine how algorithmic approaches to healthcare can reproduce existing inequalities and assumptions about possible futures. We propose posthuman speculative ethics as a way to question how care, prediction and responsibility are organised.
-
-## Using this research
-
-This philosophical paper offers concepts for critical research on healthcare algorithms and their normative assumptions. It can inform questions about what systems make possible, whom they exclude and how alternative futures might be considered.
-
-[Critical posthumanism](/critical-posthumanism/) · [Healthcare technology research](/research/#healthcare-technology-and-responsibility)
+Related reading: [Critical posthumanism](/critical-posthumanism/) · [Healthcare technology research](/research/#healthcare-technology-and-responsibility)

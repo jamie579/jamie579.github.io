@@ -1,6 +1,8 @@
 # Five publication pages — local review, 30 October 2026
 
-Five journal articles now have individual, readable HTML pages under `/publications/`. They are linked from the existing bibliography and relevant research resources. No navigation item was added. This is the first review batch; the remaining papers have not been converted. Nothing was pushed or published.
+This report records the initial five-page batch. The subsequent [full collection and editorial report](all-publication-pages-2026-10-30.md) supersedes its scope and validation counts.
+
+Five journal articles initially received individual, readable HTML pages under `/publications/`. They are linked from the existing bibliography and relevant research resources. No navigation item was added. This was the first review batch. Nothing was pushed or published.
 
 ## Selection and evidence
 

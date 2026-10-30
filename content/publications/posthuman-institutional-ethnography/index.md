@@ -28,7 +28,8 @@
       {
         "given": "Jamie Brian",
         "family": "Smith",
-        "display": "Jamie Brian Smith"
+        "display": "Jamie Brian Smith",
+        "site_owner": true
       },
       {
         "given": "Rosie",
@@ -91,16 +92,15 @@
     "citation_ris": "/publications/posthuman-institutional-ethnography/cite.ris",
     "abstract_source_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/jan.17077",
     "abstract_license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "abstract_license_label": "CC BY 4.0"
+    "abstract_license_label": "CC BY 4.0",
+    "kind": "journal-article",
+    "output_label": "Journal article",
+    "tldr": {
+      "hook": "When nurses are told to take responsibility, how much control do they have over the staffing, technology and rules shaping a shift?",
+      "science": "In a qualitative study with 10 nurses on one NHS renal ward, professional expectations collided with staffing shortages, limited resources and difficult-to-use technology.",
+      "so_what": "What would have to change on that ward for nurses to meet the professional expectations placed on them?"
+    }
   }
 }
 
-## Contribution
-
-This paper connects institutional ethnography with posthuman and new materialist inquiry in nursing. Drawing on a study in one NHS renal ward, it examines tensions between individual professional accountability and the staffing, technologies and resources available for care.
-
-## Using this research
-
-It offers an empirical example for researchers studying professional regulation, gendered expectations and the material organisation of nursing work. Its findings arise from one ward and should be read in that context.
-
-[Institutional ethnography](/institutional-ethnography/) · [Critical posthumanism](/critical-posthumanism/)
+Related reading: [Institutional ethnography](/institutional-ethnography/) · [Critical posthumanism](/critical-posthumanism/)

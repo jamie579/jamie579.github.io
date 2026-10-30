@@ -10,7 +10,7 @@ sections:
     content:
       title: Research in policy reports and professional guidance
       text: |
-        My coauthored research has been cited and discussed in reports on nurse migration and guidance on artificial intelligence in nursing. These examples document citation and discussion of the work, with links to the original sources.
+        My coauthored research has been cited and discussed in reports on nurse migration and guidance on artificial intelligence in nursing.
 
         ## Nurse migration in a European Parliament commissioned study
 
@@ -28,7 +28,7 @@ sections:
 
         The white paper cites our work when discussing predictive AI, nurses' responsibility for clinical decisions, changes to nursing work, the sources of patient data, and algorithmic bias (**PDF pages 1, 2 and 5**).
 
-        [Research programme →](/research/) · [Publications →](/publications/) · [Further scholarly discussion and external records →](/elsewhere/)
+        [Research programme →](/research/) · [Publications →](/publications/) · [Further scholarly discussion →](/elsewhere/)
     design:
       columns: '1'
 ---

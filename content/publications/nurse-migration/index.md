@@ -27,7 +27,8 @@
       {
         "given": "Jamie B",
         "family": "Smith",
-        "display": "Jamie B Smith"
+        "display": "Jamie B Smith",
+        "site_owner": true
       },
       {
         "given": "Doreen",
@@ -74,16 +75,15 @@
     "citation_ris": "/publications/nurse-migration/cite.ris",
     "abstract_source_url": "https://journals.sagepub.com/doi/10.1177/15271544221102964",
     "abstract_license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "abstract_license_label": "CC BY 4.0"
+    "abstract_license_label": "CC BY 4.0",
+    "kind": "journal-article",
+    "output_label": "Journal article",
+    "tldr": {
+      "hook": "A job offer might get a nurse across a border. It does not automatically make the new workplace somewhere they can thrive.",
+      "science": "Our rapid evidence assessment brought together 56 papers involving migrant nurses in Australia, Germany and the UK. Recurring concerns included discrimination, communication and structured integration support.",
+      "so_what": "Recruitment is only the beginning. Nurses’ own experiences need to shape the support, research and policies that follow their arrival."
+    }
   }
 }
 
-## Contribution
-
-This rapid evidence assessment brings together 56 papers involving migrant nurses in Australia, Germany and the UK. It identifies discrimination, language and communication, and structured integration support as recurring concerns, and argues for migrant nurses to be active partners in research informing migration policy.
-
-## Using this research
-
-This review is useful for research on migrant nurses’ experiences, integration support and participation in the research that informs workforce policy.
-
-[Workforce research](/research/#workforce-wellbeing-and-structural-inequality) · [All publications](/publications/)
+Related reading: [Workforce research](/research/#workforce-wellbeing-and-structural-inequality)

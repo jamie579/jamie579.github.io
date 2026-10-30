@@ -1,21 +1,33 @@
 {{ define "main" }}
 {{ $record := partial "publication/record.html" . }}
 {{ $paper := $record.paper }}
-<article class="hbb-section riso-publication" data-publication-doi="{{ $record.doi }}">
+<article class="hbb-section riso-publication" data-publication-doi="{{ $record.doi }}" data-paper-kind="{{ $record.kind }}">
   <div class="riso-publication-inner">
     <header class="riso-publication-header">
       <a class="riso-paper-back" href="{{ "/publications/" | relLangURL }}">← All publications</a>
       <h1 data-paper-title>{{ $paper.title }}</h1>
+      {{ with $paper.tldr }}
+      <section class="riso-paper-tldr" aria-labelledby="paper-tldr-heading" data-paper-tldr>
+        <h2 id="paper-tldr-heading">TL;DR</h2>
+        <p class="riso-tldr-hook">{{ .hook }}</p>
+        <p>{{ .science }}</p>
+        <p>{{ .so_what }}</p>
+      </section>
+      {{ end }}
+      {{ with $paper.output_label }}<p class="riso-paper-kind">{{ . }}</p>{{ end }}
       <p class="riso-paper-authors" aria-label="Authors">{{ range $index, $author := $paper.authors }}{{ if $index }}<span aria-hidden="true"> · </span>{{ end }}<span data-paper-author>{{ $author.display | default (printf "%s %s" $author.given $author.family) }}</span>{{ end }}</p>
-      <p class="riso-paper-journal"><cite>{{ $paper.journal }}</cite> · {{ $paper.year }}{{ with $paper.volume }} · {{ . }}{{ end }}{{ with $paper.issue }}({{ . }}){{ end }}{{ with $paper.pages }}, {{ . }}{{ end }}{{ with $paper.article_number }}, {{ . }}{{ end }}</p>
+      {{ with $paper.author_credit }}<p class="riso-paper-note">{{ . }}</p>{{ end }}
+      <p class="riso-paper-journal"><cite>{{ $record.container }}</cite> · {{ $paper.year }}{{ with $paper.volume }} · {{ . }}{{ end }}{{ with $paper.issue }}({{ . }}){{ end }}{{ with $paper.pages }}, {{ . }}{{ end }}{{ with $paper.article_number }}, {{ . }}{{ end }}</p>
+      {{ with $paper.version_note }}<p class="riso-paper-version-note">{{ .text }}{{ with .url }} <a href="{{ . | relURL }}">{{ $paper.version_note.label }}</a>{{ end }}</p>{{ end }}
       <div class="riso-paper-actions" aria-label="Read the article">
-        <a class="riso-button" href="{{ $record.doiURL }}">DOI / publisher ↗</a>
-        {{ range $paper.open_access }}<a class="riso-paper-access" href="{{ .url | safeURL }}">{{ .label }} ↗</a>{{ end }}
+        <a class="riso-button" href="{{ $record.doiURL }}">DOI / source ↗</a>
+        {{ range first 1 $record.links }}<a class="riso-paper-access" href="{{ .url | safeURL }}">{{ .label }} ↗</a>{{ end }}
         {{ with $paper.pdf_url }}<a class="riso-paper-access" href="{{ . | safeURL }}">Read the PDF ↗</a>{{ end }}
         <a class="riso-paper-access" href="#paper-citation-heading">Cite this paper ↓</a>
       </div>
     </header>
 
+    {{ if $paper.abstract }}
     <section class="riso-paper-abstract prose" aria-labelledby="paper-abstract-heading">
       <h2 id="paper-abstract-heading">Abstract</h2>
       <div data-paper-abstract>
@@ -26,30 +38,39 @@
         </div>
         {{ end }}
       </div>
-      {{ with $paper.abstract_source_url }}<p class="riso-abstract-source">Abstract reproduced from <a href="{{ . | safeURL }}">the published article</a>{{ with $paper.abstract_license_url }} · <a href="{{ . | safeURL }}">{{ $paper.abstract_license_label | default "Abstract licence" }}</a>{{ end }}.</p>{{ end }}
+      {{ with $paper.abstract_source_url }}<p class="riso-abstract-source">Abstract reproduced from <a href="{{ . | safeURL }}">{{ $paper.abstract_source_label | default "the published source" }}</a>{{ with $paper.abstract_license_url }} · <a href="{{ . | safeURL }}">{{ $paper.abstract_license_label | default "Abstract licence" }}</a>{{ end }}.</p>{{ end }}
     </section>
+    {{ else }}
+    <section class="riso-paper-abstract prose" aria-labelledby="paper-abstract-heading" data-no-abstract>
+      <h2 id="paper-abstract-heading">About this {{ $paper.short_type | default "publication" }}</h2>
+      <p>{{ $paper.abstract_note }}</p>
+      {{ with $paper.protocol_aim }}<h3>Stated aim</h3><p>{{ . }}</p>{{ end }}
+      {{ with $paper.abstract_source_url }}<p class="riso-abstract-source"><a href="{{ . | safeURL }}">Source record</a></p>{{ end }}
+    </section>
+    {{ end }}
 
     {{ with .Content }}<div class="riso-paper-context prose">{{ . }}</div>{{ end }}
 
     <section class="riso-paper-citation prose" aria-labelledby="paper-citation-heading">
       <h2 id="paper-citation-heading">Cite this paper</h2>
-      <p id="paper-citation">{{ delimit $record.names "; " }} ({{ $paper.year }}). {{ $paper.title }}. <cite>{{ $paper.journal }}</cite>{{ with $paper.volume }}, {{ . }}{{ end }}{{ with $paper.issue }}({{ . }}){{ end }}{{ with $paper.pages }}, {{ . }}{{ end }}{{ with $paper.article_number }}, {{ . }}{{ end }}. <a href="{{ $record.doiURL }}">{{ $record.doiURL }}</a></p>
+      <p id="paper-citation">{{ delimit $record.names "; " }} ({{ $paper.year }}). {{ $paper.title }}. {{ if eq $record.kind "book-chapter" }}In {{ range $i, $editor := $paper.editors }}{{ if $i }}; {{ end }}{{ .display | default (printf "%s %s" .given .family) }}{{ end }} (Eds.), {{ end }}<cite>{{ $record.container }}</cite>{{ with $paper.volume }}, {{ . }}{{ end }}{{ with $paper.issue }}({{ . }}){{ end }}{{ with $paper.pages }}, {{ . }}{{ end }}{{ with $paper.article_number }}, {{ . }}{{ end }}{{ if eq $record.kind "book-chapter" }}. {{ $paper.publisher }}{{ end }}{{ if eq $record.kind "thesis" }} [Doctoral thesis]{{ end }}{{ if eq $record.kind "preprint" }} [Preprint]{{ end }}{{ if eq $record.kind "protocol" }} [Review protocol]{{ end }}. <a href="{{ $record.doiURL }}">{{ $record.doiURL }}</a></p>
       <div class="riso-paper-actions">
         {{ with $paper.citation_bibtex }}<a class="riso-paper-download" href="{{ . | relURL }}" download>Download BibTeX</a>{{ end }}
         {{ with $paper.citation_ris }}<a class="riso-paper-download" href="{{ . | relURL }}" download>Download RIS</a>{{ end }}
       </div>
-      {{ with $paper.publication_date }}<p class="riso-paper-date">Journal publication: <time datetime="{{ . }}">{{ partial "publication/display-date.html" . }}</time>.</p>{{ end }}
+      {{ with $paper.publication_date }}<p class="riso-paper-date">{{ $paper.publication_date_label | default "Publication" }}: <time datetime="{{ . }}">{{ partial "publication/display-date.html" . }}</time>.</p>{{ end }}
       {{ with $paper.published_online }}{{ if ne . $paper.publication_date }}<p class="riso-paper-date">First published online: <time datetime="{{ . }}">{{ partial "publication/display-date.html" . }}</time>.</p>{{ end }}{{ end }}
     </section>
 
-    {{ with $paper.open_access }}
     <section class="riso-paper-versions prose" aria-labelledby="paper-versions-heading">
       <h2 id="paper-versions-heading">Available versions</h2>
+      {{ with $record.links }}
       <ul>
-        {{ range . }}<li><a href="{{ .url | safeURL }}">{{ .label }}</a>{{ with .version }} — {{ . }}{{ end }}{{ with .license }}. {{ if hasPrefix . "https://" }}<a href="{{ . | safeURL }}">{{ $paper.abstract_license_label | default "Licence details" }}</a>{{ else }}{{ . }}{{ end }}{{ end }}.</li>{{ end }}
+        {{ range . }}{{ $version := . }}<li><a href="{{ .url | safeURL }}">{{ .label }}</a>{{ with .version }} — {{ . }}{{ end }}{{ with .license }}. {{ if hasPrefix . "https://" }}<a href="{{ . | safeURL }}">{{ $version.license_label | default "Licence details" }}</a>{{ else }}{{ . }}{{ end }}{{ end }}.</li>{{ end }}
       </ul>
+      {{ end }}
+      {{ with $paper.access_note }}<p class="riso-paper-note">{{ . }}</p>{{ end }}
     </section>
-    {{ end }}
   </div>
 </article>
 {{ end }}

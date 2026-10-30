@@ -1,15 +1,26 @@
 {{- $p := .Params.paper -}}
+{{- $kind := $p.kind | default "journal-article" -}}
+{{- $type := "article" -}}
+{{- if eq $kind "book-chapter" -}}{{- $type = "incollection" -}}{{- else if eq $kind "thesis" -}}{{- $type = "phdthesis" -}}{{- else if eq $kind "preprint" -}}{{- $type = "unpublished" -}}{{- else if eq $kind "protocol" -}}{{- $type = "techreport" -}}{{- end -}}
 {{- $authors := slice -}}
-{{- range $p.authors -}}
-  {{- $authors = $authors | append (printf "%s, %s" .family .given) -}}
-{{- end -}}
-@article{{ printf "{%s," $p.citation_key }}
+{{- range $p.authors -}}{{- $authors = $authors | append (printf "%s, %s" .family .given) -}}{{- end -}}
+{{ printf "@%s{%s," $type $p.citation_key }}
   title = {{ printf "{{%s}}" (partial "publication/bibtex-escape.html" $p.title) }},
   author = {{ printf "{%s}" (partial "publication/bibtex-escape.html" (delimit $authors " and ")) }},
-  journal = {{ printf "{%s}" (partial "publication/bibtex-escape.html" $p.journal) }},
-  year = {{ printf "{%v}" $p.year }},
+{{ if eq $kind "book-chapter" }}  booktitle = {{ printf "{{%s}}" (partial "publication/bibtex-escape.html" $p.book_title) }},
+{{ $editors := slice }}{{ range $p.editors }}{{ $editors = $editors | append (printf "%s, %s" .family .given) }}{{ end }}  editor = {{ printf "{%s}" (partial "publication/bibtex-escape.html" (delimit $editors " and ")) }},
+{{ else if eq $kind "thesis" }}  school = {{ printf "{%s}" (partial "publication/bibtex-escape.html" $p.institution) }},
+  type = {Doctoral thesis},
+{{ else if eq $kind "preprint" }}  note = {Preprint; see the publication page for the peer-reviewed version},
+{{ else if eq $kind "protocol" }}  institution = {{ printf "{%s}" $p.publisher }},
+  type = {Scoping review protocol},
+  note = {Scoping review protocol},
+{{ else }}  journal = {{ printf "{%s}" (partial "publication/bibtex-escape.html" $p.journal) }},
+{{ end }}{{ if not (in (slice "thesis" "protocol") $kind) }}{{ with $p.publisher }}  publisher = {{ printf "{%s}" (partial "publication/bibtex-escape.html" .) }},
+{{ end }}{{ end }}{{ with $p.isbn }}  isbn = {{ printf "{%s}" . }},
+{{ end }}  year = {{ printf "{%v}" $p.year }},
 {{ with $p.volume }}  volume = {{ printf "{%v}" . }},
-{{ end }}{{ with $p.issue }}  number = {{ printf "{%v}" . }},
+{{ end }}{{ with $p.issue }}  number = {{ printf "{%s}" (partial "publication/bibtex-escape.html" .) }},
 {{ end }}{{ with ($p.pages | default $p.article_number) }}  pages = {{ printf "{%s}" (replaceRE `[-–−]+` "--" .) }},
 {{ end }}  doi = {{ printf "{%s}" $p.doi }},
   url = {{ printf "{https://doi.org/%s}" $p.doi }}

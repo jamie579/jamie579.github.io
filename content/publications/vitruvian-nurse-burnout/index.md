@@ -28,7 +28,8 @@
       {
         "given": "Jamie",
         "family": "Smith",
-        "display": "Jamie Smith"
+        "display": "Jamie Smith",
+        "site_owner": true
       },
       {
         "given": "Eva",
@@ -71,16 +72,15 @@
     "citation_ris": "/publications/vitruvian-nurse-burnout/cite.ris",
     "abstract_source_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/nin.12538",
     "abstract_license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
-    "abstract_license_label": "CC BY-NC 4.0"
+    "abstract_license_label": "CC BY-NC 4.0",
+    "kind": "journal-article",
+    "output_label": "Journal article",
+    "tldr": {
+      "hook": "Always kind. Always capable. Always willing to put everyone else first. How long could anyone keep that up?",
+      "science": "This philosophical paper uses the ‘Vitruvian nurse’ metaphor to question the impossible ideal of the self-sacrificing nurse and how professional codes reinforce it.",
+      "so_what": "When exhaustion gets treated as a personal failing, the paper asks us to look again at the expectations nurses are trying to meet."
+    }
   }
 }
 
-## Contribution
-
-With colleagues, I extend Rosi Braidotti’s Vitruvian Man metaphor to examine the “ideal nurse”. The paper considers how professional expectations and regulatory frameworks reproduce self-sacrifice and contribute to oppression and burnout.
-
-## Using this research
-
-This conceptual paper is useful for examining the assumptions behind professional ideals, nursing accountability and responses to burnout. It develops a philosophical argument; it does not test an intervention to reduce burnout.
-
-[Critical posthumanism](/critical-posthumanism/) · [Institutional ethnography](/institutional-ethnography/)
+Related reading: [Critical posthumanism](/critical-posthumanism/) · [Institutional ethnography](/institutional-ethnography/)

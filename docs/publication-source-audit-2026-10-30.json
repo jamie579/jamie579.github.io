@@ -1,0 +1,746 @@
+{
+  "ai-ethics-for-nursing": {
+    "doi": "10.3912/OJIN.Vol30No02Man06",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.3912%2Fojin.vol30no02man06",
+        "evidence": "Publisher-deposited Crossref record: complete abstract, ordered author list, title, journal, volume/issue and available dates. Abstract XML markup removed; lexical text retained."
+      },
+      {
+        "url": "https://ojin.nursingworld.org/table-of-contents/volume-30-2025/number-2-may-2025/ethics-of-ai-for-nursing/",
+        "evidence": "Complete free-to-read article confirms Jess Dillard-Wright and Jamie Smith, 31 May 2025, volume 30 number 2, Manuscript 6 and matches the Crossref abstract. Publisher webpage and Crossref BOTH swap the two authors’ ORCID identifiers; those incorrect IDs were not propagated."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "Publisher site states American Nurses Association copyright/all rights reserved; no Creative Commons licence was verified. Public full text is free to read. The abstract is reproduced for the author’s requested personal-site record.",
+    "access_note": "Publisher full text is free to read; no open reuse licence was verified.",
+    "factual_flags": [
+      "Publisher page and Crossref swap the authors’ ORCIDs: Jess Dillard-Wright is incorrectly linked to Jamie Smith’s 0000-0003-0097-6102, and Jamie to Jess’s 0000-0003-4646-5199. External correction needed; no ORCID was copied into this record."
+    ]
+  },
+  "ecologies-of-care": {
+    "doi": "10.7488/era/3858",
+    "sources": [
+      {
+        "url": "https://api.datacite.org/dois/10.7488/era/3858",
+        "evidence": "DataCite gives the repository title, sole author Jamie Brian Smith, 2023 publication year, 2023-11-08 issued/available date, and complete abstract."
+      },
+      {
+        "url": "https://era.ed.ac.uk/items/351c3676-c09d-42e0-b8a1-98a09eb19475/full",
+        "evidence": "University repository independently confirms full abstract, doctoral level, PhD qualification, and downloadable Smith2023.pdf."
+      },
+      {
+        "url": "https://era.ed.ac.uk/bitstreams/70f20bdd-a978-4857-bc30-7d7aac27ac04/download",
+        "evidence": "PDF cover has the variant title Ecologies of Care: Towards a Posthuman Institutional Ethnography of nursing and Spring 2021; its terms retain author copyright and permit personal noncommercial research/study downloads."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "Author copyright retained; the repository permits downloading for personal noncommercial research or study. No Creative Commons licence is asserted.",
+    "factual_flags": [
+      "The repository uses 2023 and the title without Towards; the deposited PDF cover says Spring 2021 and includes Towards. The website follows the repository citation, without claiming 2023-11-08 was the PhD award date.",
+      "The reproduced abstract contains a priority claim about healthcare application; the page contribution does not independently repeat or endorse that priority claim."
+    ]
+  },
+  "posthuman-speculative-ethics": {
+    "doi": "10.1111/nup.12447",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/nup.12447",
+        "evidence": "Publisher-deposited Crossref record: complete title, ordered full author names, journal, volume, issue, pages or article number, issue month and year, first-online date, complete JATS abstract, and Version of Record licence. Abstract text transcribed automatically from JATS without abridgement; only XML markup removed."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/nup.12447",
+        "evidence": "Accessible complete publisher HTML article, marked Open Access; confirms title, ordered authors, first-online date, volume, issue and article identity."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37357707/",
+        "evidence": "PubMed record retrieved through the Europe PMC core-record API; confirms full author given/family names, DOI and complete abstract."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fnup.12447&format=json&resultType=core",
+        "evidence": "Authoritative Europe PMC retrieval of MED record 37357707. Confirms author names, full abstract and electronic-publication date. Issue date for nup.12447 is taken from the more complete publisher/Crossref record, because this MED record retains ahead-of-print status."
+      }
+    ],
+    "rights_note": "Complete author-written abstract reproduced at the author’s request. The publisher’s Version of Record is licensed CC BY-NC 4.0 (http://creativecommons.org/licenses/by-nc/4.0/). Retain attribution to every coauthor, citation and licence link; the article’s licence remains distinct from the website’s own content licence. Full-text links point to lawful publisher or public repository copies; no PDF is rehosted."
+  },
+  "clinical-research-nursing-policy": {
+    "doi": "10.1111/jocn.70140",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/jocn.70140",
+        "evidence": "Publisher-deposited Crossref metadata verifies complete ordered author list, title, journal, issue citation, first-online date and Version of Record terms. No abstract is deposited."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/jocn.70140",
+        "evidence": "Publisher HTML confirms title, ordered authors, issue details, first-online date and EDITORIAL; the complete free-to-read text begins directly with the editorial body and has no abstract."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fjocn.70140&format=json&resultType=core",
+        "evidence": "Europe PMC core API retrieves the PubMed/MED record 41104773; verifies ordered published author names and absence of an indexed abstract. Publication type is Editorial."
+      }
+    ],
+    "abstract_status": "not-published",
+    "rights_note": "No published abstract is supplied; the separate editorial_summary is a new website summary, not author abstract text. Crossref records Wiley Version of Record terms, not a Creative Commons licence. No open reuse licence is asserted and no article PDF or full text is rehosted.",
+    "access_note": "The complete Wiley editorial is freely readable and labelled Free Access. No Creative Commons or other open reuse licence was verified; Crossref supplies Wiley terms, so this is recorded separately from open_access.",
+    "author_notes": "The publisher, Crossref and PubMed publish the author names as G. Colquhoun, J. Smith and N. Ring; the given names have not been expanded. The PubMed ORCID for J. Smith is 0000-0003-0097-6102, matching Jamie."
+  },
+  "antimicrobial-prescribing-protocol": {
+    "doi": "10.17605/OSF.IO/F9M2K",
+    "sources": [
+      {
+        "url": "https://api.datacite.org/dois/10.17605/OSF.IO/F9M2K",
+        "evidence": "DataCite verifies the title, DOI, 2025 issued year and project URL. Its Abstract field merely says A scoping review protocol, which is not treated as a full abstract."
+      },
+      {
+        "url": "https://api.osf.io/v2/nodes/f9m2k/",
+        "evidence": "OSF API identifies the public project; created 2025-11-07, modified 2026-02-11, with node_license null."
+      },
+      {
+        "url": "https://api.osf.io/v2/nodes/f9m2k/files/osfstorage/",
+        "evidence": "OSF file records give both public PDFs and exact upload dates, sizes and SHA-256 hashes."
+      },
+      {
+        "url": "https://osf.io/download/g2wba/",
+        "evidence": "Cover byline: Oberstar Š, Young H, Lomper K, Smith J, Colquhoun G. Section 7 supplies full names; section 11 supplies the exact aim. No conventional abstract section."
+      },
+      {
+        "url": "https://osf.io/download/8gc4s/",
+        "evidence": "Updated PDF retains the same ordered byline and section 11 aim. Local raw PDFs and extracted text preserve both versions."
+      },
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S1551741126001737",
+        "evidence": "Completed review identity verified separately in antimicrobial-prescribing-competency.json; its changed byline is not applied retroactively to the protocol."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "not-published",
+    "rights_note": "Both protocol PDFs are publicly downloadable from OSF. No reuse licence is specified.",
+    "factual_flags": [
+      "DataCite lists OSF creators in a different order from the protocol byline. The website uses the printed protocol author order, corroborated by both deposited PDFs.",
+      "The original and updated PDF front cover use the project title; section 1 instead ends A Scoping Review Protocol. The record follows the cover/project title.",
+      "No Creative Commons licence is declared by DataCite or the OSF node; public downloading is not labelled CC-licensed.",
+      "The project is public, not an OSF registration (registration:false). Do not call this a preregistration."
+    ]
+  },
+  "notes-on-posthuman-nursing": {
+    "doi": "10.1111/nin.12562",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/nin.12562",
+        "evidence": "Publisher-deposited Crossref metadata verifies complete ordered author list, title, journal, issue citation, first-online date and Version of Record terms. The complete publisher-written abstract is present in JATS and was transcribed without abridgement; only XML markup and indentation were removed."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/nin.12562",
+        "evidence": "Publisher HTML confirms title, ordered authors, issue details, first-online date and ORIGINAL ARTICLE. It is labelled Open Access and complete article text is readable."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fnin.12562&format=json&resultType=core",
+        "evidence": "Europe PMC core API retrieves the PubMed/MED record 37211658; verifies ordered published author names and complete abstract. Publisher/Crossref issue details take precedence when MED retains an ahead-of-print record."
+      }
+    ],
+    "abstract_status": "verified",
+    "rights_note": "Complete author-written abstract reproduced at the author’s request. The publisher’s Version of Record is licensed CC BY 4.0 (http://creativecommons.org/licenses/by/4.0/). Preserve the original citation, all coauthor credit and the licence link; do not apply the website’s own licence to the article. No article PDF is rehosted."
+  },
+  "appraise-study-protocol": {
+    "doi": "10.1136/bmjopen-2020-040636",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1136%2Fbmjopen-2020-040636",
+        "evidence": "Crossref publisher deposit confirms exact title, all 21 authors in order, journal, volume 11, issue 4 and locator e040636. Publication dates and the version-of-record CC BY 4.0 licence were checked separately from text-mining licences and licence effective dates."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33811049/",
+        "evidence": "PubMed/Europe PMC confirms bibliographic identity, all 21 authors and electronic publication date 2021-04-02. Issue/collection dates are retained at the precision actually reported."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8023744/fullTextXML",
+        "evidence": "Publisher-deposited full-text XML supplies the complete English abstract and CC BY 4.0 permissions. Keyword sections are excluded; abstract prose and section boundaries are retained."
+      },
+      {
+        "url": "https://bmjopen.bmj.com/content/11/4/e040636",
+        "evidence": "BMJ Open full-text record identifies the output as a protocol. All planned sample sizes and procedures are described prospectively; no trial results are claimed."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "The complete author-written abstract is reproduced from the identified authoritative source with markup removed and paragraph/section boundaries retained. CC BY 4.0 applies to the version of record. Summaries and the opening three-paragraph explanation are separate editorial text. Leading/trailing layout whitespace and the typographic colon after section headings are not part of paragraph text. No abstract prose is shortened or rewritten."
+  },
+  "nurse-migration": {
+    "doi": "10.1177/15271544221102964",
+    "sources": [
+      {
+        "url": "https://journals.sagepub.com/doi/10.1177/15271544221102964",
+        "evidence": "Publisher full text confirms article identity and all four authors; Volume 23, Issue 3, pages 175–194; first online 23 June 2022; issue published August 2022. Rights and permissions identify CC BY 4.0. Methods reports that JS conducted initial search screening and all four authors participated in analysis."
+      },
+      {
+        "url": "https://api.crossref.org/works/10.1177%2F15271544221102964",
+        "evidence": "Crossref confirms exact title, author given/family names, journal, 23(3),175–194, online date 2022-06-23, print issue month 2022-08, CC BY 4.0 licence and version-of-record links."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9274786/fullTextXML",
+        "evidence": "Publisher-deposited full-text XML supplies the complete unstructured abstract as two paragraphs and the CC BY 4.0 permissions statement. Keywords nested under the abstract were excluded from the abstract prose."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35747915/",
+        "evidence": "PubMed identifier resolved through the Europe PMC DOI search; confirms bibliographic identity and PMC9274786 full-text deposit."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "rights_note": "© The Author(s) 2022; CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ The complete author-written abstract is reproduced without editorial changes from the publisher-deposited full-text XML, with markup removed and original paragraph/section boundaries preserved. The contribution summary is separate editorial text."
+  },
+  "person-centred-care": {
+    "doi": "10.1111/nup.12401",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/nup.12401",
+        "evidence": "Publisher-deposited Crossref metadata verifies complete ordered author list, title, journal, issue citation, first-online date and Version of Record terms. The complete publisher-written abstract is present in JATS and was transcribed without abridgement; only XML markup and indentation were removed."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/nup.12401",
+        "evidence": "Publisher HTML confirms title, ordered authors, issue details, first-online date and ORIGINAL ARTICLE. It is labelled Open Access and complete article text is readable."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fnup.12401&format=json&resultType=core",
+        "evidence": "Europe PMC core API retrieves the PubMed/MED record 35749609; verifies ordered published author names and complete abstract. Publisher/Crossref issue details take precedence when MED retains an ahead-of-print record."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/nup.12401",
+        "evidence": "Publisher author note explicitly credits Eva-Maria Willis as joint first author. The complete abstract includes all three explanatory footnotes, which are preserved here."
+      }
+    ],
+    "abstract_status": "verified",
+    "rights_note": "Complete author-written abstract reproduced at the author’s request. The publisher’s Version of Record is licensed CC BY-NC 4.0 (http://creativecommons.org/licenses/by-nc/4.0/). Preserve the original citation, all coauthor credit and the licence link; do not apply the website’s own licence to the article. No article PDF is rehosted.",
+    "author_notes": "The publisher explicitly states: Eva-Maria Willis is a joint first author."
+  },
+  "mattering": {
+    "doi": "10.1111/nup.12452",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/nup.12452",
+        "evidence": "Publisher-deposited Crossref metadata verifies complete ordered author list, title, journal, issue citation, first-online date and Version of Record terms. The complete publisher-written abstract is present in JATS and was transcribed without abridgement; only XML markup and indentation were removed."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/10.1111/nup.12452",
+        "evidence": "Publisher landing page confirms all six authors, ORIGINAL ARTICLE, issue 24(3), e12452, first-online date, full abstract and references; article body is not available in the retrieved unauthenticated page, and no Open Access label is shown."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fnup.12452&format=json&resultType=core",
+        "evidence": "Europe PMC core API retrieves the PubMed/MED record 37334499; verifies ordered published author names and complete abstract. Publisher/Crossref issue details take precedence when MED retains an ahead-of-print record."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/toc/1466769x/2023/24/3",
+        "evidence": "Official issue contents places the article under ORIGINAL ARTICLES, confirms issue July 2023 and does not give it an Open Access label."
+      }
+    ],
+    "abstract_status": "verified",
+    "rights_note": "Complete author-written abstract reproduced at the author’s request. Crossref records Wiley Version of Record terms, not a Creative Commons licence. No open reuse licence is asserted and no article PDF or full text is rehosted.",
+    "access_note": "No lawful open-access full-text copy was verified. Wiley exposes the abstract and references but not the article body in the retrieved unauthenticated page; Crossref supplies publisher terms and Europe PMC supplies only a subscription DOI link. A title/DOI search did not locate a usable institutional-repository copy."
+  },
+  "critical-posthuman-nursing-care": {
+    "doi": "10.25071/2291-5796.126",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.25071%2F2291-5796.126",
+        "evidence": "Publisher-deposited Crossref record: complete abstract, ordered author list, title, journal, volume/issue and available dates. Abstract XML markup removed; lexical text retained."
+      },
+      {
+        "url": "https://witness.journals.yorku.ca/index.php/default/article/download/126/88",
+        "evidence": "Publisher PDF confirms the complete title including subtitle, printed byline Jane Hopkins-Walsh, Jessica Dillard-Wright, Brandon Brown, Jamie Smith, Eva Willis, and 4(1),16–35. Crossref splits title/subtitle and uses fuller/alternate names for Jane and Brandon; the visible record follows the published PDF byline."
+      },
+      {
+        "url": "https://napier-repository.worktribe.com/output/4624789/critical-posthuman-nursing-care-bodies-reborn-and-the-ethical-imperative-for-composting",
+        "evidence": "Institutional repository confirms 27 June 2022 publication, volume/issue/pages, full-text PDF deposit and CC BY-NC 4.0 licence. The publisher landing page challenged automated access; the official PDF was available through web retrieval."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "CC BY-NC 4.0 verified in publisher-deposited Crossref metadata and institutional repository. Abstract follows the complete publisher-deposited abstract; printed PDF and deposit contain minor punctuation differences."
+  },
+  "vitruvian-nurse-burnout": {
+    "doi": "10.1111/nin.12538",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/nin.12538",
+        "evidence": "Publisher-deposited Crossref record: complete title, ordered full author names, journal, volume, issue, pages or article number, issue month and year, first-online date, complete JATS abstract, and Version of Record licence. Abstract text transcribed automatically from JATS without abridgement; only XML markup removed."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/nin.12538",
+        "evidence": "Accessible complete publisher HTML article, marked Open Access; confirms title, ordered authors, first-online date, volume, issue and article identity."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36424518/",
+        "evidence": "PubMed record retrieved through the Europe PMC core-record API; confirms full author given/family names, DOI and complete abstract."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fnin.12538&format=json&resultType=core",
+        "evidence": "Authoritative Europe PMC retrieval of MED record 36424518. Confirms author names, full abstract and electronic-publication date. Issue date for nup.12447 is taken from the more complete publisher/Crossref record, because this MED record retains ahead-of-print status."
+      }
+    ],
+    "rights_note": "Complete author-written abstract reproduced at the author’s request. The publisher’s Version of Record is licensed CC BY-NC 4.0 (http://creativecommons.org/licenses/by-nc/4.0/). Retain attribution to every coauthor, citation and licence link; the article’s licence remains distinct from the website’s own content licence. Full-text links point to lawful publisher or public repository copies; no PDF is rehosted."
+  },
+  "making-care-perceptible": {
+    "doi": "10.1515/9781399512688-016",
+    "sources": [
+      {
+        "url": "https://www.jstor.org/stable/10.3366/jj.27710986",
+        "evidence": "Publisher-distributed book contents verify chapter 12, pp. 287-313, all four authors in order (Jamie B. Smith, Eva Willis, Kieran Sheehan, Emily Jones), and book contributors/editors in order Goda Klumbytė, Emily Jones, Rosi Braidotti. Chapter preview ends with ideas of..., not a complete abstract."
+      },
+      {
+        "url": "https://www.jstor.org/stable/10.3366/jj.27710986.18",
+        "evidence": "Chapter link redirects to the book access page; no complete abstract or unrestricted full text retrieved."
+      },
+      {
+        "url": "https://api.crossref.org/works/10.1515/9781399512688-016",
+        "evidence": "Crossref verifies DOI, chapter identity, publisher and pages; author array omits Jamie, and exact date is 2025-06-20. These defects are retained in audit rather than copied into the visible byline."
+      },
+      {
+        "url": "https://eprints.ncl.ac.uk/299193",
+        "evidence": "Newcastle verifies all four authors, full book title, publisher, 2025 year and institutional dates 2025-08-01, with full text under embargo until 2028-08-01."
+      },
+      {
+        "url": "https://api.datacite.org/dois/10.57711/44dg-1198",
+        "evidence": "DataCite confirms the Newcastle repository DOI; it is a repository record identifier, kept separate from the chapter DOI."
+      },
+      {
+        "url": "https://research.cumbria.ac.uk/en/publications/making-care-perceptible-nursingintuitive-movementposthuman-care/",
+        "evidence": "Institutional record independently verifies all four authors and pages 287-313. Its abstract and citation export both end with ideas of..., confirming truncation. Its editor order differs from the publisher-distributed book contents."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "unavailable",
+    "rights_note": "No open licence was verified. The Newcastle repository full text is embargoed until 1 August 2028; no full chapter or purported full abstract is reproduced.",
+    "access_note": "The Newcastle repository states that the full text cannot be made publicly available until 1 August 2028. Publisher and institutional records are available; no unrestricted full text was verified.",
+    "factual_flags": [
+      "Crossref chapter metadata omits first author Jamie B. Smith; publisher-distributed JSTOR contents and two institutional records establish the four-person byline. External metadata correction needed.",
+      "Exact publication dates conflict: Crossref 2025-06-20 versus Newcastle/Cumbria 2025-08-01. The primary date is the shared year only.",
+      "Cumbria editor order differs from JSTOR and Newcastle. Use publisher-distributed order Goda Klumbytė, Emily Jones, Rosi Braidotti.",
+      "No complete abstract is available from the checked public sources. The page must not display or mark up its editorial summary as a verbatim abstract."
+    ]
+  },
+  "nurse-educator-development": {
+    "doi": "10.1016/j.nedt.2022.105695",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1016%2Fj.nedt.2022.105695",
+        "evidence": "Crossref publisher deposit confirms exact title, all 10 authors in order, journal, volume 121 and locator 105695. Publication dates and the version-of-record CC BY 4.0 licence were checked separately from text-mining licences and licence effective dates."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36565582/",
+        "evidence": "PubMed/Europe PMC confirms bibliographic identity, all 10 authors and electronic publication date 2022-12-14. Issue/collection dates are retained at the precision actually reported."
+      },
+      {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=36565582&retmode=xml",
+        "evidence": "PubMed XML supplies the complete author-written abstract with all labelled sections, full ordered given/family author names and article publication date."
+      },
+      {
+        "url": "https://api.elsevier.com/content/article/PII:S0260691722004324?httpAccept=text/xml",
+        "evidence": "Elsevier article API returned HTTP 200 and explicitly reports openaccessArticle=true, openaccessType=Full and openaccessUserLicense=http://creativecommons.org/licenses/by/4.0/, with the linked ScienceDirect full-text URL. Cover display date confirms the issue month; day-level coverDate is not treated as a publication day."
+      },
+      {
+        "url": "https://www.research.ed.ac.uk/en/publications/an-integrative-review-of-the-continuing-professional-development-/",
+        "evidence": "Institutional repository confirms all ten authors, full abstract, February 2023 publication, early online 14 December 2022, article 105695 and a linked final published PDF under CC BY. The PDF fetch itself returned HTTP 403 in this environment."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "The complete author-written abstract is reproduced from the identified authoritative source with markup removed and paragraph/section boundaries retained. CC BY 4.0 applies to the version of record. Summaries and the opening three-paragraph explanation are separate editorial text. Leading/trailing layout whitespace and the typographic colon after section headings are not part of paragraph text. No abstract prose is shortened or rewritten.",
+    "access_note": "Publisher open access and licence are confirmed by Elsevier's API and Crossref. Direct ScienceDirect HTML retrieval returned HTTP 403 in this environment; this is a retrieval limitation, not evidence of a paywall."
+  },
+  "homogeneity-health-sciences-academia": {
+    "doi": "10.1371/journal.pone.0345194",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1371%2Fjournal.pone.0345194",
+        "evidence": "Crossref publisher deposit confirms exact title, all 4 authors in order, journal, volume 21, issue 10 and locator e0345194. Publication dates and the version-of-record CC BY 4.0 licence were checked separately from text-mining licences and licence effective dates."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42949904/",
+        "evidence": "PubMed/Europe PMC confirms bibliographic identity, all 4 authors and electronic publication date 2026-10-28. Issue/collection dates are retained at the precision actually reported."
+      },
+      {
+        "url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0345194&type=manuscript",
+        "evidence": "PLOS publisher JATS XML supplies the complete abstract, four author contributors (editor excluded), publication date 28 October 2026, and CC BY 4.0 licence."
+      },
+      {
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0345194",
+        "evidence": "Publisher full text and citation confirm PLOS One 21(10):e0345194, publication 28 October 2026, and full open access under CC BY 4.0. Its conclusion explicitly describes the possible reinforcing cycle as an interpretive model to be tested, not an established causal effect."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "The complete author-written abstract is reproduced from the identified authoritative source with markup removed and paragraph/section boundaries retained. CC BY 4.0 applies to the version of record. Summaries and the opening three-paragraph explanation are separate editorial text. Leading/trailing layout whitespace and the typographic colon after section headings are not part of paragraph text. No abstract prose is shortened or rewritten."
+  },
+  "interpreting-posthumanism": {
+    "doi": "10.5325/jpoststud.4.1.0059",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.5325%2Fjpoststud.4.1.0059",
+        "evidence": "Publisher-deposited Crossref record: complete abstract, ordered author list, title, journal, volume/issue and available dates. Abstract XML markup removed; lexical text retained."
+      },
+      {
+        "url": "https://www.research.ed.ac.uk/en/publications/interpreting-posthumanism-with-nurse-work/",
+        "evidence": "University of Edinburgh Research Explorer confirms DOI, two authors, 4(1),59–75, complete abstract matching Crossref, and an explicitly labelled accepted author manuscript link. It reports 3 December 2020, whereas Crossref reports 4 August 2020 and Napier October 2020; only the common year is propagated."
+      },
+      {
+        "url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/144437858/Smith_WillisJOPHS2020InterpretingPosthumanismWithNurseWork.pdf",
+        "evidence": "Official Edinburgh repository manuscript is publicly discoverable and labelled peer reviewed version on its cover. General rights retain author/other copyright; no Creative Commons licence is stated."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "Accepted author manuscript publicly available through Edinburgh; no Creative Commons licence verified. Repository cover retains author/other copyright. The published abstract is taken from Crossref and matches the repository record.",
+    "access_note": "The Edinburgh record links an accepted author manuscript; no open reuse licence is stated.",
+    "factual_flags": [
+      "Exact publication date remains unresolved: Crossref 2020-08-04; Napier 2020-10; Edinburgh 2020-12-03. The year 2020, volume 4, issue 1 and pages 59–75 agree. No precise day or first-online date is asserted."
+    ]
+  },
+  "digital-antibiotic-review-toolkit": {
+    "doi": "10.3390/antibiotics14070660",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.3390%2Fantibiotics14070660",
+        "evidence": "Crossref publisher deposit confirms exact title, all 6 authors in order, journal, volume 14, issue 7 and locator 660. Publication dates and the version-of-record CC BY 4.0 licence were checked separately from text-mining licences and licence effective dates."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40723963/",
+        "evidence": "PubMed/Europe PMC confirms bibliographic identity, all 6 authors and electronic publication date 2025-06-30. Issue/collection dates are retained at the precision actually reported."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12291640/fullTextXML",
+        "evidence": "Publisher-deposited full-text XML supplies the complete English abstract and CC BY 4.0 permissions. Keyword sections are excluded; abstract prose and section boundaries are retained."
+      },
+      {
+        "url": "https://www.mdpi.com/2079-6382/14/7",
+        "evidence": "Publisher issue page identifies Volume 14, Issue 7 as July 2025. Crossref and PubMed identify first online publication as 30 June 2025; the PMC XML's 1 July date is not substituted for first online publication."
+      },
+      {
+        "url": "https://www.mdpi.com/2079-6382/14/7/660",
+        "evidence": "Publisher title/abstract and Crossref identify six authors. The three additional names in PMC contrib groups are academic editors and are excluded from the author list."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "The complete author-written abstract is reproduced from the identified authoritative source with markup removed and paragraph/section boundaries retained. CC BY 4.0 applies to the version of record. Summaries and the opening three-paragraph explanation are separate editorial text. Leading/trailing layout whitespace and the typographic colon after section headings are not part of paragraph text. No abstract prose is shortened or rewritten."
+  },
+  "we-all-care": {
+    "doi": "10.1111/nin.12572",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/nin.12572",
+        "evidence": "Publisher-deposited Crossref metadata verifies complete ordered author list, title, journal, issue citation, first-online date and Version of Record terms. No abstract is deposited."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/10.1111/nin.12572",
+        "evidence": "Publisher HTML confirms title, ordered authors, issue details, first-online date and COMMENTARY; the text begins directly with the commentary body and has no abstract. It is labelled Open Access."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fnin.12572&format=json&resultType=core",
+        "evidence": "Europe PMC core API retrieves the PubMed/MED record 37335684; verifies ordered published author names and absence of an indexed abstract. "
+      }
+    ],
+    "abstract_status": "not-published",
+    "rights_note": "No published abstract is supplied; the separate editorial_summary is a new website summary, not author abstract text. The publisher’s Version of Record is licensed CC BY-NC-ND 4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/). Preserve the original citation, all coauthor credit and the licence link; do not apply the website’s own licence to the article. No article PDF is rehosted."
+  },
+  "kosovo-hygiene-education": {
+    "doi": "10.3205/dgkh000412",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.3205%2Fdgkh000412",
+        "evidence": "Crossref endpoint returned HTTP 404. Bibliographic details were verified from the publisher, PubMed and publisher-deposited PMC XML instead."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35707230/",
+        "evidence": "PubMed/Europe PMC confirms bibliographic identity, all 9 authors and electronic publication date 2022-06-03. Issue/collection dates are retained at the precision actually reported."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9175063/fullTextXML",
+        "evidence": "Publisher-deposited full-text XML supplies the complete English abstract and CC BY 4.0 permissions. Keyword sections are excluded; abstract prose and section boundaries are retained."
+      },
+      {
+        "url": "https://www.egms.de/static/en/journals/dgkh/2022-17/dgkh000412.shtml",
+        "evidence": "Publisher HTML retrieved successfully and decoded as Latin-1. Confirms nine authors, GMS Hygiene and Infection Control 2022;17:Doc09, publication 3 June 2022, full English abstract and CC BY 4.0. The English conclusion ends without a full stop in both publisher HTML and deposited XML; retained as published."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "The complete author-written abstract is reproduced from the identified authoritative source with markup removed and paragraph/section boundaries retained. CC BY 4.0 applies to the version of record. Summaries and the opening three-paragraph explanation are separate editorial text. Leading/trailing layout whitespace and the typographic colon after section headings are not part of paragraph text. No abstract prose is shortened or rewritten."
+  },
+  "antimicrobial-prescribing-competency": {
+    "doi": "10.1016/j.sapharm.2026.08.001",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1016%2Fj.sapharm.2026.08.001",
+        "evidence": "Crossref publisher deposit confirms exact title, all 6 authors in order, journal, volume 22, issue 12 and locator 1084-1098. Publication dates and the version-of-record CC BY 4.0 licence were checked separately from text-mining licences and licence effective dates."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42595677/",
+        "evidence": "PubMed/Europe PMC confirms bibliographic identity, all 6 authors and electronic publication date 2026-08-08. Issue/collection dates are retained at the precision actually reported."
+      },
+      {
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42595677&retmode=xml",
+        "evidence": "PubMed XML supplies the complete author-written abstract with all labelled sections, full ordered given/family author names and article publication date."
+      },
+      {
+        "url": "https://api.elsevier.com/content/article/PII:S1551741126001737?httpAccept=text/xml",
+        "evidence": "Elsevier article API returned HTTP 200 and explicitly reports openaccessArticle=true, openaccessType=Full and openaccessUserLicense=http://creativecommons.org/licenses/by/4.0/, with the linked ScienceDirect full-text URL. Cover display date confirms the issue month; day-level coverDate is not treated as a publication day."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "The complete author-written abstract is reproduced from the identified authoritative source with markup removed and paragraph/section boundaries retained. CC BY 4.0 applies to the version of record. Summaries and the opening three-paragraph explanation are separate editorial text. Leading/trailing layout whitespace and the typographic colon after section headings are not part of paragraph text. No abstract prose is shortened or rewritten.",
+    "access_note": "Publisher open access and licence are confirmed by Elsevier's API and Crossref. Direct ScienceDirect HTML retrieval returned HTTP 403 in this environment; this is a retrieval limitation, not evidence of a paywall."
+  },
+  "staying-with-the-trouble": {
+    "doi": "10.1111/nup.70060",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/nup.70060",
+        "evidence": "Publisher-deposited Crossref metadata verifies complete ordered author list, title, journal, issue citation, first-online date and Version of Record terms. The complete publisher-written abstract is present in JATS and was transcribed without abridgement; only XML markup and indentation were removed."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/nup.70060",
+        "evidence": "Publisher HTML confirms title, ordered authors, issue details, first-online date and ORIGINAL ARTICLE. It is labelled Open Access and complete article text is readable."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fnup.70060&format=json&resultType=core",
+        "evidence": "Europe PMC core API retrieves the PubMed/MED record 41407652; verifies ordered published author names and complete abstract. Publisher/Crossref issue details take precedence when MED retains an ahead-of-print record."
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12711605/",
+        "evidence": "Complete lawful public repository article verifies author, title, all abstract text, separate first-online and issue dates, and CC BY 4.0 licence."
+      }
+    ],
+    "abstract_status": "verified",
+    "rights_note": "Complete author-written abstract reproduced at the author’s request. The publisher’s Version of Record is licensed CC BY 4.0 (http://creativecommons.org/licenses/by/4.0/). Preserve the original citation, all coauthor credit and the licence link; do not apply the website’s own licence to the article. No article PDF is rehosted."
+  },
+  "beyond-heroic-individualism": {
+    "doi": "10.1111/gwao.70193",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/gwao.70193",
+        "evidence": "Publisher-deposited Crossref metadata verifies complete ordered author list, title, journal, issue citation, first-online date and Version of Record terms. The complete publisher-written abstract is present in JATS and was transcribed without abridgement; only XML markup and indentation were removed."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/gwao.70193",
+        "evidence": "Publisher HTML confirms title, ordered authors, issue details, first-online date and ORIGINAL ARTICLE. It is labelled Open Access and complete article text is readable."
+      }
+    ],
+    "abstract_status": "verified",
+    "rights_note": "Complete author-written abstract reproduced at the author’s request. The publisher’s Version of Record is licensed CC BY 4.0 (http://creativecommons.org/licenses/by/4.0/). Preserve the original citation, all coauthor credit and the licence link; do not apply the website’s own licence to the article. No article PDF is rehosted."
+  },
+  "doctoral-belonging-discrimination": {
+    "doi": "10.1192/j.eurpsy.2025.1862",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1192%2Fj.eurpsy.2025.1862",
+        "evidence": "Publisher-deposited Crossref record: complete abstract, ordered author list, title, journal, volume/issue and available dates. Abstract XML markup removed; lexical text retained."
+      },
+      {
+        "url": "https://www.cambridge.org/core/journals/european-psychiatry/article/association-of-imposter-syndrome-and-psychological-wellbeing-in-the-doctoral-process-how-they-are-influenced-by-experiences-of-discrimination-social-support-and-belonging/8AB9945728A8CBAFB4268C980F694068",
+        "evidence": "Cambridge confirms output Type Abstract, Special Issue S1: Abstracts of the 33rd European Congress of Psychiatry, April 2025, S917; online 26 August 2025; all five published author names appear as initials; complete structured abstract including Disclosure of Interest and CC BY 4.0 licence. Published typo “Syndromehas” retained."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "© The Authors 2025, CC BY 4.0. Complete conference abstract reproduced with source section boundaries, including disclosure; published typographical errors are retained.",
+    "author_name_note": "All five authors are included in published order. Given names remain the initials printed by Cambridge; unverified expansions were not guessed."
+  },
+  "affirmative-futures-nursing": {
+    "doi": "10.4324/9781003245957-8",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.4324/9781003245957-8",
+        "evidence": "Crossref verifies two authors in order, exact chapter title, book container, pages 77-94, Routledge, and a 2022-09-30 print date."
+      },
+      {
+        "url": "https://www.taylorfrancis.com/chapters/edit/10.4324/9781003245957-8/imagining-affirmative-futures-nursing-jamie-smith-eva-willis",
+        "evidence": "Saved publisher HTML contains the complete six-sentence abstract in citation_abstract and in the product-detail-page-state abstract element; ordered authors, page range and 2022-11-18 date are present in publisher metadata."
+      },
+      {
+        "url": "https://napier-repository.worktribe.com/person/4171465/jamie-smith/outputs?Type=Book+Chapter&Year=2022&page=1",
+        "evidence": "Institutional listing confirms chapter citation, 2022 year, editors and beginning of abstract; listing itself is truncated and is not the full abstract source."
+      },
+      {
+        "url": "https://api.pageplace.de/preview/DT0400.9781000779240_A43469126/preview-9781000779240_A43469126.pdf",
+        "evidence": "Publisher-distributed preview table of contents identifies this as chapter 5 beginning on page 77, by Jamie Smith and Eva Willis."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "Publisher metadata states © 2022 Routledge. No open licence for the chapter was verified; the abstract is reproduced as the user’s coauthored work.",
+    "access_note": "The publisher provides the chapter abstract. No freely accessible complete chapter was verified.",
+    "factual_flags": [
+      "Publisher date is 2022-11-18 while Crossref published-print is 2022-09-30; citation uses the shared year and records the publisher exact date separately.",
+      "DOI suffix -8 and publisher web label 8 are resource sequence positions; the printed table of contents identifies chapter 5.",
+      "The author positioning in the abstract describes the authors at publication; it is reproduced as historical published text, not a current biography."
+    ]
+  },
+  "nursing-stress-measurement": {
+    "doi": "10.1016/j.ijnsa.2026.100689",
+    "sources": [
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653943/",
+        "evidence": "Publisher-deposited full text confirms title, five authors, volume 11, article 100689, complete eight-section abstract, publication on 25 September 2026, December 2026 collection and CC BY-NC-ND 4.0 licence. CRediT statement attributes conceptualisation, methodology, formal analysis, software, visualisation and writing to Jamie B Smith."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13653943/fullTextXML",
+        "evidence": "Full-text XML provides exact abstract sections Background, Objectives, Design, Setting, Participants, Methods, Results and Conclusions; pub-date epub 2026-09-25 and collection 2026-12; author list and licence; article number 100689."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42861036/",
+        "evidence": "PubMed gives 2026 Sep 25;11:100689, DOI 10.1016/j.ijnsa.2026.100689, eCollection 2026 Dec, five authors, full structured abstract and PMCID PMC13653943."
+      },
+      {
+        "url": "https://api.crossref.org/works/10.1016%2Fj.ijnsa.2026.100689",
+        "evidence": "Crossref confirms exact title (including em dash), published author names including Tulin Engudar, journal, volume 11 and article number 100689. Its published-print date is 2026-12; this is not the first online publication date. The licence starts 2026-09-24, which is a licence-effective date and is not used as the publication date."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "rights_note": "© 2026 The Authors; CC BY-NC-ND 4.0: https://creativecommons.org/licenses/by-nc-nd/4.0/ The complete author-written abstract is reproduced without editorial changes from the publisher-deposited full-text XML, with markup removed and original paragraph/section boundaries preserved. The contribution summary is separate editorial text.",
+    "verification_notes": [
+      "The published Setting section contains the literal text \"[city blinded]\". It is preserved exactly, not filled in.",
+      "ScienceDirect returned HTTP 403 to this retrieval tool; the lawful PMC full-text deposit and its licence were accessible.",
+      "No issue number is supplied by the publisher-deposited XML or Crossref; none has been invented."
+    ]
+  },
+  "posthuman-institutional-ethnography": {
+    "doi": "10.1111/jan.17077",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/jan.17077",
+        "evidence": "Publisher-deposited Crossref record: complete title, ordered full author names, journal, volume, issue, pages or article number, issue month and year, first-online date, complete JATS abstract, and Version of Record licence. Abstract text transcribed automatically from JATS without abridgement; only XML markup removed."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/jan.17077",
+        "evidence": "Accessible complete publisher HTML article, marked Open Access; confirms title, ordered authors, first-online date, volume, issue and article identity."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40468784/",
+        "evidence": "PubMed record retrieved through the Europe PMC core-record API; confirms full author given/family names, DOI and complete abstract."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fjan.17077&format=json&resultType=core",
+        "evidence": "Authoritative Europe PMC retrieval of MED record 40468784. Confirms author names, full abstract and electronic-publication date. Issue date for nup.12447 is taken from the more complete publisher/Crossref record, because this MED record retains ahead-of-print status."
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12810658/",
+        "evidence": "Complete publicly accessible article verifies both authors, DOI, all eight structured abstract sections, issue date February 2026, pages 1601–1613 and CC BY 4.0 licence. Confirms publisher copyright 2025 and original online date 5 June 2025."
+      }
+    ],
+    "rights_note": "Complete author-written abstract reproduced at the author’s request. The publisher’s Version of Record is licensed CC BY 4.0 (http://creativecommons.org/licenses/by/4.0/). Retain attribution to every coauthor, citation and licence link; the article’s licence remains distinct from the website’s own content licence. Full-text links point to lawful publisher or public repository copies; no PDF is rehosted."
+  },
+  "nurse-migration-comparative": {
+    "doi": "10.1093/eurpub/ckaa165.532",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1093%2Feurpub%2Fckaa165.532",
+        "evidence": "Publisher-deposited Crossref record: complete abstract, ordered author list, title, journal, volume/issue and available dates. Abstract XML markup removed; lexical text retained."
+      },
+      {
+        "url": "https://academic.oup.com/eurpub/article/30/Supplement_5/ckaa165.532/5914585",
+        "evidence": "Oxford Academic confirms four ordered authors, volume 30 Supplement_5, September 2020, article locator ckaa165.532, published 30 September 2020, complete structured abstract and key messages. Issue section is Parallel Programme > 10.G. Oral session: Health professionals’ shortages and migration. Publisher labels it Free, while retaining all rights under the Standard Journals Publication Model."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "© The Authors 2020, Oxford University Press/European Public Health Association; all rights reserved under the OUP Standard Journals Publication Model. Free access is not a Creative Commons reuse licence.",
+    "access_note": "The complete conference abstract is free to read from the publisher; no Creative Commons reuse licence was verified.",
+    "author_name_note": "All four authors are included in published order using the initials printed by Oxford Academic."
+  },
+  "camp-of-reason": {
+    "doi": "10.1111/nup.70081",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1111/nup.70081",
+        "evidence": "Publisher-deposited Crossref metadata verifies complete ordered author list, title, journal, issue citation, first-online date and Version of Record terms. The complete publisher-written abstract is present in JATS and was transcribed without abridgement; only XML markup and indentation were removed."
+      },
+      {
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/nup.70081",
+        "evidence": "Publisher HTML confirms title, ordered authors, issue details, first-online date and ORIGINAL ARTICLE. It is labelled Open Access and complete article text is readable."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1111%2Fnup.70081&format=json&resultType=core",
+        "evidence": "Europe PMC core API retrieves the PubMed/MED record 41911488; verifies ordered published author names and complete abstract. Publisher/Crossref issue details take precedence when MED retains an ahead-of-print record."
+      },
+      {
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13035309/",
+        "evidence": "Complete lawful public repository article verifies author, title, all abstract text, separate first-online and issue dates, and CC BY 4.0 licence."
+      }
+    ],
+    "abstract_status": "verified",
+    "rights_note": "Complete author-written abstract reproduced at the author’s request. The publisher’s Version of Record is licensed CC BY 4.0 (http://creativecommons.org/licenses/by/4.0/). Preserve the original citation, all coauthor credit and the licence link; do not apply the website’s own licence to the article. No article PDF is rehosted."
+  },
+  "shorter-trial-protocol": {
+    "doi": "10.1136/bmjopen-2026-117142",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.1136%2Fbmjopen-2026-117142",
+        "evidence": "Crossref publisher deposit confirms exact title, all 28 authors in order, journal, volume 16, issue 3 and locator e117142. Publication dates and the version-of-record CC BY 4.0 licence were checked separately from text-mining licences and licence effective dates."
+      },
+      {
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41887637/",
+        "evidence": "PubMed/Europe PMC confirms bibliographic identity, all 28 authors and electronic publication date 2026-03-26. Issue/collection dates are retained at the precision actually reported."
+      },
+      {
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13034387/fullTextXML",
+        "evidence": "Publisher-deposited full-text XML supplies the complete English abstract and CC BY 4.0 permissions. Keyword sections are excluded; abstract prose and section boundaries are retained."
+      },
+      {
+        "url": "https://bmjopen.bmj.com/content/16/3/e117142",
+        "evidence": "BMJ Open full-text record identifies the output as a protocol. All planned sample sizes and procedures are described prospectively; no trial results are claimed."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "The complete author-written abstract is reproduced from the identified authoritative source with markup removed and paragraph/section boundaries retained. CC BY 4.0 applies to the version of record. Summaries and the opening three-paragraph explanation are separate editorial text. Leading/trailing layout whitespace and the typographic colon after section headings are not part of paragraph text. No abstract prose is shortened or rewritten."
+  },
+  "homogeneity-preprint": {
+    "doi": "10.64898/2026.03.04.26347665",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.64898/2026.03.04.26347665",
+        "evidence": "Crossref verifies the four authors in order, posted-content type, 2026-03-05 posted date, two complete abstract paragraphs, and CC BY 4.0 licence."
+      },
+      {
+        "url": "https://www.medrxiv.org/content/10.64898/2026.03.04.26347665v1",
+        "evidence": "medRxiv verifies the same full byline, complete abstract, posted date and CC BY 4.0 licence."
+      },
+      {
+        "url": "https://www.medrxiv.org/content/10.64898/2026.03.04.26347665v1.full",
+        "evidence": "The legitimate medRxiv full-text version 1 is readable without authentication."
+      },
+      {
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0345194",
+        "evidence": "Subsequent PLOS One article independently verified in homogeneity-health-sciences-academia.json; retained as a separate publication version, not substituted into the preprint abstract."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "The preprint is available under CC BY 4.0.",
+    "factual_flags": [
+      "Jamie is credited as Jamie Brian Smith on the preprint, whereas the journal version credits Jamie B. Smith. Each page retains its version-specific byline.",
+      "Preprint findings concern nine participants in one institutional setting; they are perceptions, not estimates of population prevalence or proven causal effects."
+    ]
+  },
+  "we-refuse-to-cope": {
+    "doi": "10.28968/cftt.v8i2.36199",
+    "sources": [
+      {
+        "url": "https://api.crossref.org/works/10.28968%2Fcftt.v8i2.36199",
+        "evidence": "Publisher-deposited Crossref record: complete abstract, ordered author list, title, journal, volume/issue and available dates. Abstract XML markup removed; lexical text retained."
+      },
+      {
+        "url": "https://catalystjournal.org/index.php/catalyst/article/view/36199",
+        "evidence": "Publisher HTML retrieved successfully: full byline Jamie Smith/Eva Willis, 7 November 2022, volume 8 issue 2; article section explicitly Commentary. Complete abstract matches Crossref. Journal states CC BY-NC-ND 4.0; article terms retain author copyright and permit scholarly/educational noncommercial distribution."
+      }
+    ],
+    "verified_on": "2026-10-30",
+    "abstract_status": "verified",
+    "rights_note": "Publisher states open access under CC BY-NC-ND 4.0, with author copyright retained and noncommercial scholarly/educational distribution permitted.",
+    "factual_flags": [
+      "Publisher section is Commentary. It should be visibly labelled as commentary rather than presented as an empirical study; output_type remains journal-article because it is a journal contribution."
+    ]
+  }
+}

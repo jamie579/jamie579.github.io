@@ -25,8 +25,6 @@ sections:
     content:
       title: Elsewhere
       text: |
-        These institutional, scholarly and editorial pages provide independent or externally maintained records of my research, appointments, awards, fellowships, projects and public scholarship.
-
         ## Institutional profiles and research records
 
         - [Charité – Universitätsmedizin Berlin: researcher and institutional ethnographer profile](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/)
@@ -47,7 +45,7 @@ sections:
 
         ## Awards and recognition
 
-        - **Burdett Hero Award (2022), Burdett Trust for Nursing** — presented with Georgia Duffy at the Trust's twentieth-anniversary celebration at Chelsea Physic Garden, recognising [The Nursing Tartan](https://thenursingtartan.com/pages/the-tartan) among fourteen outstanding funded projects; recorded in the Trust's [2022 Annual Report and Financial Statements](https://register-of-charities.charitycommission.gov.uk/en/charity-search?p_p_id=uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet&p_p_lifecycle=2&p_p_state=maximized&p_p_mode=view&p_p_resource_id=%2Faccounts-resource&p_p_cacheability=cacheLevelPage&_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_objectiveId=A13966585&_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_priv_r_p_mvcRenderCommandName=%2Ffull-print&_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_priv_r_p_organisationNumber=3987716) (Trustees' Report, "Burdett Heroes 2022").
+        - **Burdett Hero Award (2022), Burdett Trust for Nursing** — presented with Georgia Duffy for [The Nursing Tartan](https://thenursingtartan.com/pages/the-tartan), one of fourteen projects recognised by the Trust. See the [2022 Annual Report and Financial Statements](https://register-of-charities.charitycommission.gov.uk/en/charity-search?p_p_id=uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet&p_p_lifecycle=2&p_p_state=maximized&p_p_mode=view&p_p_resource_id=%2Faccounts-resource&p_p_cacheability=cacheLevelPage&_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_objectiveId=A13966585&_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_priv_r_p_mvcRenderCommandName=%2Ffull-print&_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_priv_r_p_organisationNumber=3987716) (Trustees' Report, "Burdett Heroes 2022").
         - [University of Edinburgh: Tartan honouring nursing is woven with gratitude](https://www.ed.ac.uk/news/2021/tartan-honouring-nursing-is-woven-with-gratitude)
         - [Nursing Times: New tartan launched in Scotland to celebrate nursing kinship](https://www.nursingtimes.net/news/2020-international-year-of-the-nurse-and-midwife/new-tartan-created-in-scotland-to-celebrate-nursing-kinship-10-02-2020/)
         - [Nursing Now Challenge: Tartan honouring nursing is woven with gratitude](https://www.nursingnow.org/news/tartan-honouring-nursing-is-woven-with-gratitude/)
@@ -75,7 +73,7 @@ sections:
 
         ## Cited in policy and scholarship
 
-        [Read selected examples of how these sources use my research →](/research-influence/)
+        [Research in policy and guidance →](/research-influence/)
 
         - [World Health Organization: *State of the World's Nursing 2025*](https://iris.who.int/handle/10665/381329) — cites the nurse migration rapid evidence assessment (*Policy, Politics, & Nursing Practice*, 2022).
         - [Publications Office of the European Union: the EU legal migration package (2022)](https://op.europa.eu/en/publication-detail/-/publication/1e520448-76ab-11ed-9887-01aa75ed71a1/language-en) — cites the nurse migration rapid evidence assessment.
@@ -91,7 +89,6 @@ sections:
         - [The Polyphony: From clinical placement to simulation — the future of nursing education?](https://thepolyphony.org/2023/11/27/from-clinical-placement-to-simulation-the-future-of-nursing-education/)
         - [The Polyphony: Speculative ethics — rethinking care for other possible worlds](https://thepolyphony.org/2023/12/14/speculative-ethics-rethinking-care-for-other-possible-worlds/)
 
-        Links are included only where the external page explicitly identifies me or records my participation. Award information is cross-checked against primary documents, including the Burdett Trust's audited annual report.
     design:
       columns: '1'
 ---

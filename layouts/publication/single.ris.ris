@@ -1,9 +1,21 @@
 {{- $p := .Params.paper -}}
-TY  - JOUR
+{{- $kind := $p.kind | default "journal-article" -}}
+{{- $type := "JOUR" -}}
+{{- if eq $kind "book-chapter" -}}{{- $type = "CHAP" -}}{{- else if eq $kind "thesis" -}}{{- $type = "THES" -}}{{- else if eq $kind "preprint" -}}{{- $type = "UNPB" -}}{{- else if eq $kind "protocol" -}}{{- $type = "RPRT" -}}{{- end -}}
+TY  - {{ $type }}
 TI  - {{ $p.title }}
 {{ range $p.authors }}AU  - {{ .family }}, {{ .given }}
-{{ end }}JF  - {{ $p.journal }}
-PY  - {{ $p.year }}
+{{ end }}{{ if eq $kind "book-chapter" }}T2  - {{ $p.book_title }}
+{{ range $p.editors }}A2  - {{ .family }}, {{ .given }}
+{{ end }}{{ else if eq $kind "thesis" }}PB  - {{ $p.institution }}
+M3  - Doctoral thesis
+{{ else if eq $kind "preprint" }}M3  - Preprint
+N1  - Preprint; see the publication page for the peer-reviewed version
+{{ else if eq $kind "protocol" }}M3  - Scoping review protocol
+{{ else }}JF  - {{ $p.journal }}
+{{ end }}{{ if ne $kind "thesis" }}{{ with $p.publisher }}PB  - {{ . }}
+{{ end }}{{ end }}{{ with $p.isbn }}SN  - {{ . }}
+{{ end }}PY  - {{ $p.year }}
 {{ with $p.publication_date }}DA  - {{ replace . "-" "/" }}
 {{ end }}{{ with $p.volume }}VL  - {{ . }}
 {{ end }}{{ with $p.issue }}IS  - {{ . }}

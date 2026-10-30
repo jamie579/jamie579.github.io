@@ -12,7 +12,7 @@ sections:
       text: |
         ![Portrait of Dr Jamie Brian Smith, wearing a light blue shirt against a pale background](/media/authors/jamie-smith-portrait.jpg)
 
-        **Photograph: © Jamie B Smith.** I took this photograph and make this particular image available under the [Creative Commons Attribution-ShareAlike 4.0 International licence (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
+        **Photograph: © Jamie B Smith.** I took this photograph and make it available under the [Creative Commons Attribution-ShareAlike 4.0 International licence (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
 
         [Open or download the original image](https://jamiebriansmith.com/media/authors/jamie-smith-portrait.jpg) (JPEG, 370 × 400 pixels).
 
@@ -24,7 +24,7 @@ sections:
 
         > Portrait of Dr Jamie Brian Smith. Photograph © Jamie B Smith, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). [Source](https://jamiebriansmith.com/portrait/).
 
-        **This photograph has its own licence.** The CC BY-SA 4.0 permission applies specifically to the image linked above, regardless of the general website licence shown in the footer. Other photographs and website content retain their existing terms.
+        The CC BY-SA 4.0 licence applies only to this photograph. Other photographs and website content retain their existing terms.
 
         [About Jamie →](/about/)
     design:

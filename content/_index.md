@@ -35,7 +35,7 @@ sections:
       text: |
         I offer [evaluation and research consultancy](/consultancy/) and welcome collaborations, speaking invitations and workshops on nursing work, research methods and care.
 
-        [Discuss a project or invitation →](mailto:jamie@hornesmith.co.uk) · [Previous talks and public scholarship →](/elsewhere/)
+        [Email me →](mailto:jamie@hornesmith.co.uk) · [Talks and public writing →](/elsewhere/)
 
         For shared projects, creative work and events, visit [The Compost Collaborative](https://compostcollaborative.online/).
     design:

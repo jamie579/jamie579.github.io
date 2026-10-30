@@ -156,6 +156,14 @@ body { font-family: var(--font-body); }
 .riso-paper-back { display: inline-block; margin-bottom: var(--space-lg); color: var(--color-ink); text-decoration: underline; text-underline-offset: .2em; }
 .riso-publication h1 { font-family: var(--font-display); font-weight: var(--display-weight); color: var(--color-ink); font-size: clamp(1.8rem, 2.6vw, 2.8rem); line-height: 1.1; letter-spacing: var(--tracking-display); max-width: 38ch; margin: 0 0 var(--space-lg); text-wrap: balance; }
 .riso-paper-authors { font-size: var(--text-lg); line-height: 1.65; margin-bottom: var(--space-sm); }
+.riso-paper-tldr { margin-block: var(--space-lg) var(--space-xl); padding: var(--space-lg); border-left: 4px solid var(--color-accent); background: var(--color-paper-2); max-width: 76ch; }
+.riso-paper-tldr h2 { font-family: var(--font-display); font-size: var(--text-lg); letter-spacing: .03em; margin: 0 0 var(--space-sm); }
+.riso-paper-tldr p { font-size: var(--text-lg); line-height: 1.6; margin: 0 0 var(--space-sm); }
+.riso-paper-tldr p:last-child { margin-bottom: 0; }
+.riso-tldr-hook { font-weight: 650; }
+.riso-paper-kind { text-transform: uppercase; letter-spacing: .07em; font-size: var(--text-sm); font-weight: 600; }
+.riso-paper-note { color: var(--color-muted); font-size: var(--text-sm); line-height: 1.65; }
+.riso-paper-version-note { padding: var(--space-md); border: 1px solid var(--color-accent); }
 .riso-paper-journal { color: var(--color-muted); font-size: var(--text-md); line-height: 1.6; }
 .riso-paper-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm) var(--space-lg); margin-top: var(--space-lg); }
 .riso-paper-actions a { min-height: 44px; display: inline-flex; align-items: center; overflow-wrap: anywhere; }

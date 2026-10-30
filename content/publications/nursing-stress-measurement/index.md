@@ -26,7 +26,8 @@
       {
         "given": "Jamie B",
         "family": "Smith",
-        "display": "Jamie B Smith"
+        "display": "Jamie B Smith",
+        "site_owner": true
       },
       {
         "given": "Ulrike",
@@ -98,16 +99,15 @@
     "citation_ris": "/publications/nursing-stress-measurement/cite.ris",
     "abstract_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653943/",
     "abstract_license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "abstract_license_label": "CC BY-NC-ND 4.0"
+    "abstract_license_label": "CC BY-NC-ND 4.0",
+    "kind": "journal-article",
+    "output_label": "Journal article",
+    "tldr": {
+      "hook": "A questionnaire can ask about something that never comes up in your job. Should that count as a low-stress experience?",
+      "science": "In a single-hospital survey of 440 nursing and midwifery staff, treating ‘not applicable’ as the lowest stress response lowered scores. Most subscales also offered little support for separate conclusions.",
+      "so_what": "Before comparing stress scores, ask whose working day the questions actually describe. An experience you never have is different from one that does not trouble you."
+    }
   }
 }
 
-## Contribution
-
-This single-centre psychometric evaluation examines what STERN-57 scores can support. It distinguishes stress severity among applicable situations from the breadth of stressor exposure and finds that most subscales are not supported as separate inferential outcomes. Its support for conditional use is provisional and does not establish validity for the German nursing population as a whole.
-
-## Using this research
-
-This paper is useful when choosing nursing stress outcomes or deciding how to handle “not applicable” responses. It sets out limits on subscale interpretation and on comparisons across groups or settings.
-
-[Workforce research](/research/#workforce-wellbeing-and-structural-inequality) · [All publications](/publications/)
+Related reading: [Workforce research](/research/#workforce-wellbeing-and-structural-inequality)

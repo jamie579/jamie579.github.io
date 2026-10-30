@@ -15,23 +15,19 @@ sections:
 
         ## Ideas to begin with
 
-        This is a diverse field, with connections to feminist theory, science and technology studies, anti-colonial thought and ecological scholarship. The following are entry points into the approaches I work with, rather than a complete account of that field:
+        Critical posthumanism has connections to feminist theory, science and technology studies, anti-colonial thought and ecological scholarship. Three books offer starting points:
 
         - **Rosi Braidotti’s [*The Posthuman* (2013)](https://www.wiley.com/en-au/the-posthuman-p-9780745641584)** develops a critical account of humanism and human exceptionalism, with an affirmative ethics of relation and difference.
         - **Donna Haraway’s [*Staying with the Trouble* (2016)](https://www.dukeupress.edu/staying-with-the-trouble)** explores living and making worlds with others on a damaged planet. Her account of making-with informs the language of composting in our collective work.
         - **Karen Barad’s [*Meeting the Universe Halfway* (2007)](https://www.dukeupress.edu/meeting-the-universe-halfway)** develops agential realism, bringing questions of matter, knowledge and responsibility together. Feminist new materialism and critical posthumanism overlap, but are not interchangeable traditions.
 
-        ## What this changes in a nursing question
+        ## Care on a busy ward
 
         Consider a patient’s care on a busy ward. An account centred solely on an individual nurse’s intentions misses how staffing, records, equipment, architecture and professional expectations shape what can happen. A posthuman inquiry asks how these relations make care possible, distribute responsibility and produce exclusions.
 
-        This does not make the people involved less important. It asks how their possibilities for action are formed, and how unequal conditions might be changed. My [institutional ethnography research](/institutional-ethnography/) follows these questions through nursing work and professional regulation.
+        My [institutional ethnography research](/institutional-ethnography/) follows how these relations shape people’s possibilities for action in nursing work and professional regulation, and how unequal conditions might be changed.
 
         ## My work with colleagues
-
-        My contribution is to develop and question these approaches in nursing through empirical research, philosophical writing and creative collaboration. The wider intellectual traditions and the collective work of co-authors are essential to that contribution.
-
-        Three reading routes offer different starting points:
 
         - **Care and its boundaries:** Jane Hopkins-Walsh, Jess Dillard-Wright, Brandon Brown, Jamie Smith and Eva Willis, [*Critical Posthuman Nursing Care: Bodies Reborn and the Ethical Imperative for Composting* (2022)](https://doi.org/10.25071/2291-5796.126).
         - **Clarifying the approach:** Jess Dillard-Wright and colleagues, including me, [*Notes on [post]human nursing: What it MIGHT be, what it is not* (2024)](https://doi.org/10.1111/nin.12562).

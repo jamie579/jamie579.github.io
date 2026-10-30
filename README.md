@@ -48,8 +48,10 @@ The current crawler policy permits public crawling. No model-training opt-out ha
 
 ## Individual publication pages
 
-Five reviewed journal articles have `type: publication` leaf bundles under `content/publications/`. Their JSON front matter generates the visible byline/abstract/citation, ScholarlyArticle and Highwire metadata, and `cite.bib` / `cite.ris` downloads in the normal Hugo build. Link new pages from the existing Publications bibliography; they do not need separate navigation entries. Verify full author lists, complete abstracts, publication dates, locators, open-access versions and licences before adding each record.
+The 31 scholarly records in the curated bibliography have `type: publication` leaf bundles under `content/publications/`. Their JSON front matter generates the visible TL;DR, full byline, abstract where available, citation, type-appropriate scholarly metadata, and `cite.bib` / `cite.ris` downloads. Link new pages from Publications without adding navigation entries.
 
-See [the publication-page implementation and evidence report](docs/publication-pages-2026-10-30.md) for the record contract, date handling, citation interoperability checks and the five-paper review scope. Expansion to the remaining publications follows review of this first batch.
+Verify complete bylines, abstracts, dates, output types, locators, access routes and licences before adding a record. Keep published abstracts verbatim. `paper.tldr` holds a new three-part summary (`hook`, `science`, `so_what`) and must stay within the evidence and study design. Record missing abstracts explicitly; do not relabel an invented summary as a published abstract.
+
+See [the full publication collection report](docs/all-publication-pages-2026-10-30.md) for evidence, source discrepancies, record types and validation. The [original five-paper report](docs/publication-pages-2026-10-30.md) records the initial selection.
 
 Built on [Hugo Blox](https://github.com/HugoBlox/kit), under the existing repository licence.

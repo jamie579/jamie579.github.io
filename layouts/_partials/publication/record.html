@@ -3,6 +3,10 @@
 {{- $doi := replaceRE `(?i)^https?://(dx\.)?doi\.org/` "" ($paper.doi | default "") -}}
 {{- $doi = strings.TrimSpace $doi -}}
 {{- $doiURL := printf "https://doi.org/%s" $doi -}}
+{{- $kind := $paper.kind | default "journal-article" -}}
+{{- $container := $paper.journal | default $paper.book_title | default $paper.institution | default $paper.publisher -}}
+{{- if eq $kind "book-chapter" -}}{{- $container = $paper.book_title -}}{{- end -}}
+{{- $links := ($paper.open_access | default slice) | append ($paper.free_full_text | default slice) -}}
 {{- $names := slice -}}
 {{- range $paper.authors -}}
   {{- $names = $names | append (.display | default (printf "%s %s" .given .family)) -}}
@@ -23,4 +27,4 @@
     {{- if eq (len $parts) 2 -}}{{- $lastPage = index $parts 1 -}}{{- end -}}
   {{- end -}}
 {{- end -}}
-{{- return (dict "paper" $paper "doi" $doi "doiURL" $doiURL "names" $names "abstract" (delimit $abstract "\n\n") "firstPage" $firstPage "lastPage" $lastPage) -}}
+{{- return (dict "paper" $paper "kind" $kind "container" $container "links" $links "doi" $doi "doiURL" $doiURL "names" $names "abstract" (delimit $abstract "\n\n") "firstPage" $firstPage "lastPage" $lastPage) -}}
