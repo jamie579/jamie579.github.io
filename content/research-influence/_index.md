@@ -1,6 +1,6 @@
 ---
 title: Research influence
-summary: Selected examples of Dr Jamie B. Smith's coauthored research being cited and discussed in policy reports and professional nursing guidance.
+summary: Selected examples of Dr Jamie Brian Smith's coauthored research being cited and discussed in policy reports and professional nursing guidance.
 type: landing
 date: 2026-10-27
 lastmod: 2026-10-27

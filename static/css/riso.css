@@ -143,3 +143,8 @@ body { font-family: var(--font-body); }
   #site-header .navbar-brand { font-size: var(--text-md); }
   #site-header .navbar > .order-1 { gap: 0; }
 }
+
+/* Keyboard route past the navigation, visible only when focused. */
+.riso-skip-link { position: fixed; top: .5rem; left: .5rem; z-index: 1000; padding: .75rem 1rem; background: var(--color-paper); color: var(--color-ink); border: 2px solid currentColor; transform: translateY(-200%); }
+.riso-skip-link:focus { transform: translateY(0); }
+#main-content { scroll-margin-top: 6rem; }

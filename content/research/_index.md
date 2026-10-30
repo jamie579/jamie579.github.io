@@ -1,74 +1,47 @@
 ---
 title: Research
-summary: Dr Jamie B. Smith's research programme centres on health workforce wellbeing, connecting nursing stress, resilience, burnout and migration with institutional ethnography, implementation science and nursing philosophy.
+summary: Institutional ethnography, critical posthumanism, workforce wellbeing and process evaluation in Dr Jamie Brian Smith’s nursing research.
 type: landing
 date: 2026-07-29
-lastmod: 2026-10-27
-keywords:
-  - institutional ethnography
-  - nursing workforce wellbeing
-  - implementation science
-  - process evaluation
-  - responsible health technology
-  - healthcare AI ethics
-  - nursing philosophy
-  - health systems research
-
+lastmod: 2026-10-30
 design:
   spacing: '4rem'
-
 sections:
   - block: markdown
     content:
-      title: Health workforce wellbeing and the conditions of care
+      title: Researching the conditions of care
       text: |
-        My research centres on **health workforce wellbeing** and asks: **how do institutions organise the conditions under which care becomes possible?** I examine how working conditions, relationships, resources and inequalities shape nursing stress, resilience, burnout and migration.
+        I study how institutions, technologies and inequalities shape nursing work. My programme connects close accounts of everyday care with workforce research and the evaluation of complex interventions.
 
-        I work from the everyday realities of nursing and healthcare and trace how they are coordinated by policies, professional standards, technologies, organisational routines, labour conditions and wider structures of inequality. Institutional ethnography provides the connective method across my programme; mixed methods, implementation science and process evaluation extend that work into intervention and system change.
+        ## Institutional ethnography
 
-        ## Institutional ethnography of nursing and healthcare
+        Policies, records and professional standards coordinate work across places and organisations. I investigate those connections from the everyday experience of nurses, including the tensions between professional accountability and the resources available for care.
 
-        My PhD, [*Ecologies of Care: a posthuman institutional ethnography of nursing*](https://era.ed.ac.uk/items/351c3676-c09d-42e0-b8a1-98a09eb19475), developed posthuman institutional ethnography as a healthcare research method. It combined participatory ethnography, documentary analysis, workforce data, multimedia diaries and interviews to examine how people, policies, technologies and material conditions organise nursing work.
+        [Explore institutional ethnography, its lineage and my studies →](/institutional-ethnography/)
 
-        This programme continues in [*Navigating the System of Regulation and Practice in the UK*](https://doi.org/10.1111/jan.17077), which traces tensions between professional accountability and the systemic conditions in which nurses work.
+        ## Critical posthumanism and nursing philosophy
 
-        [More about institutional ethnography →](/institutional-ethnography/)
+        My philosophical work asks how bodies, technologies, environments and institutional power participate in care, and whose lives count within familiar ideas of the human. It informs my work on personhood, professional ideals and healthcare technology.
 
-        ## Nursing workforce wellbeing and structural inequality
+        [Critical posthumanism: an introduction and reading routes →](/critical-posthumanism/)
 
-        I study stress, burnout, retention and workforce sustainability as institutional and system-level problems rather than individual deficits. This work examines how staffing, gendered expectations, professional ideals, organisational resources and structural inequalities shape the possibility of safe and sustainable care.
+        ## Workforce wellbeing and structural inequality
 
-        Current confirmed work includes **PflegeStressPlan**, documented through my [Charité profile](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/), alongside research on nursing workforce measurement, migration and the structural production of burnout.
+        I study stress, burnout, retention and migration in relation to staffing, gendered expectations, working relationships and organisational resources. At Charité I lead **PflegeStressPlan**, a study of nursing stress and working conditions, documented on my [institutional profile](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/).
 
-        My 2026 [psychometric evaluation of a 57-item German nursing stress instrument](https://doi.org/10.1016/j.ijnsa.2026.100689), with colleagues at Charité, examines general-factor dominance and item applicability: what nursing stress subscales do and do not measure. A further paper, [*Beyond Heroic Individualism*](https://doi.org/10.1111/gwao.70193), examines relational buffers against healthcare system strain. These publications extend my work on [nurse migration across Australia, Germany and the UK](https://doi.org/10.1177/15271544221102964) and [burnout and impossible professional ideals](https://doi.org/10.1111/nin.12538).
+        Recent work with colleagues includes a [psychometric evaluation of a 57-item German nursing stress instrument](https://doi.org/10.1016/j.ijnsa.2026.100689) and [*Beyond Heroic Individualism*](https://doi.org/10.1111/gwao.70193), on relational buffers against healthcare system strain. These extend research on [nurse migration](https://doi.org/10.1177/15271544221102964) and [burnout and impossible professional ideals](https://doi.org/10.1111/nin.12538).
 
-        ## Implementation science and process evaluation
+        ## Implementation and process evaluation
 
-        I evaluate how complex interventions are understood, adopted, adapted or resisted in real settings. My work combines implementation frameworks, qualitative research, surveys, observation and documentary analysis to explain not only whether an intervention works, but how and under what conditions.
+        I examine how interventions are understood, delivered and adapted in clinical settings. As a Senior Research Fellow, I work on process evaluation for the [SHORTER trial](https://www.shortertrial.com/our-team), a multicentre study of antibiotic duration in critical care.
 
-        I lead process-evaluation work for the [SHORTER trial](https://www.napier.ac.uk/research-and-innovation/research-search/projects/a-randomised-controlled-trial-of-short-duration-antibiotic-therapy-for-critically-ill), a multicentre study of antibiotic duration in critical care.
+        My methods include qualitative research, surveys, observation, documentary analysis and evidence synthesis. I also offer [independent evaluation and research consultancy](/consultancy/).
 
-        ## Responsible health technology and AI
+        ## Healthcare technology and responsibility
 
-        Technologies are not neutral tools: they redistribute judgement, attention, responsibility and power. I examine how electronic systems, clinical algorithms, artificial intelligence and life-support technologies shape professional practice and whose bodies, experiences and assumptions become embedded in healthcare evidence.
+        Electronic records, algorithms and life-support technologies shape attention, judgement and responsibility. With colleagues, I examine the assumptions embedded in these systems and the forms of care they enable or constrain. Read our work on [AI ethics for nursing](https://doi.org/10.3912/OJIN.Vol30No02Man06) and [posthuman speculative ethics](https://doi.org/10.1111/nup.12447).
 
-        This strand connects responsible innovation and algorithmic ethics with the close institutional analysis of how technologies are actually used in clinical work.
-
-        ## Nursing philosophy and critical posthumanism
-
-        My philosophical work examines care, personhood, professional ideals, affect, materiality and the more-than-human relations through which nursing takes place. It provides conceptual resources for analysing institutions without reducing care to either individual behaviour or abstract systems.
-
-        This work is developed collaboratively through publications, editorial work and [The Compost Collaborative](https://compostcollaborative.online/), an interdisciplinary collective working across nursing, art, critical theory and affirmative practice.
-
-        ## Current institutional settings
-
-        My work is based across [Charité – Universitätsmedizin Berlin](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/) and [Edinburgh Napier University's research repository](https://napier-repository.worktribe.com/person/4171465/jamie-smith/outputs?Type=Journal+Article&page=1), with collaborations across healthcare, universities and international nursing-philosophy networks.
-
-        I have worked at Charité since 2019, including previously at the Institut für Klinische Pflegewissenschaft (IKPW).
-
-        [Research influence: use in policy reports and professional guidance →](/research-influence/)
-
-        [Publications →](/publications/) · [External profiles and recognition →](/elsewhere/)
+        [Publications →](/publications/) · [Research cited in policy and guidance →](/research-influence/) · [Collaborate or invite me to speak →](mailto:jamie@hornesmith.co.uk)
     design:
       columns: '1'
 ---

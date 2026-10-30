@@ -1,15 +1,2 @@
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": {{ site.Params.hugoblox.identity.name | default site.Title }},
-  {{- if site.Params.hugoblox.search.enable }}
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {{ printf "%s?q={search_term_string}" site.BaseURL }},
-    "query-input": "required name=search_term_string"
-  },
-  {{end -}}
-  "url": {{site.BaseURL}}
-}
-</script>
+{{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "@id" (printf "%s#website" site.BaseURL) "name" (site.Params.hugoblox.identity.name | default site.Title) "url" site.BaseURL "inLanguage" "en-GB" -}}
+<script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>

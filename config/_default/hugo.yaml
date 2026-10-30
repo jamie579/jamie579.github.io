@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 # Website name (set in params.yaml under hugoblox.branding.name)
-title: 'Dr Jamie B. Smith'
+title: 'Dr Jamie Brian Smith'
 baseURL: 'https://jamiebriansmith.com/' # Website URL
 
 ############################
@@ -12,6 +12,7 @@ baseURL: 'https://jamiebriansmith.com/' # Website URL
 ############################
 
 defaultContentLanguage: en
+languageCode: en-GB
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true

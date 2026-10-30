@@ -1,36 +1,49 @@
-# [Hugo Résumé Theme](https://github.com/HugoBlox/hugo-theme-resume)
+# Dr Jamie Brian Smith — personal website
 
-[![Screenshot](./.github/preview.png)](https://hugoblox.com/templates/)
+Hugo source for [jamiebriansmith.com](https://jamiebriansmith.com/), using the existing Hugo Blox résumé modules and custom Riso styling.
 
-The Hugo **Résumé Template** empowers you to easily create your job-winning online résumé, showcase your expertise, and share your social profiles to grow your audience.
+## Source and generated files
 
-️**Trusted by 250,000+ researchers, educators, and students.** Highly customizable via the integrated **no-code, block-based website builder**, making every site truly personalized ⭐⭐⭐⭐⭐
+Edit `content/` for pages, `data/authors/` for identity and profile data, `config/_default/` for site settings, `layouts/_partials/` for template overrides, and `static/css/` for the custom styles. Artwork is in `assets/media/`.
 
-[![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://hugoblox.com/templates/)
-[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/LoreLabs_?label=Follow%20on%20Twitter)](https://x.com/LoreLabs_)
+The HTML, CSS and JavaScript at the repository root are generated publishing output. `public/` is the normal local build output. Do not edit generated HTML in place. `static/us/` and `static/lom/` are standalone legacy pages with deliberate `noindex` metadata; retain those privacy preferences. Their Pagefind exclusions also keep them out of on-site search. `pagefind.yml` limits indexing to routed pages, excluding the standalone 404 page.
 
-[Check out the latest demo](https://hugo-resume-theme.netlify.app/) of what you'll get in less than 10 minutes, or [view the showcase](https://hugoblox.com/creators/).
+## Local build and review
 
-The integrated [**Hugo Blox**](https://hugoblox.com) website builder and CMS makes it easy to create a beautiful website for free. Edit your site in the CMS (or your favorite editor), generate it with [Hugo](https://github.com/gohugoio/hugo), and deploy with GitHub or Netlify. Customize anything on your site with widgets, light/dark themes, and language packs.
+The workflows use Hugo **0.154.5 extended**, Node **22** and pnpm **10.14.0**. The pinned Hugo modules are in `go.mod`; dependencies are in `pnpm-lock.yaml`.
 
-- 👉 [**Get Started**](https://hugoblox.com/templates/)
-- 📚 [View the **documentation**](https://docs.hugoblox.com/)
-- 💬 [Chat with the **HugoBlox Kit community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- ⬇️ **Automatically import citations from BibTeX** with the [Hugo Academic CLI](https://github.com/GetRD/academic-file-converter)
-- 🐦 Share your new site with the community: [@LoreLabs_](https://x.com/LoreLabs_) [@GeorgeCushen](https://x.com/GeorgeCushen) [#MadeWithHugoBlox](https://x.com/search?q=%23MadeWithHugoBlox&src=typed_query)
-- 🗳 [Take the survey and help us improve #OpenSource](https://forms.gle/NioD9VhUg7PNmdCAA)
-- 🚀 [Contribute improvements](https://github.com/HugoBlox/kit/blob/main/CONTRIBUTING.md) or [suggest improvements](https://github.com/HugoBlox/kit/issues)
-- ⬆️ **Updating?** View the [Update Guide](https://docs.hugoblox.com/) and [Release Notes](https://github.com/HugoBlox/kit/releases)
+```sh
+pnpm install --frozen-lockfile
+pnpm run build
+python3 scripts/check_site.py public
+python3 -m http.server 4173 --bind 127.0.0.1 --directory public
+```
 
-## We ask you, humbly, to support this open source movement
+A build can also go outside the checkout, for example:
 
-Today we ask you to defend the open source independence of the HugoBlox Kit and themes 🐧
+```sh
+hugo --minify --destination ../review/personal-build
+pnpm exec pagefind --site ../review/personal-build
+python3 scripts/check_site.py ../review/personal-build
+```
 
-We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
+## Deployment boundary
 
-### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
+Both `build-and-publish.yml` and `deploy-pages.yml` react to source changes pushed to `main`. The first copies generated output to the repository root and commits it; the second builds and deploys a Pages artifact. A review branch and local build do **not** publish the site. Do not push to `main` or dispatch a deployment workflow during review. The Netlify configuration is also retained; the live hosting path should be confirmed before changing deployment arrangements.
 
-## Demo credits
+## Content homes
 
-- [Unsplash](https://unsplash.com/) images
+- Home: short introduction and routes into the site.
+- About: biography, current roles and publishing-name variants.
+- Research: the research programme.
+- Institutional ethnography: methodological lineage and Jamie’s nursing studies.
+- Critical posthumanism: an introductory resource and reading routes, distinct from the methods page.
+- Publications: the manually maintained bibliography and article links.
+- Elsewhere: institutional profiles, editorial roles, recognition and speaking.
+- Compost Collaborative: collective projects, creative work and events.
+
+Publication records distinguish preprints, protocols, editorials and journal articles. Verify substantive corrections against publishers or institutional repositories. `scripts/sync_orcid_publications.py` is a legacy opt-in importer that expects `ORCID_WORKS` markers; the present bibliography uses `SCHOLAR_WORKS` markers and is not automatically overwritten by that script. Do not replace the curated bibliography by running the importer without reviewing its output.
+
+The current crawler policy permits public crawling. No model-training opt-out has been introduced. Search access and training permissions are separate decisions; `llms.txt` is supplementary documentation, not a condition of search visibility.
+
+Built on [Hugo Blox](https://github.com/HugoBlox/kit), under the existing repository licence.

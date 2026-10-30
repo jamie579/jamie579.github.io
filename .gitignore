@@ -70,3 +70,6 @@ npm-debug.log*
 
 # Local design previews, screenshots and verification records
 /.hallmark/
+
+# Python validation caches
+__pycache__/

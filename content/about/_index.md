@@ -1,51 +1,28 @@
 ---
 title: About
-summary: About Dr Jamie B. Smith — nurse researcher in health workforce wellbeing, institutional ethnographer and nursing philosopher working across nursing stress, resilience, burnout, migration and health systems.
+summary: Dr Jamie Brian Smith is a nurse researcher and institutional ethnographer working across Charité and Edinburgh Napier University.
 type: landing
 date: 2026-02-01
-lastmod: 2026-10-27
-keywords:
-  - institutional ethnographer
-  - institutional ethnography
-  - posthuman institutional ethnography
-  - clinical academic nurse researcher
-  - nursing workforce sustainability
-  - health systems research
-  - process evaluation
-  - implementation science
-  - nursing philosophy
-  - responsible healthcare technology
-
+lastmod: 2026-10-30
 design:
   spacing: '4rem'
-
 sections:
   - block: biography
     content:
       username: me-about
       text: |
-        I am a **nurse researcher, institutional ethnographer and educator working on health workforce wellbeing**, with seventeen years of practice in transplant surgery, critical care and organ donation. I study how working conditions, organisational resources and inequalities shape nursing stress, resilience, burnout and migration.
+        I am **Dr Jamie Brian Smith**, a nurse researcher and institutional ethnographer. My clinical background in transplant care, critical care and organ donation shapes the questions I ask about nursing work, its value and its conditions.
 
-        I currently work across **Charité – Universitätsmedizin Berlin and Edinburgh Napier University**. I have worked at Charité since 2019, previously at the **Institut für Klinische Pflegewissenschaft (IKPW)**, and now in **Gender in Medicine**.
+        I am a **Senior Research Fellow at Edinburgh Napier University**, working on the [SHORTER trial’s process evaluation](https://www.shortertrial.com/our-team), and a **Research Associate at Charité – Universitätsmedizin Berlin’s Institute of Gender in Medicine**. I also hold an honorary clinical academic role with NHS Lothian. My [Charité profile](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/) records my appointments and clinical background.
 
-        My recent publications include a [psychometric evaluation of a 57-item German nursing stress instrument](https://doi.org/10.1016/j.ijnsa.2026.100689), which examines what its subscales measure and where items may not apply, and [work on relational buffers against healthcare system strain](https://doi.org/10.1111/gwao.70193). These sit alongside research on [nurse migration](https://doi.org/10.1177/15271544221102964) and the [professional ideals and conditions that shape burnout](https://doi.org/10.1111/nin.12538).
+        My doctoral research at the University of Edinburgh, [*Ecologies of Care*](https://era.ed.ac.uk/items/351c3676-c09d-42e0-b8a1-98a09eb19475), brought posthuman institutional ethnography into the study of nursing. I continue to work across empirical research and philosophy, often with colleagues in [The Compost Collaborative](https://compostcollaborative.online/people/jamie/).
 
-        My research starts from the everyday realities of nursing work: the shift, the ward, the policy document, the electronic record, the staffing decision and the small moral judgements through which care is made possible. Institutional ethnography gives me a way to trace those local experiences into the wider systems that coordinate them.
+        I publish as **Jamie B. Smith**, **Jamie B Smith** and **Jamie Smith**. [ORCID 0000-0003-0097-6102](https://orcid.org/0000-0003-0097-6102) connects these publishing names.
 
-        My PhD, *Ecologies of Care*, developed a posthuman institutional ethnography of nursing. It examined how people, policies, technologies, places and material conditions collectively organise nurse work. I have since extended this approach through research on regulation, workforce wellbeing, structural inequality and healthcare technology.
-
-        Alongside institutional ethnography, I use mixed methods, psychometrics, qualitative research, evidence synthesis, implementation science and process evaluation. This combination allows me to move between close accounts of everyday practice and the evaluation of complex interventions across health and academic systems.
-
-        My work currently connects four areas: nursing workforce wellbeing and retention; implementation and process evaluation; responsible health technology and AI; and nursing philosophy, critical posthumanism and care ethics.
-
-        [Read about my research programme →](/research/) · [Read about my institutional ethnography →](/institutional-ethnography/)
+        [Research and methods →](/research/) · [Publications →](/publications/) · [Appointments, talks and external profiles →](/elsewhere/)
 
         [Portrait photograph and reuse licence →](/portrait/)
     design:
-      banner:
-        filename: about-banner.jpg
-      biography:
-        style: 'text-align: justify; font-size: 0.8em;'
       avatar:
         size: large
         shape: rounded

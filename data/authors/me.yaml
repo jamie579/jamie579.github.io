@@ -2,8 +2,8 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr Jamie B. Smith
-  given: Jamie
+  display: Dr Jamie Brian Smith
+  given: Jamie Brian
   family: Smith
   pronunciation: Jamie Brian Smith
   pronouns: he/him
@@ -16,22 +16,17 @@ name:
 status:
   icon: "🏥"
 role: Nurse Researcher | Health Workforce Wellbeing
-bio: >
-  I am a nurse researcher working on health workforce wellbeing. I study how working conditions,
-  organisational resources and inequalities shape nurses' stress, resilience and ability to provide
-  care. My work combines psychometrics and mixed methods with institutional ethnography,
-  implementation science, process evaluation and nursing philosophy. My clinical background is in
-  transplant surgery, critical care and organ donation.
+bio: |
+  I am a nurse researcher working across **institutional ethnography**, **critical posthumanism** and **health workforce wellbeing**. My clinical background is in transplant care, critical care and organ donation.
 
-  I work across Charité – Universitätsmedizin Berlin and Edinburgh Napier University. I have worked
-  at Charité since 2019, previously at the Institut für Klinische Pflegewissenschaft (IKPW), and now
-  in Gender in Medicine.
+  [About me and my current roles →](/about/)
 affiliations:
   - name: Edinburgh Napier University
     url: https://www.napier.ac.uk/
   - name: Charité – Universitätsmedizin Berlin
     url: https://www.charite.de/
   - name: NHS Lothian
+    role: Honorary clinical academic
     url: https://www.nhslothian.scot.nhs.uk/
 links:
   - icon: at-symbol
@@ -57,16 +52,13 @@ links:
     label: Edinburgh Napier University profile
   - icon: hero/academic-cap
     url: https://edwebprofiles.ed.ac.uk/profile/jamie-smith
-    label: University of Edinburgh profile
+    label: University of Edinburgh historical profile
 # Verified identity URLs included in Person.sameAs but not rendered as profile buttons
 sameas:
   - https://www.wikidata.org/wiki/Q136215075
   - https://x.com/mrhornesmith
   - https://www.researchgate.net/profile/Jamie-Smith-44
   - https://forschungsdatenbank.charite.de/experts/profile/jamie_smith/en
-  - https://www.scilit.com/scholars/019f27c0181070eb9deab861a0b80f74
-  - https://sciprofiles.com/profile/author/TkU0YjFhQUszeVEvSWlaWVZQTXlMNHF4U1MyOVdYSjBaM2I3MG1hWHNsZz0=
-  - https://www.semanticscholar.org/author/J.-Smith/2172770363
 education:
   - degree: PhD Nursing, Philosophy and Sociology
     institution: University of Edinburgh

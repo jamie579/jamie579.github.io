@@ -13,7 +13,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   identity:
     # Site name - shown in navbar, footer, copyright, and browser title by default
-    name: "Dr Jamie B. Smith"
+    name: "Dr Jamie Brian Smith"
     # Legal entity for copyright notices (defaults to name if not set)
     organization: ""
     # Schema.org type for structured data
@@ -21,7 +21,7 @@ hugoblox:
     # Short tagline displayed on your site
     tagline: "Nurse Researcher | Health Workforce Wellbeing"
     # Site meta description for search engines and social sharing
-    description: "Dr Jamie B. Smith researches health workforce wellbeing, nursing stress, resilience, burnout and migration through psychometrics, mixed methods, institutional ethnography and nursing philosophy."
+    description: "Nurse researcher Dr Jamie Brian Smith studies the conditions of care through institutional ethnography, critical posthumanism and workforce research."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: ""              # Twitter/X handle for Twitter Cards (without @)
@@ -129,10 +129,10 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   seo:
     # Browser tab title override (defaults to identity.name if not set)
-    title: "Dr Jamie B. Smith"
+    title: "Dr Jamie Brian Smith"
     # Use the existing portrait directly for recognizable sharing previews.
     sharing_image: "media/authors/me-about.jpg"
-    sharing_image_alt: "Portrait of Dr Jamie B. Smith"
+    sharing_image_alt: "Portrait of Dr Jamie Brian Smith"
     sharing_card: "summary"
     # For local_business identity type only
     location:
@@ -153,10 +153,11 @@ hugoblox:
         - /about/
         - /research/
         - /institutional-ethnography/
+        - /critical-posthumanism/
         - /publications/
         - /elsewhere/
       disallow: []
-      note: "Academic portfolio of Dr Jamie B. Smith, a nurse researcher in health workforce wellbeing whose work connects nursing stress, resilience, burnout and migration with institutional ethnography, implementation science, responsible health technology and nursing philosophy."
+      note: "Academic portfolio of Dr Jamie Brian Smith: institutional ethnography, critical posthumanism, health workforce wellbeing, implementation and process evaluation."
       contact: "jamie@hornesmith.co.uk"
 
   # ────────────────────────────────────────────────────────────────────────────
@@ -250,9 +251,9 @@ hugoblox:
   # Regional formatting preferences
   # ────────────────────────────────────────────────────────────────────────────
   locale:
-    date_format: "Jan 2, 2006"          # Go time format
+    date_format: "2 January 2006"          # Go time format
     time_format: "3:04 PM"
-    address_format: en-us
+    address_format: en-gb
 
   # ────────────────────────────────────────────────────────────────────────────
   # SECURITY

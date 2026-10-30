@@ -1,9 +1,9 @@
 ---
 title: Elsewhere
-summary: Verified institutional profiles, scholarly records, awards, fellowships, projects, interviews and public scholarship featuring Dr Jamie B. Smith.
+summary: Institutional profiles, scholarly records, awards, fellowships, projects, interviews and public scholarship featuring Dr Jamie Brian Smith.
 type: landing
 date: 2026-07-28
-lastmod: 2026-10-27
+lastmod: 2026-10-30
 keywords:
   - Jamie B. Smith
   - institutional ethnographer
@@ -38,14 +38,11 @@ sections:
         - [NIHR Journals Library: the APPRAISE feasibility pilot RCT](https://www.journalslibrary.nihr.ac.uk/phr/KNWT4781)
         - [PubMed: posthuman institutional ethnography of nursing](https://pubmed.ncbi.nlm.nih.gov/40468784/)
 
-        ## Research identities and knowledge graph records
+        ## Research profiles
 
         - [ORCID](https://orcid.org/0000-0003-0097-6102)
         - [Google Scholar](https://scholar.google.com/citations?user=La6Bn1wAAAAJ)
         - [Wikidata](https://www.wikidata.org/wiki/Q136215075)
-        - [Semantic Scholar](https://www.semanticscholar.org/author/J.-Smith/2172770363)
-        - [Scilit scholar record](https://www.scilit.com/scholars/019f27c0181070eb9deab861a0b80f74)
-        - [SciProfiles](https://sciprofiles.com/profile/author/TkU0YjFhQUszeVEvSWlaWVZQTXlMNHF4U1MyOVdYSjBaM2I3MG1hWHNsZz0=)
         - [The Compost Collaborative: member profile](https://compostcollaborative.online/people/jamie/)
 
         ## Awards and recognition
@@ -72,9 +69,8 @@ sections:
 
         ## Editorial roles
 
-        - **Editorial Board Member**, [*Nursing Inquiry*](https://onlinelibrary.wiley.com/journal/14401800)
+        - **Editorial Board Member, *Nursing Philosophy***, recorded on my [Charité profile](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/).
         - [Nursing Inquiry 31(1), 2024: *Critical Posthumanism* special issue — co-guest editor](https://onlinelibrary.wiley.com/toc/14401800/2024/31/1)
-        - **Editorial role (TBC)**, [*Nursing Philosophy*](https://onlinelibrary.wiley.com/page/journal/1466769x/homepage/editorialboard.html)
         - [JoVE Methods Collection: Multidisciplinary Methodologies in Tackling Antimicrobial Resistance — guest editor](https://www.jove.com/methods-collections/4124/multidisciplinary-methodologies-in-tackling-antimicrobial-resistance-innovations-evaluations-and-impact)
 
         ## Cited in policy and scholarship

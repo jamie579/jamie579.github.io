@@ -1,0 +1,2 @@
+# All public Hugo routes use index.html. Exclude the standalone 404 page.
+glob: "**/index.html"

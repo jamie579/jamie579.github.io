@@ -1,6 +1,6 @@
 ---
 title: Evaluation and Research Consultancy
-summary: Independent healthcare evaluation, evidence synthesis and learning workshops with Dr Jamie B. Smith, nurse researcher and consultant.
+summary: Independent healthcare evaluation, evidence synthesis and learning workshops with Dr Jamie Brian Smith, nurse researcher and consultant.
 type: landing
 date: 2026-10-28
 lastmod: 2026-10-28
@@ -24,7 +24,7 @@ sections:
 
         I help healthcare organisations, charities and research teams understand how programmes work in practice, make sense of their evidence and decide what to improve next.
 
-        I am **Dr Jamie B. Smith**, a nurse researcher with experience in clinical practice, mixed-methods research, process evaluation and implementation science. I offer independent consultancy for organisations seeking a clear assessment of delivery, implementation and learning.
+        I am **Dr Jamie Brian Smith**, a nurse researcher with experience in clinical practice, mixed-methods research, process evaluation and implementation science. I offer independent consultancy for organisations seeking a clear assessment of delivery, implementation and learning.
 
         **[Discuss an evaluation project](#discuss-a-project)**
 

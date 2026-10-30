@@ -2,25 +2,25 @@ schema: hugoblox/author/v1
 slug: me-about
 is_owner: false
 name:
-  display: Dr Jamie B. Smith
-  given: Jamie
+  display: Dr Jamie Brian Smith
+  given: Jamie Brian
   family: Smith
   pronunciation: Jamie Brian Smith
   pronouns: he/him
 status:
   icon: "🏥"
 role: Nurse Researcher | Health Workforce Wellbeing
-bio: >
-  I am a nurse researcher working on health workforce wellbeing, including nursing stress,
-  resilience, burnout and migration. I combine psychometrics and mixed methods with institutional
-  ethnography, implementation science, process evaluation and nursing philosophy. I currently work
-  across Charité – Universitätsmedizin Berlin and Edinburgh Napier University.
+bio: |
+  I am a nurse researcher working across **institutional ethnography**, **critical posthumanism** and **health workforce wellbeing**. My clinical background is in transplant care, critical care and organ donation.
+
+  [About me and my current roles →](/about/)
 affiliations:
   - name: Edinburgh Napier University
     url: https://www.napier.ac.uk/
   - name: Charité – Universitätsmedizin Berlin
     url: https://www.charite.de/
   - name: NHS Lothian
+    role: Honorary clinical academic
     url: https://www.nhslothian.scot.nhs.uk/
 links:
   - icon: at-symbol
@@ -46,4 +46,4 @@ links:
     label: Edinburgh Napier University profile
   - icon: hero/academic-cap
     url: https://edwebprofiles.ed.ac.uk/profile/jamie-smith
-    label: University of Edinburgh profile
+    label: University of Edinburgh historical profile

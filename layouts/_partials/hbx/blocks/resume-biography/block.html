@@ -16,7 +16,7 @@
 <div id="profile" class="resume-biography riso-profile">
   <div class="riso-profile-hero riso-container">
     <div class="riso-hero-copy">
-      <h1>{{ if $page.IsHome }}Jamie <span class="riso-name-line">B. <span class="riso-misreg" data-text="Smith">Smith</span></span>{{ else }}About <span class="riso-name-line"><span class="riso-misreg" data-text="Jamie">Jamie</span></span>{{ end }}</h1>
+      <h1 aria-label="{{ if $page.IsHome }}Dr Jamie Brian Smith{{ else }}About Jamie{{ end }}"><span aria-hidden="true">{{ if $page.IsHome }}Dr Jamie <span class="riso-name-line">Brian <span class="riso-misreg" data-text="Smith">Smith</span></span>{{ else }}About <span class="riso-name-line"><span class="riso-misreg" data-text="Jamie">Jamie</span></span>{{ end }}</span></h1>
       <p class="riso-role">{{ $profile.role }}</p>
       <div class="riso-actions">
         {{ if $page.IsHome }}
@@ -41,7 +41,7 @@
       <p class="riso-profile-name">{{ $profile.title }} <span>({{ $profile.pronouns }})</span></p>
       <ul class="riso-affiliations">
         {{ range $profile.affiliations }}
-        <li>{{ if .url }}<a href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</li>
+        <li>{{ if .url }}<a href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}{{ with .role }} <span class="riso-affiliation-role">— {{ . }}</span>{{ end }}</li>
         {{ end }}
       </ul>
       <ul class="network-icon riso-profile-links" aria-label="Contact and academic profiles">
