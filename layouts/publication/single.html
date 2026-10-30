@@ -1,0 +1,55 @@
+{{ define "main" }}
+{{ $record := partial "publication/record.html" . }}
+{{ $paper := $record.paper }}
+<article class="hbb-section riso-publication" data-publication-doi="{{ $record.doi }}">
+  <div class="riso-publication-inner">
+    <header class="riso-publication-header">
+      <a class="riso-paper-back" href="{{ "/publications/" | relLangURL }}">← All publications</a>
+      <h1 data-paper-title>{{ $paper.title }}</h1>
+      <p class="riso-paper-authors" aria-label="Authors">{{ range $index, $author := $paper.authors }}{{ if $index }}<span aria-hidden="true"> · </span>{{ end }}<span data-paper-author>{{ $author.display | default (printf "%s %s" $author.given $author.family) }}</span>{{ end }}</p>
+      <p class="riso-paper-journal"><cite>{{ $paper.journal }}</cite> · {{ $paper.year }}{{ with $paper.volume }} · {{ . }}{{ end }}{{ with $paper.issue }}({{ . }}){{ end }}{{ with $paper.pages }}, {{ . }}{{ end }}{{ with $paper.article_number }}, {{ . }}{{ end }}</p>
+      <div class="riso-paper-actions" aria-label="Read the article">
+        <a class="riso-button" href="{{ $record.doiURL }}">DOI / publisher ↗</a>
+        {{ range $paper.open_access }}<a class="riso-paper-access" href="{{ .url | safeURL }}">{{ .label }} ↗</a>{{ end }}
+        {{ with $paper.pdf_url }}<a class="riso-paper-access" href="{{ . | safeURL }}">Read the PDF ↗</a>{{ end }}
+        <a class="riso-paper-access" href="#paper-citation-heading">Cite this paper ↓</a>
+      </div>
+    </header>
+
+    <section class="riso-paper-abstract prose" aria-labelledby="paper-abstract-heading">
+      <h2 id="paper-abstract-heading">Abstract</h2>
+      <div data-paper-abstract>
+        {{ range $paper.abstract }}
+        <div class="riso-abstract-part">
+          {{ with .heading }}<h3>{{ . }}</h3>{{ end }}
+          <p>{{ .text }}</p>
+        </div>
+        {{ end }}
+      </div>
+      {{ with $paper.abstract_source_url }}<p class="riso-abstract-source">Abstract reproduced from <a href="{{ . | safeURL }}">the published article</a>{{ with $paper.abstract_license_url }} · <a href="{{ . | safeURL }}">{{ $paper.abstract_license_label | default "Abstract licence" }}</a>{{ end }}.</p>{{ end }}
+    </section>
+
+    {{ with .Content }}<div class="riso-paper-context prose">{{ . }}</div>{{ end }}
+
+    <section class="riso-paper-citation prose" aria-labelledby="paper-citation-heading">
+      <h2 id="paper-citation-heading">Cite this paper</h2>
+      <p id="paper-citation">{{ delimit $record.names "; " }} ({{ $paper.year }}). {{ $paper.title }}. <cite>{{ $paper.journal }}</cite>{{ with $paper.volume }}, {{ . }}{{ end }}{{ with $paper.issue }}({{ . }}){{ end }}{{ with $paper.pages }}, {{ . }}{{ end }}{{ with $paper.article_number }}, {{ . }}{{ end }}. <a href="{{ $record.doiURL }}">{{ $record.doiURL }}</a></p>
+      <div class="riso-paper-actions">
+        {{ with $paper.citation_bibtex }}<a class="riso-paper-download" href="{{ . | relURL }}" download>Download BibTeX</a>{{ end }}
+        {{ with $paper.citation_ris }}<a class="riso-paper-download" href="{{ . | relURL }}" download>Download RIS</a>{{ end }}
+      </div>
+      {{ with $paper.publication_date }}<p class="riso-paper-date">Journal publication: <time datetime="{{ . }}">{{ partial "publication/display-date.html" . }}</time>.</p>{{ end }}
+      {{ with $paper.published_online }}{{ if ne . $paper.publication_date }}<p class="riso-paper-date">First published online: <time datetime="{{ . }}">{{ partial "publication/display-date.html" . }}</time>.</p>{{ end }}{{ end }}
+    </section>
+
+    {{ with $paper.open_access }}
+    <section class="riso-paper-versions prose" aria-labelledby="paper-versions-heading">
+      <h2 id="paper-versions-heading">Available versions</h2>
+      <ul>
+        {{ range . }}<li><a href="{{ .url | safeURL }}">{{ .label }}</a>{{ with .version }} — {{ . }}{{ end }}{{ with .license }}. {{ if hasPrefix . "https://" }}<a href="{{ . | safeURL }}">{{ $paper.abstract_license_label | default "Licence details" }}</a>{{ else }}{{ . }}{{ end }}{{ end }}.</li>{{ end }}
+      </ul>
+    </section>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

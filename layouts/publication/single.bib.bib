@@ -1,0 +1,16 @@
+{{- $p := .Params.paper -}}
+{{- $authors := slice -}}
+{{- range $p.authors -}}
+  {{- $authors = $authors | append (printf "%s, %s" .family .given) -}}
+{{- end -}}
+@article{{ printf "{%s," $p.citation_key }}
+  title = {{ printf "{{%s}}" (partial "publication/bibtex-escape.html" $p.title) }},
+  author = {{ printf "{%s}" (partial "publication/bibtex-escape.html" (delimit $authors " and ")) }},
+  journal = {{ printf "{%s}" (partial "publication/bibtex-escape.html" $p.journal) }},
+  year = {{ printf "{%v}" $p.year }},
+{{ with $p.volume }}  volume = {{ printf "{%v}" . }},
+{{ end }}{{ with $p.issue }}  number = {{ printf "{%v}" . }},
+{{ end }}{{ with ($p.pages | default $p.article_number) }}  pages = {{ printf "{%s}" (replaceRE `[-–−]+` "--" .) }},
+{{ end }}  doi = {{ printf "{%s}" $p.doi }},
+  url = {{ printf "{https://doi.org/%s}" $p.doi }}
+}

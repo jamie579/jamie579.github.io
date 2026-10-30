@@ -1,0 +1,15 @@
+{{- $p := .Params.paper -}}
+TY  - JOUR
+TI  - {{ $p.title }}
+{{ range $p.authors }}AU  - {{ .family }}, {{ .given }}
+{{ end }}JF  - {{ $p.journal }}
+PY  - {{ $p.year }}
+{{ with $p.publication_date }}DA  - {{ replace . "-" "/" }}
+{{ end }}{{ with $p.volume }}VL  - {{ . }}
+{{ end }}{{ with $p.issue }}IS  - {{ . }}
+{{ end }}{{ with $p.pages }}{{ $pages := split (replace . "–" "-") "-" }}SP  - {{ index $pages 0 }}
+{{ if gt (len $pages) 1 }}EP  - {{ index $pages 1 }}
+{{ end }}{{ end }}{{ with $p.article_number }}SP  - {{ . }}
+{{ end }}DO  - {{ $p.doi }}
+UR  - https://doi.org/{{ $p.doi }}
+ER  -

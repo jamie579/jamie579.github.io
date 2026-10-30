@@ -1,0 +1,59 @@
+{{/* Bibliographic metadata is driven by the same record as the visible paper page. */}}
+{{- $page := . -}}
+{{- $record := partial "publication/record.html" . -}}
+{{- $paper := $record.paper -}}
+<meta name="citation_title" content="{{ $paper.title }}">
+{{ range $record.names }}<meta name="citation_author" content="{{ . }}">{{ end }}
+<meta name="citation_journal_title" content="{{ $paper.journal }}">
+{{ $citationDate := printf "%v" $paper.year }}
+{{ with $paper.publication_date }}{{ if findRE `^[0-9]{4}-[0-9]{2}-[0-9]{2}$` (printf "%v" .) }}{{ $citationDate = replace (printf "%v" .) "-" "/" }}{{ end }}{{ end }}
+<meta name="citation_publication_date" content="{{ $citationDate }}">
+<meta name="citation_year" content="{{ $paper.year }}">
+<meta name="citation_doi" content="{{ $record.doi }}">
+{{ with $paper.volume }}<meta name="citation_volume" content="{{ . }}">{{ end }}
+{{ with $paper.issue }}<meta name="citation_issue" content="{{ . }}">{{ end }}
+{{ with ($record.firstPage | default $paper.article_number) }}<meta name="citation_firstpage" content="{{ . }}">{{ end }}
+{{ with $record.lastPage }}<meta name="citation_lastpage" content="{{ . }}">{{ end }}
+{{/* External PDFs stay visible links. Scholar PDF metadata is only for a verified local sibling PDF. */}}
+{{ with $paper.pdf_url }}
+  {{ $pdfURL := . | absURL }}
+  {{ if hasPrefix $pdfURL $page.Permalink }}<meta name="citation_pdf_url" content="{{ $pdfURL }}">{{ end }}
+{{ end }}
+{{- $owner := site.Data.authors.me -}}
+{{- $ownerNames := ($owner.name.variants | default slice) | append $owner.name.display -}}
+{{- $authors := slice -}}
+{{- range $index, $author := $paper.authors -}}
+  {{- $name := index $record.names $index -}}
+  {{- $person := dict "@type" "Person" "name" $name -}}
+  {{- with $author.given -}}{{- $person = merge $person (dict "givenName" .) -}}{{- end -}}
+  {{- with $author.family -}}{{- $person = merge $person (dict "familyName" .) -}}{{- end -}}
+  {{- if in $ownerNames $name -}}
+    {{- $person = merge $person (dict "@id" (printf "%s#person" site.BaseURL)) -}}
+  {{- end -}}
+  {{- $authors = $authors | append $person -}}
+{{- end -}}
+{{- $journal := dict "@type" "Periodical" "name" $paper.journal -}}
+{{- $container := $journal -}}
+{{- with $paper.volume -}}{{- $container = dict "@type" "PublicationVolume" "volumeNumber" (printf "%v" .) "isPartOf" $container -}}{{- end -}}
+{{- with $paper.issue -}}{{- $container = dict "@type" "PublicationIssue" "issueNumber" (printf "%v" .) "isPartOf" $container -}}{{- end -}}
+{{- $identifiers := slice (dict "@type" "PropertyValue" "propertyID" "DOI" "value" $record.doi "url" $record.doiURL) -}}
+{{- with $paper.article_number -}}{{- $identifiers = $identifiers | append (dict "@type" "PropertyValue" "propertyID" "Article number" "value" (printf "%v" .)) -}}{{- end -}}
+{{- $article := dict
+  "@context" "https://schema.org"
+  "@type" "ScholarlyArticle"
+  "@id" $record.doiURL
+  "url" $page.Permalink
+  "sameAs" $record.doiURL
+  "name" $paper.title
+  "headline" $paper.title
+  "author" $authors
+  "abstract" $record.abstract
+  "datePublished" (printf "%v" ($paper.published_online | default $paper.publication_date | default $paper.year))
+  "isPartOf" $container
+  "identifier" $identifiers
+  "mainEntityOfPage" (dict "@id" $page.Permalink)
+-}}
+{{- with $paper.pages -}}{{- $article = merge $article (dict "pagination" (printf "%v" .)) -}}{{- end -}}
+{{- with $record.firstPage -}}{{- $article = merge $article (dict "pageStart" .) -}}{{- end -}}
+{{- with $record.lastPage -}}{{- $article = merge $article (dict "pageEnd" .) -}}{{- end -}}
+<script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>

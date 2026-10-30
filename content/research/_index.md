@@ -29,7 +29,7 @@ sections:
 
         I study stress, burnout, retention and migration in relation to staffing, gendered expectations, working relationships and organisational resources. At Charité I lead **PflegeStressPlan**, a study of nursing stress and working conditions, documented on my [institutional profile](https://gender.charite.de/en/metas/person/person/address_detail/msc_jamie_b_smith/).
 
-        Recent work with colleagues includes a [psychometric evaluation of a 57-item German nursing stress instrument](https://doi.org/10.1016/j.ijnsa.2026.100689) and [*Beyond Heroic Individualism*](https://doi.org/10.1111/gwao.70193), on relational buffers against healthcare system strain. These extend research on [nurse migration](https://doi.org/10.1177/15271544221102964) and [burnout and impossible professional ideals](https://doi.org/10.1111/nin.12538).
+        Recent work with colleagues includes a [psychometric evaluation of a 57-item German nursing stress instrument](/publications/nursing-stress-measurement/) and [*Beyond Heroic Individualism*](https://doi.org/10.1111/gwao.70193), on relational buffers against healthcare system strain. These extend research on [nurse migration](/publications/nurse-migration/) and [burnout and impossible professional ideals](/publications/vitruvian-nurse-burnout/).
 
         ## Implementation and process evaluation
 
@@ -39,7 +39,7 @@ sections:
 
         ## Healthcare technology and responsibility
 
-        Electronic records, algorithms and life-support technologies shape attention, judgement and responsibility. With colleagues, I examine the assumptions embedded in these systems and the forms of care they enable or constrain. Read our work on [AI ethics for nursing](https://doi.org/10.3912/OJIN.Vol30No02Man06) and [posthuman speculative ethics](https://doi.org/10.1111/nup.12447).
+        Electronic records, algorithms and life-support technologies shape attention, judgement and responsibility. With colleagues, I examine the assumptions embedded in these systems and the forms of care they enable or constrain. Read our work on [AI ethics for nursing](https://doi.org/10.3912/OJIN.Vol30No02Man06) and [posthuman speculative ethics](/publications/posthuman-speculative-ethics/).
 
         [Publications →](/publications/) · [Research cited in policy and guidance →](/research-influence/) · [Collaborate or invite me to speak →](mailto:jamie@hornesmith.co.uk)
     design:

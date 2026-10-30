@@ -46,4 +46,10 @@ Publication records distinguish preprints, protocols, editorials and journal art
 
 The current crawler policy permits public crawling. No model-training opt-out has been introduced. Search access and training permissions are separate decisions; `llms.txt` is supplementary documentation, not a condition of search visibility.
 
+## Individual publication pages
+
+Five reviewed journal articles have `type: publication` leaf bundles under `content/publications/`. Their JSON front matter generates the visible byline/abstract/citation, ScholarlyArticle and Highwire metadata, and `cite.bib` / `cite.ris` downloads in the normal Hugo build. Link new pages from the existing Publications bibliography; they do not need separate navigation entries. Verify full author lists, complete abstracts, publication dates, locators, open-access versions and licences before adding each record.
+
+See [the publication-page implementation and evidence report](docs/publication-pages-2026-10-30.md) for the record contract, date handling, citation interoperability checks and the five-paper review scope. Expansion to the remaining publications follows review of this first batch.
+
 Built on [Hugo Blox](https://github.com/HugoBlox/kit), under the existing repository licence.

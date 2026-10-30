@@ -3,6 +3,7 @@
 import gzip
 from html.parser import HTMLParser
 import json
+import re
 from pathlib import Path
 import sys
 from urllib.parse import unquote, urlparse
@@ -23,6 +24,12 @@ class Page(HTMLParser):
         self.json_text = self.title_text = ''
         self.schemas = []
         self.missing_alt = []
+        self.citation_meta = {}
+        self.body_text = []
+        self.downloads = []
+        self.in_raw = False
+        self.paper_title = ''
+        self.in_h1 = False
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -32,6 +39,9 @@ class Page(HTMLParser):
             self.ids.add(a['id'])
         if tag == 'h1':
             self.h1 += 1
+            self.in_h1 = True
+        if tag in ('script', 'style'):
+            self.in_raw = True
         if tag == 'main':
             self.main += 1
         if tag == 'head':
@@ -41,6 +51,8 @@ class Page(HTMLParser):
             self.titles += 1
         if tag == 'a' and a.get('href'):
             self.links.append(a['href'])
+            if 'download' in a:
+                self.downloads.append(a['href'])
         if tag in ('img', 'script') and a.get('src'):
             self.links.append(a['src'])
         if tag == 'img' and 'alt' not in a:
@@ -49,6 +61,8 @@ class Page(HTMLParser):
             self.links.append(a.get('href', ''))
         if tag == 'link' and a.get('rel') == 'canonical':
             self.canonical.append(a.get('href', ''))
+        if tag == 'meta' and a.get('name', '').startswith('citation_'):
+            self.citation_meta.setdefault(a['name'], []).append(a.get('content', ''))
         if tag == 'meta' and a.get('name') == 'description':
             self.descriptions.append(a.get('content', ''))
         if tag == 'meta' and a.get('name') == 'robots':
@@ -62,12 +76,20 @@ class Page(HTMLParser):
             self.json_text = ''
 
     def handle_data(self, data):
+        if not self.in_head and not self.in_raw:
+            self.body_text.append(data)
+        if self.in_h1:
+            self.paper_title += data
         if self.in_title:
             self.title_text += data
         if self.in_json:
             self.json_text += data
 
     def handle_endtag(self, tag):
+        if tag in ('script', 'style'):
+            self.in_raw = False
+        if tag == 'h1':
+            self.in_h1 = False
         if tag == 'head':
             self.in_head = False
         if tag == 'title':
@@ -85,6 +107,70 @@ def entities(schema):
     elif isinstance(schema, dict):
         yield schema
         yield from entities(schema.get('@graph', []))
+
+
+def normalise_text(value):
+    return ' '.join(re.findall(r'\w+', value, flags=re.UNICODE)).casefold()
+
+
+def check_publication(page, rel, canonical):
+    """Check agreement between visible content, bibliographic metadata and article schema."""
+    found = [item for schema in page.schemas for item in entities(schema)
+             if item.get('@type') == 'ScholarlyArticle']
+    if len(found) != 1:
+        return [f'{rel}: expected one ScholarlyArticle, found {len(found)}']
+    article = found[0]
+    issues = []
+    meta = page.citation_meta
+    for key in ('citation_title', 'citation_journal_title', 'citation_doi',
+                'citation_year', 'citation_publication_date'):
+        if len(meta.get(key, [])) != 1 or not meta[key][0]:
+            issues.append(f'{rel}: missing/duplicate {key}')
+    title = meta.get('citation_title', [''])[0]
+    if title != article.get('headline') or normalise_text(title) != normalise_text(page.paper_title):
+        issues.append(f'{rel}: paper title differs across H1, metadata and schema')
+    authors = [author.get('name', '') for author in article.get('author', [])]
+    if not authors or authors != meta.get('citation_author', []):
+        issues.append(f'{rel}: ordered byline differs between citation metadata and schema')
+    visible = normalise_text(' '.join(page.body_text))
+    for author in authors:
+        if normalise_text(author) not in visible:
+            issues.append(f'{rel}: schema author absent from visible page: {author}')
+    abstract = article.get('abstract', '')
+    if not abstract.strip() or normalise_text(abstract) not in visible:
+        issues.append(f'{rel}: complete schema abstract not present in visible HTML')
+    doi = meta.get('citation_doi', [''])[0]
+    if not re.fullmatch(r'10\.\d{4,9}/\S+', doi, flags=re.I) or article.get('@id') != 'https://doi.org/' + doi:
+        issues.append(f'{rel}: incorrect or inconsistent DOI')
+    if article.get('mainEntityOfPage', {}).get('@id') != canonical:
+        issues.append(f'{rel}: article does not identify its canonical webpage')
+    journal = article.get('isPartOf', {})
+    while journal.get('isPartOf'):
+        journal = journal['isPartOf']
+    if journal.get('name') != meta.get('citation_journal_title', [''])[0]:
+        issues.append(f'{rel}: journal differs between metadata and schema')
+    citation_date = meta.get('citation_publication_date', [''])[0]
+    if not re.fullmatch(r'\d{4}(?:/\d{2}/\d{2})?', citation_date):
+        issues.append(f'{rel}: citation date must be a full calendar date or known year')
+    if citation_date[:4] != meta.get('citation_year', [''])[0]:
+        issues.append(f'{rel}: citation date and journal year disagree')
+    if not re.fullmatch(r'\d{4}(?:-\d{2}(?:-\d{2})?)?', article.get('datePublished', '')):
+        issues.append(f'{rel}: invalid scholarly publication date')
+    article_number = next((item.get('value') for item in article.get('identifier', [])
+                           if item.get('propertyID') == 'Article number'), '')
+    for key, value in (('citation_firstpage', article.get('pageStart') or article_number),
+                       ('citation_lastpage', article.get('pageEnd'))):
+        if meta.get(key, []) != ([str(value)] if value else []):
+            issues.append(f'{rel}: pagination/article locator differs between metadata and schema')
+    for pdf in meta.get('citation_pdf_url', []):
+        if not pdf.startswith(canonical) or pdf not in page.links:
+            issues.append(f'{rel}: citation PDF must be a visible verified sibling of the abstract page')
+    for extension in ('.bib', '.ris'):
+        if len([url for url in page.downloads if url.endswith(extension)]) != 1:
+            issues.append(f'{rel}: missing/duplicate downloadable {extension} citation')
+    if '/publications/' not in page.links:
+        issues.append(f'{rel}: missing route back to publications')
+    return issues
 
 
 root = Path(sys.argv[1] if len(sys.argv) > 1 else 'public').resolve()
@@ -150,6 +236,8 @@ for file, page in pages.items():
         errors.append(f'{rel}: expected one Person entity, found {len(people)}')
     elif people[0].get('name') != 'Dr Jamie Brian Smith':
         errors.append(f'{rel}: wrong identity')
+    if page.citation_meta or (rel.startswith('publications/') and rel != 'publications/index.html'):
+        errors.extend(check_publication(page, rel, origin + route))
 
 urls = [item.text for item in ET.parse(root / 'sitemap.xml').findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
 for route in ('/', '/about/', '/research/', '/institutional-ethnography/', '/critical-posthumanism/', '/publications/'):

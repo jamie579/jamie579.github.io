@@ -23,7 +23,7 @@ sections:
 
         My Edinburgh doctoral thesis, [*Ecologies of Care* (2023)](https://era.ed.ac.uk/items/351c3676-c09d-42e0-b8a1-98a09eb19475), studied nursing in an acute NHS hospital. It combined workforce demographic data, analysis of the Nursing and Midwifery Council Code, participatory ethnography, multimedia diaries and interviews.
 
-        With Rosie Stenhouse, I examined the tensions between individual professional accountability and the conditions of nursing practice in [*Navigating the System of Regulation and Practice in the UK*](https://doi.org/10.1111/jan.17077).
+        With Rosie Stenhouse, I examined the tensions between individual professional accountability and the conditions of nursing practice in [*Navigating the System of Regulation and Practice in the UK*](/publications/posthuman-institutional-ethnography/).
 
         This work attends to the participation of bodies, technologies, spaces and material conditions in care while following nurses’ accounts of their work. [Read more about the critical posthuman perspectives behind it →](/critical-posthumanism/)
 

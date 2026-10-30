@@ -1,0 +1,26 @@
+{{/* Shared presentation and metadata values for type: publication. No dates or authors are inferred. */}}
+{{- $paper := .Params.paper -}}
+{{- $doi := replaceRE `(?i)^https?://(dx\.)?doi\.org/` "" ($paper.doi | default "") -}}
+{{- $doi = strings.TrimSpace $doi -}}
+{{- $doiURL := printf "https://doi.org/%s" $doi -}}
+{{- $names := slice -}}
+{{- range $paper.authors -}}
+  {{- $names = $names | append (.display | default (printf "%s %s" .given .family)) -}}
+{{- end -}}
+{{- $abstract := slice -}}
+{{- range $paper.abstract -}}
+  {{- $text := .text | strings.TrimSpace -}}
+  {{- with .heading -}}{{- $text = printf "%s: %s" . $text -}}{{- end -}}
+  {{- $abstract = $abstract | append $text -}}
+{{- end -}}
+{{- $firstPage := "" -}}
+{{- $lastPage := "" -}}
+{{- with $paper.pages -}}
+  {{- $pages := printf "%v" . -}}
+  {{- if findRE `^[A-Za-z]?[0-9]+([–-][A-Za-z]?[0-9]+)?$` $pages -}}
+    {{- $parts := split (replace $pages "–" "-") "-" -}}
+    {{- $firstPage = index $parts 0 -}}
+    {{- if eq (len $parts) 2 -}}{{- $lastPage = index $parts 1 -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (dict "paper" $paper "doi" $doi "doiURL" $doiURL "names" $names "abstract" (delimit $abstract "\n\n") "firstPage" $firstPage "lastPage" $lastPage) -}}

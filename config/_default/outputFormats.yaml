@@ -1,0 +1,12 @@
+BIB:
+  mediaType: text/x-bibtex
+  baseName: cite
+  isPlainText: true
+  notAlternative: true
+  permalinkable: false
+RIS:
+  mediaType: application/x-research-info-systems
+  baseName: cite
+  isPlainText: true
+  notAlternative: true
+  permalinkable: false

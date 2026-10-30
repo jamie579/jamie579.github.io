@@ -196,7 +196,10 @@
   {{ $ogLocale := lower (index $localeParts 0) }}
   {{ if eq (len $localeParts) 2 }}{{ $ogLocale = printf "%s_%s" $ogLocale (upper (index $localeParts 1)) }}{{ end }}
   <meta property="og:locale" content="{{ $ogLocale }}" />
-  {{ if .IsPage }}
+  {{ if and .IsPage (eq .Type "publication") }}
+    {{ with (.Params.paper.published_online | default .Params.paper.publication_date) }}{{ if findRE `^[0-9]{4}-[0-9]{2}-[0-9]{2}$` (printf "%v" .) }}<meta property="article:published_time" content="{{ . }}">{{ end }}{{ end }}
+    {{ if not .Lastmod.IsZero }}<meta property="og:updated_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">{{ end }}
+  {{ else if .IsPage }}
     {{ if not .PublishDate.IsZero }}
       <meta
         property="article:published_time"
@@ -213,6 +216,7 @@
   {{ end }}
 
   {{ partial "jsonld/main" (dict "page" . "summary" $desc) }}
+  {{ if eq .Type "publication" }}{{ partial "publication/metadata.html" . }}{{ end }}
 
   <title>{{$title}}</title>
 

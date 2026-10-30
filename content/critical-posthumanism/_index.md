@@ -35,7 +35,7 @@ sections:
 
         - **Care and its boundaries:** Jane Hopkins-Walsh, Jess Dillard-Wright, Brandon Brown, Jamie Smith and Eva Willis, [*Critical Posthuman Nursing Care: Bodies Reborn and the Ethical Imperative for Composting* (2022)](https://doi.org/10.25071/2291-5796.126).
         - **Clarifying the approach:** Jess Dillard-Wright and colleagues, including me, [*Notes on [post]human nursing: What it MIGHT be, what it is not* (2024)](https://doi.org/10.1111/nin.12562).
-        - **Technology and ethical possibility:** with Goda Klumbytė and Ren Loren Britton, [*From ‘if-then’ to ‘what if?’ Rethinking healthcare algorithmics with posthuman speculative ethics* (2023)](https://doi.org/10.1111/nup.12447).
+        - **Technology and ethical possibility:** with Goda Klumbytė and Ren Loren Britton, [*From ‘if-then’ to ‘what if?’ Rethinking healthcare algorithmics with posthuman speculative ethics* (2023)](/publications/posthuman-speculative-ethics/).
 
         For a shorter public essay, read [*A critical posthuman call to make person-centred care messier*](https://thepolyphony.org/2023/03/27/a-critical-posthuman-call-to-make-person-centered-care-messier/).
 

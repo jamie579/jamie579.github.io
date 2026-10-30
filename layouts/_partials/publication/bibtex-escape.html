@@ -1,0 +1,8 @@
+{{- $text := printf "%v" . -}}
+{{- $text = replace $text "\\" "\\textbackslash{}" -}}
+{{- $text = replace $text "&" "\\&" -}}
+{{- $text = replace $text "%" "\\%" -}}
+{{- $text = replace $text "_" "\\_" -}}
+{{- $text = replace $text "#" "\\#" -}}
+{{- $text = replace $text "$" "\\$" -}}
+{{- return $text -}}
