@@ -19,7 +19,7 @@ sections:
 
         APPRAISE asked whether alcohol-reduction support could be delivered and evaluated with men on remand, including after release. This NIHR-funded university collaboration worked in prisons in Scotland and England; its final report appeared in November 2024.
 
-        I made substantial contributions to the study's conception and design, developed the protocol with colleagues, contributed to intervention training and data acquisition, and helped draft the report. My work connected research development with the practical requirements of delivering an intervention in prison. The team recruited 132 men, but delivery after release and follow-up proved difficult. The study identified constraints on continuity of support and the resources needed for further research. These are feasibility findings; they do not demonstrate that the intervention reduced drinking.
+        Working with the University of Edinburgh team, I made substantial contributions to the study's conception and design, developed the protocol with colleagues, contributed to intervention training and data acquisition, and helped draft the report. My work connected research development with the practical requirements of delivering an intervention in prison. The team recruited 132 men, but delivery after release and follow-up proved difficult. The study identified constraints on continuity of support and the resources needed for further research. These are feasibility findings; they do not demonstrate that the intervention reduced drinking.
 
         [APPRAISE final report and contribution statement](https://kar.kent.ac.uk/107914/) · [Study protocol summary](/publications/appraise-study-protocol/)
 
