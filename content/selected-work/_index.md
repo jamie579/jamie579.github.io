@@ -51,13 +51,17 @@ sections:
 
         ### Rivelin Valley Allotments Society
 
-        In Sheffield, I contribute voluntarily to **RVAS** through funding applications and correspondence, documentation, communications and practical accessibility work. The Society received **£15,890 National Lottery funding in June 2026** for “Improving accessibility and longevity at the allotments”. My contribution combines making the case for support with practical work on a shared growing space. The award belongs to the Society, and delivery involves the wider membership; further access improvements remain planned.
+        My voluntary work with Sheffield's **RVAS** combines community funding, accessible growing and digital resources for members. I developed a funding case for a ramp, accessible raised beds and improved shared facilities, drawing on members' assessment of their needs. I built the Society's website, turning its records into joining, volunteering, history and development pages, and developed online tool-induction forms and printable safety guidance.
 
-        [Society access improvements and plans](https://rvas.co.uk/developments/) · [Public award record](https://projectopengov.org/constituencies/4282/sheffield-central/)
+        The Society received **£15,890 National Lottery funding in June 2026** for “Improving accessibility and longevity at the allotments”. Members continue to develop the shared space, with further access improvements planned.
+
+        [Access project and continuing plans](https://rvas.co.uk/developments/) · [Tool library and member induction](https://rvas.co.uk/tool-library/)
 
         ### Steel City Beer & Cider Festival and Blue Bee
 
-        For Sheffield's 2026 festival, I volunteered on communications and social-media planning, prepared public content and helped produce staff-induction material. The work made practical information available to visitors and volunteers. A separate creative collaboration began with my homebrew recipe, **A Cup of Ambition**, a New Zealand pale ale. It was among the competition winners selected for commercial brewing and was brewed by **Blue Bee** for the festival, alongside other winners and their brewing partners.
+        For Sheffield's 2026 festival, I coordinated a shared Facebook and Instagram content calendar as a volunteer, covering the programme, brewers, sponsors and practical visitor information. I shaped the timing of posts, adapted copy and artwork for each channel, and handled scheduling, accessibility and corrections as plans changed. I also developed and edited a subtitled staff-induction film, bringing together volunteer recordings, demonstration footage, narration and festival graphics.
+
+        A separate creative collaboration took my homebrew recipe, **A Cup of Ambition**, into commercial production: it was selected among the competition winners and brewed by **Blue Bee** as a New Zealand pale ale for the festival.
 
         [Festival and volunteer setting](https://sheffield.camra.org.uk/scbf/) · [Homebrew competition and brewing collaborators](https://sheffield.camra.org.uk/2026/10/steel-city-home-brew-competition/)
 
