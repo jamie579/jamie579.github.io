@@ -1,7 +1,7 @@
 ---
 title: 'Dr Jamie Brian Smith — Nursing Research'
 date: 2026-02-01
-lastmod: 2026-10-30
+lastmod: 2026-11-02
 type: landing
 seo:
   title: 'Dr Jamie Brian Smith | Nursing Research'
@@ -34,6 +34,8 @@ sections:
       title: Work with me
       text: |
         I offer [evaluation and research consultancy](/consultancy/) and welcome collaborations, speaking invitations and workshops on nursing work, research methods and care.
+
+        [Selected work: research, evaluation and community projects →](/selected-work/)
 
         [Email me →](mailto:jamie@hornesmith.co.uk) · [Talks and public writing →](/elsewhere/)
 

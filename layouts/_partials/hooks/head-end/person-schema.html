@@ -158,14 +158,8 @@
   {{- $person = merge $person (dict "subjectOf" .) -}}
 {{- end -}}
 
-{{- $speakingEvents := slice -}}
-{{- range site.Data.profile_connections.speaking_events -}}
-  {{- $event := merge . (dict "performer" (dict "@id" $personId)) -}}
-  {{- $speakingEvents = $speakingEvents | append $event -}}
-{{- end -}}
-{{- with $speakingEvents -}}
-  {{- $person = merge $person (dict "performerIn" .) -}}
-{{- end -}}
+{{/* Speaking credits remain visible on Elsewhere. Do not emit historical
+     Event records on every page: these are not dedicated event pages. */}}
 
 <script type="application/ld+json">
 {{- $person | jsonify | safeJS -}}
@@ -177,9 +171,16 @@
 {{- $profilePage := dict
   "@context" "https://schema.org"
   "@type" "ProfilePage"
+  "@id" page.Permalink
+  "url" page.Permalink
+  "name" page.Title
+  "description" (page.Params.summary | default site.Params.hugoblox.identity.description)
+  "isPartOf" (dict "@id" (printf "%s/#website" $base))
   "mainEntity" (dict "@id" $personId)
-  "dateModified" (page.Lastmod.Format "2006-01-02T15:04:05Z07:00")
 -}}
+{{- if not page.Lastmod.IsZero -}}
+  {{- $profilePage = merge $profilePage (dict "dateModified" (page.Lastmod.Format "2006-01-02T15:04:05Z07:00")) -}}
+{{- end -}}
 <script type="application/ld+json">
 {{- $profilePage | jsonify | safeJS -}}
 </script>

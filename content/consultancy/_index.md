@@ -3,7 +3,7 @@ title: Evaluation and Research Consultancy
 summary: Independent healthcare evaluation, evidence synthesis and learning workshops with Dr Jamie Brian Smith, nurse researcher and consultant.
 type: landing
 date: 2026-10-28
-lastmod: 2026-10-28
+lastmod: 2026-11-02
 keywords:
   - healthcare evaluation
   - research consultancy
@@ -50,11 +50,13 @@ sections:
 
         [Meet the SHORTER team →](https://www.shortertrial.com/our-team)
 
-        ### Evaluating a digital healthcare intervention
+        ### Research design and delivery
 
-        I co-authored a qualitative evaluation of the **Digital Antibiotic Review Tracking Toolkit**, using the RE-AIM framework to examine feasibility and acceptability. The study informed refinements to the prototype ahead of further testing.
+        My university research includes the **APPRAISE** alcohol-reduction feasibility study with men on remand, leadership of **PflegeStressPlan** at Charité, and the **New Nurse Educator** partnership. These examples show my work on study design, research delivery, evidence synthesis and working conditions.
 
-        [Read the DARTT evaluation →](https://doi.org/10.3390/antibiotics14070660)
+        [Selected work: my responsibilities, outputs and evidence →](/selected-work/)
+
+        I also co-authored the [qualitative DARTT evaluation](/publications/digital-antibiotic-review-toolkit/), which examined the feasibility and acceptability of a prototype antibiotic review toolkit.
 
         ### Understanding organisations and working conditions
 

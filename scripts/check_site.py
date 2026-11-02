@@ -359,12 +359,29 @@ for file, page in pages.items():
         errors.append(f'{rel}: expected one Person entity, found {len(people)}')
     elif people[0].get('name') != 'Dr Jamie Brian Smith':
         errors.append(f'{rel}: wrong identity')
+    elif people[0].get('@id') != origin + '/#person':
+        errors.append(f'{rel}: Person must reuse the stable site identity')
+    elif not {'Jamie B. Smith', 'Jamie B Smith'}.issubset(people[0].get('alternateName', [])):
+        errors.append(f'{rel}: missing genuine publishing-name variants')
+    profiles = [item for schema in page.schemas for item in entities(schema)
+                if item.get('@type') == 'ProfilePage']
+    if rel in ('index.html', 'about/index.html'):
+        if (len(profiles) != 1 or profiles[0].get('@id') != origin + route
+                or profiles[0].get('mainEntity', {}).get('@id') != origin + '/#person'):
+            errors.append(f'{rel}: expected one ProfilePage for the stable Person')
+        if any(item.get('@type') == 'CollectionPage' for schema in page.schemas for item in entities(schema)):
+            errors.append(f'{rel}: profile also described as a collection')
+    elif profiles:
+        errors.append(f'{rel}: ProfilePage reserved for Home and About')
+    if rel in ('index.html', 'research/index.html', 'consultancy/index.html'):
+        if '/selected-work/' not in page.links:
+            errors.append(f'{rel}: missing descriptive route to Selected Work')
     if page.citation_meta or (rel.startswith('publications/') and rel != 'publications/index.html'):
         publication_count += 1
         errors.extend(check_publication(page, rel, origin + route))
 
 urls = [item.text for item in ET.parse(root / 'sitemap.xml').findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-for route in ('/', '/about/', '/research/', '/institutional-ethnography/', '/critical-posthumanism/', '/publications/'):
+for route in ('/', '/about/', '/research/', '/consultancy/', '/selected-work/', '/institutional-ethnography/', '/critical-posthumanism/', '/publications/'):
     if origin + route not in urls:
         errors.append(f'sitemap: missing {route}')
 for route in ('/us/', '/lom/'):

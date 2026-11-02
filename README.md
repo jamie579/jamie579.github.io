@@ -36,6 +36,7 @@ Both `build-and-publish.yml` and `deploy-pages.yml` react to source changes push
 - Home: short introduction and routes into the site.
 - About: biography, current roles and publishing-name variants.
 - Research: the research programme.
+- Selected work: evidenced contributions to collaborative research, evaluation and voluntary projects, linked from Home, Research and Consultancy.
 - Institutional ethnography: methodological lineage and Jamie’s nursing studies.
 - Critical posthumanism: an introductory resource and reading routes, distinct from the methods page.
 - Publications: the manually maintained bibliography and article links.
