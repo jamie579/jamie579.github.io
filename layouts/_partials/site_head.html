@@ -215,7 +215,13 @@
     {{ end }}
   {{ end }}
 
-  {{ partial "jsonld/main" (dict "page" . "summary" $desc) }}
+  {{/* About is the profile described by the existing identity hook, rather
+       than a second CollectionPage for the same URL. Retain its breadcrumbs. */}}
+  {{ if eq (strings.TrimSuffix "/" .RelPermalink) "/about" }}
+    {{ partial "jsonld/breadcrumbs.html" (dict "page" .) }}
+  {{ else }}
+    {{ partial "jsonld/main" (dict "page" . "summary" $desc) }}
+  {{ end }}
   {{ if eq .Type "publication" }}{{ partial "publication/metadata.html" . }}{{ end }}
 
   <title>{{$title}}</title>

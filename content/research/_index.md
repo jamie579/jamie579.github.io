@@ -3,7 +3,7 @@ title: Research
 summary: Institutional ethnography, critical posthumanism, workforce wellbeing and process evaluation in Dr Jamie Brian Smith’s nursing research.
 type: landing
 date: 2026-07-29
-lastmod: 2026-10-30
+lastmod: 2026-11-02
 design:
   spacing: '4rem'
 sections:
@@ -12,6 +12,8 @@ sections:
       title: Researching the conditions of care
       text: |
         I study how institutions, technologies and inequalities shape nursing work. I combine studies of everyday care with workforce research and the evaluation of complex interventions.
+
+        [Selected work: examples of my research and its delivery →](/selected-work/)
 
         ## Institutional ethnography
 
