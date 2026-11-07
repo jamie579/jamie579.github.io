@@ -13,6 +13,10 @@ name:
     - Jamie B Smith
     - Jamie Brian Smith
     - Jamie Smith
+    - Dr Jamie B. Smith
+    - Dr Jamie Brian Smith
+    - Smith, J. B.
+    - Smith, J.
 status:
   icon: "🏥"
 role: Nurse Researcher | Health Workforce Wellbeing
@@ -23,11 +27,14 @@ bio: |
 affiliations:
   - name: Edinburgh Napier University
     url: https://www.napier.ac.uk/
+    sameas: https://www.wikidata.org/wiki/Q1277357
   - name: Charité – Universitätsmedizin Berlin
     url: https://www.charite.de/
+    sameas: https://www.wikidata.org/wiki/Q162684
   - name: NHS Lothian
     role: Honorary clinical academic
     url: https://www.nhslothian.scot.nhs.uk/
+    sameas: https://www.wikidata.org/wiki/Q6954203
 links:
   - icon: at-symbol
     url: mailto:jamie@hornesmith.co.uk
@@ -56,34 +63,41 @@ links:
 # Verified identity URLs included in Person.sameAs but not rendered as profile buttons
 sameas:
   - https://www.wikidata.org/wiki/Q136215075
+  - https://openalex.org/A5137481403
+  - https://www.compostcollaborative.online/people/jamie/
   - https://x.com/mrhornesmith
   - https://www.researchgate.net/profile/Jamie-Smith-44
   - https://forschungsdatenbank.charite.de/experts/profile/jamie_smith/en
 education:
   - degree: PhD Nursing, Philosophy and Sociology
     institution: University of Edinburgh
+    sameas: https://www.wikidata.org/wiki/Q160302
     start: 2019-01-01
     end: 2022-12-31
     summary: |
       Thesis: 'Ecologies of Care: A posthuman institutional ethnography of nursing'. Doctoral research at the intersection of nursing, philosophy, and sociology, drawing on posthuman and feminist scholarship. Continued clinical practice alongside doctoral study in renal and liver transplant care.
   - degree: MA Sociology
     institution: Goldsmiths, University of London
+    sameas: https://www.wikidata.org/wiki/Q528231
     start: 2013-01-01
     end: 2014-12-31
     summary: |
       Focus on gender, media, and culture.
   - degree: MSc Nursing Studies
     institution: Sheffield Hallam University
+    sameas: https://www.wikidata.org/wiki/Q1752117
     start: 2012-01-01
     end: 2013-12-31
   - degree: PgDip Nursing Studies
     institution: Sheffield Hallam University
+    sameas: https://www.wikidata.org/wiki/Q1752117
     start: 2009-01-01
     end: 2010-12-31
     summary: |
       With NMC Registration (Adult Nursing).
   - degree: BSc (Hons) Psychology
     institution: London South Bank University
+    sameas: https://www.wikidata.org/wiki/Q245247
     start: 2004-01-01
     end: 2007-12-31
     summary: |

@@ -49,6 +49,9 @@
   {{- with .url -}}
     {{- $item = merge $item (dict "url" .) -}}
   {{- end -}}
+  {{- with .sameas -}}
+    {{- $item = merge $item (dict "sameAs" .) -}}
+  {{- end -}}
   {{- $affiliations = $affiliations | append $item -}}
 {{- end -}}
 
@@ -60,14 +63,50 @@
 
 {{- $alumniOf := slice -}}
 {{- $alumniNames := slice -}}
-{{- range $author.education -}}
-  {{- with .institution -}}
+{{- range $edu := $author.education -}}
+  {{- with $edu.institution -}}
     {{- if not (in $alumniNames .) -}}
       {{- $alumniNames = $alumniNames | append . -}}
-      {{- $alumniOf = $alumniOf | append (dict "@type" "CollegeOrUniversity" "name" .) -}}
+      {{- $item := dict "@type" "CollegeOrUniversity" "name" . -}}
+      {{- with $edu.sameas -}}
+        {{- $item = merge $item (dict "sameAs" .) -}}
+      {{- end -}}
+      {{- $alumniOf = $alumniOf | append $item -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
+
+{{- $knowsAbout := slice
+  (dict "@type" "DefinedTerm" "name" "Institutional Ethnography" "sameAs" "https://en.wikipedia.org/wiki/Institutional_ethnography")
+  (dict "@type" "DefinedTerm" "name" "Critical Posthumanism" "sameAs" "https://en.wikipedia.org/wiki/Posthumanism")
+  (dict "@type" "DefinedTerm" "name" "Antibiotic Stewardship" "sameAs" "https://en.wikipedia.org/wiki/Antimicrobial_stewardship")
+  (dict "@type" "DefinedTerm" "name" "Nursing Workforce Wellbeing")
+  (dict "@type" "DefinedTerm" "name" "Nursing Ethics" "sameAs" "https://en.wikipedia.org/wiki/Nursing_ethics")
+  (dict "@type" "DefinedTerm" "name" "Process Evaluation")
+-}}
+
+{{- $hasCredential := slice
+  (dict
+    "@type" "EducationalOccupationalCredential"
+    "credentialCategory" "degree"
+    "name" "PhD Nursing, Philosophy and Sociology"
+    "recognizedBy" (dict
+      "@type" "CollegeOrUniversity"
+      "name" "University of Edinburgh"
+      "sameAs" "https://www.wikidata.org/wiki/Q160302"
+    )
+  )
+  (dict
+    "@type" "EducationalOccupationalCredential"
+    "credentialCategory" "license"
+    "name" "Registered Nurse (RN)"
+    "recognizedBy" (dict
+      "@type" "Organization"
+      "name" "Nursing and Midwifery Council"
+      "sameAs" "https://www.wikidata.org/wiki/Q7070265"
+    )
+  )
+-}}
 
 {{- /* Prefer multiple headshots to help entity recognition; provide captions and dimensions where possible. */ -}}
 {{- $images := slice -}}
@@ -120,6 +159,8 @@
   "sameAs" $sameAs
   "affiliation" $affiliations
   "alumniOf" $alumniOf
+  "knowsAbout" $knowsAbout
+  "hasCredential" $hasCredential
   "mainEntityOfPage" (dict "@id" site.BaseURL)
 -}}
 
