@@ -73,14 +73,14 @@ education:
     institution: University of Edinburgh
     sameas: https://www.wikidata.org/wiki/Q160302
     start: 2019-01-01
-    end: 2022-12-31
+    end: 2023-01-02
     summary: |
       Thesis: 'Ecologies of Care: A posthuman institutional ethnography of nursing'. Doctoral research at the intersection of nursing, philosophy, and sociology, drawing on posthuman and feminist scholarship. Continued clinical practice alongside doctoral study in renal and liver transplant care.
-  - degree: MA Sociology
+  - degree: MA Gender, Media and Culture
     institution: Goldsmiths, University of London
     sameas: https://www.wikidata.org/wiki/Q528231
-    start: 2013-01-01
-    end: 2014-12-31
+    start: 2013-09-01 # ORCID specifies September 2013; day is a display placeholder.
+    end: 2014-07-01 # ORCID specifies July 2014; day is a display placeholder.
     summary: |
       Focus on gender, media, and culture.
   - degree: MSc Nursing Studies
@@ -92,14 +92,14 @@ education:
     institution: Sheffield Hallam University
     sameas: https://www.wikidata.org/wiki/Q1752117
     start: 2009-01-01
-    end: 2010-12-31
+    end: 2011-01-01 # ORCID specifies January 2011; day is a display placeholder.
     summary: |
       With NMC Registration (Adult Nursing).
-  - degree: BSc (Hons) Psychology
+  - degree: BSc (Hons) Psychology (Clinical)
     institution: London South Bank University
     sameas: https://www.wikidata.org/wiki/Q289348
-    start: 2004-01-01
-    end: 2007-12-31
+    start: 2005-09-01 # ORCID specifies September 2005; day is a display placeholder.
+    end: 2008-07-01 # ORCID specifies July 2008; day is a display placeholder.
     summary: |
       Clinical Psychology focus.
 experience:
