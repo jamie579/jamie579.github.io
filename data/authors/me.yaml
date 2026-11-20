@@ -45,6 +45,9 @@ links:
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?user=La6Bn1wAAAAJ&hl=en
     label: Google Scholar
+  - icon: hero/link
+    url: https://openalex.org/A5137481403
+    label: OpenAlex
   - icon: brands/github
     url: https://github.com/jamie579
     label: GitHub
@@ -63,7 +66,6 @@ links:
 # Verified identity URLs included in Person.sameAs but not rendered as profile buttons
 sameas:
   - https://www.wikidata.org/wiki/Q136215075
-  - https://openalex.org/A5137481403
   - https://www.compostcollaborative.online/people/jamie/
   - https://x.com/mrhornesmith
   - https://www.researchgate.net/profile/Jamie-Smith-44

@@ -3,7 +3,7 @@ title: Publications
 summary: Academic publications by Dr Jamie Brian Smith including peer-reviewed articles, book chapters, and public philosophy.
 type: landing
 date: 2025-01-01
-lastmod: 2026-10-30
+lastmod: 2026-11-20
 keywords:
   - publications
   - peer reviewed articles
@@ -23,7 +23,7 @@ sections:
     content:
       title: Publications
       text: |
-        [Google Scholar](https://scholar.google.com/citations?user=La6Bn1wAAAAJ&hl=en) · [ORCID](https://orcid.org/0000-0003-0097-6102)
+        [Google Scholar](https://scholar.google.com/citations?user=La6Bn1wAAAAJ&hl=en) · [ORCID](https://orcid.org/0000-0003-0097-6102) · [OpenAlex: publications and citations](https://openalex.org/A5137481403)
 
         ## Selected publications: workforce wellbeing
 

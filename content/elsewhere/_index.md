@@ -3,7 +3,7 @@ title: Elsewhere
 summary: Institutional profiles, scholarly records, awards, fellowships, projects, interviews and public scholarship featuring Dr Jamie Brian Smith.
 type: landing
 date: 2026-07-28
-lastmod: 2026-10-30
+lastmod: 2026-11-20
 keywords:
   - Jamie B. Smith
   - institutional ethnographer
@@ -39,6 +39,7 @@ sections:
         ## Research profiles
 
         - [ORCID](https://orcid.org/0000-0003-0097-6102)
+        - [OpenAlex: publications and citations](https://openalex.org/A5137481403)
         - [Google Scholar](https://scholar.google.com/citations?user=La6Bn1wAAAAJ)
         - [Wikidata](https://www.wikidata.org/wiki/Q136215075)
         - [The Compost Collaborative: member profile](https://compostcollaborative.online/people/jamie/)

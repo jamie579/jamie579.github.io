@@ -32,6 +32,9 @@ links:
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?user=La6Bn1wAAAAJ&hl=en
     label: Google Scholar
+  - icon: hero/link
+    url: https://openalex.org/A5137481403
+    label: OpenAlex
   - icon: brands/github
     url: https://github.com/jamie579
     label: GitHub
