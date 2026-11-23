@@ -30,3 +30,6 @@ main:
   - name: Us
     url: /us/
     weight: 50
+  - name: Rodius
+    url: /rodius/
+    weight: 55
